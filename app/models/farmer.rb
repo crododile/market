@@ -9,9 +9,10 @@
 #
 
 class Farmer < ActiveRecord::Base
-
+  #has_many actual_products --->actual product descriptions rather than only type
   has_many :product_manifests
   has_many :products, through: :product_manifests, source: :product_type
+  #may not need to go all the way to shoppers here
   has_many :shoppers, through: :products
 
 end
