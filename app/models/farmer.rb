@@ -11,6 +11,7 @@
 class Farmer < ActiveRecord::Base
 
   has_many :product_manifests
-  has_many :products, through: :product_listings, source: :product_type
+  has_many :products, through: :product_manifests, source: :product_type
+  has_many :shoppers, through: :products
 
 end
