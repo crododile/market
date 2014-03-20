@@ -9,6 +9,15 @@ Market.Collections.FarmersForProductType = Backbone.Collection.extend({
 
   model: Market.Models.Farmer,
 
+  byRegion: function(zip){
+    var filteredFarmers=  this.filter(function(farmer){
+      return farmer.get('zipcodes') &&
+             farmer.get('zipcodes').split(',').indexOf(zip) != -1;
+    });
+    console.log(filteredFarmers)
+    return filteredFarmers
+  }
+
 
 
 });

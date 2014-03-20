@@ -1,11 +1,16 @@
 Market.Routers.Router = Backbone.Router.extend({
   routes: {
     '':'productsIndex',
+    'addProduct':'addProduct'
 
   },
 
   initialize: function(options){
    this.product_types = options.product_types
+  },
+
+  addProduct: function(){
+
   },
 
   productsIndex: function(){

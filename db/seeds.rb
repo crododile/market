@@ -6,7 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-farmers = Farmer.create([{ name: "sam"}, {name: 'becca'}, { name: 'lamb guy'}])
+farmers = Farmer.create([{ name: "sam", zipcodes: '37064,90210'},
+   {name: 'becca', zipcodes: "37064" }, { name: 'lamb guy', zipcodes: '90210'}])
 
 product_types = ProductType.create([{name: "lamb"},{name:'vegetables'}])
 

@@ -1,1 +1,1 @@
-json.array! @farmers, :id, :name
+json.array! @farmers, :id, :name, :zipcodes
