@@ -7,10 +7,8 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
   template: JST['product_types/index'],
 
   events: {
-    "click button":"goToMarket"
+    "click button.goToMarket":"goToMarket",
   },
-
-
 
   render: function(){
 
@@ -27,7 +25,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 
 
   goToMarket: function(){
-    var  ptName = $(event.target).attr("class");
+    var  ptName = $(event.target).parent().attr("class");
     var ptModel = this.collection.findWhere( {name: ptName})
     var ptFarmers = new Market.Collections.FarmersForProductType({
       product_type: ptModel
@@ -35,15 +33,15 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 
     ptFarmers.fetch();
 
-
     var ptMarketView = new Market.Views.FarmersForProductType({
       model: ptModel,
       collection: ptFarmers
     });
 
-
-    $('#content').html(ptMarketView.render().$el)
+    $('li.'+ptName).html(ptMarketView.render().$el)
   },
+
+
 
 
 });

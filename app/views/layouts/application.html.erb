@@ -2,12 +2,25 @@
 <html>
 <head>
   <title>Market</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
 </head>
 <body>
+  <nav class='navbar'>
+    <div class='title'>Marketplace</div>
+      <ul>
+        <li>
+          <span class='title'>Marketplace</span>
+        </li>
+        <li>
+          <a href="">INDEX</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
 
 <%= yield %>
 
