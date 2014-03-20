@@ -1,4 +1,9 @@
 <h1><%= farmer.escape('name') %></h1>
+<label>ADD ZIPCODE
+<input type="text" class='add-market' name="farmer[zipcodes]"
+ value='<%=farmer.escape('zipcodes')%>'>
+<button class='add-market'>ADD MARKET</button>
+</label>
 <%= farmer.escape('bio') %>
 <ul>PRODUCT TYPES
 <% farmer.product_types().each(function(pt){ %>
