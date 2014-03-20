@@ -20,10 +20,13 @@ Market.Views.FarmersNew = Backbone.View.extend({
     var params = $(event.currentTarget).serializeJSON();
 
     var newF = new Market.Models.Farmer( params );
-
-
-    newF.save()
-
+    newF.save({},
+      { success: function(){
+          Backbone.history.navigate(
+            "/farmers/" +params['farmer']['name'],
+            { trigger: true})
+        }
+      })
   }
 
 });

@@ -11,6 +11,7 @@
 class Shopper < ActiveRecord::Base
   has_many :shopping_lists
   has_many :desires, through: :shopping_lists, source: :product_type
+  has_many :favorite_farmers
   #may not need to go all the way to farmers here
   has_many :farmers, through: :desires
 end

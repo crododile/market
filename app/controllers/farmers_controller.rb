@@ -18,6 +18,7 @@ class FarmersController < ApplicationController
 
     @farmer = Farmer.new(farmer_params);
     @farmer.save!()
+    render "farmers/farmer"
   end
 
   private
