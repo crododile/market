@@ -24,10 +24,15 @@ Market.Views.ProductsNew = Backbone.View.extend({
 
     var newP = new Market.Models.Product( params['product_listing'] );
 
-    debugger
-    newP.save()
-
-  }
+    newP.save( {},
+      {
+        success: function(){
+          debugger
+          Backbone.history.navigate("/productShow/"+newP.id, { trigger:true } );
+        }
+      }
+    );
+  },
 
 
 

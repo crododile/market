@@ -1,7 +1,15 @@
 class ProductManifestsController < ApplicationController
+  def show
+    @product = ProductManifest.find(params[:id])
+    @type = @product.product_type.name
+
+    render 'product_manifests/product'
+  end
+
+
   def create
     @farmer = Farmer.find(1)
-    debugger
+
     @farmer.product_manifests.create( listing_params );
     render "/farmers/farmer"
   end

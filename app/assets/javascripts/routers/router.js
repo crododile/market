@@ -2,11 +2,17 @@ Market.Routers.Router = Backbone.Router.extend({
   routes: {
     '':'productsIndex',
     'addProducts':'addProduct',
-    "newFarmer":"newFarmer"
+    "newFarmer":"newFarmer",
+    "productShow/:id":"productShow"
   },
 
   initialize: function(options){
    this.product_types = options.product_types
+  },
+
+  productShow: function(id){
+    var psView = new Market.Views.ProductShow({ id: id});
+    this._swapView(psView);
   },
 
   addProduct: function(){
