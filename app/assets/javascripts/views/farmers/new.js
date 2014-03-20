@@ -4,7 +4,7 @@ Market.Views.FarmersNew = Backbone.View.extend({
   tagName: 'form',
 
   events: {
-    'click button.make-farmer':'makeFarmer'
+    'click .make-farmer':'makeFarmer'
   },
 
   render: function(){
@@ -16,9 +16,11 @@ Market.Views.FarmersNew = Backbone.View.extend({
 
   makeFarmer: function(){
     event.preventDefault();
-    debugger
+
     var params = $(event.currentTarget).serializeJSON();
+
     var newF = new Market.Models.Farmer( params );
+
 
     newF.save()
 
