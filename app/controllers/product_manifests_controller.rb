@@ -2,6 +2,7 @@ class ProductManifestsController < ApplicationController
   def show
     @product = ProductManifest.find(params[:id])
     @type = @product.product_type.name
+    @farmerName = @product.farmer.name
 
     render 'product_manifests/product'
   end

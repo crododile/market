@@ -1,6 +1,8 @@
 Market.Collections.FarmersForProductType = Backbone.Collection.extend({
   initialize: function(options){
     this.product_type = options.product_type
+    this.zip = options.zip
+    debugger
   },
 
   url: function(){
