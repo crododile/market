@@ -1,5 +1,6 @@
 Market.Collections.Farmers = Backbone.Collection.extend({
-  url:"/farmers"
+  url:"/farmers",
+
   model: Market.Models.Farmer
 
 });

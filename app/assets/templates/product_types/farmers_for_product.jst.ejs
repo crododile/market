@@ -1,0 +1,6 @@
+<h1> FARMERS FOR <%= pt.escape('name') %> </h1>
+<ul>
+  <% ptFarmers.each(function(farmer){ %>
+    <li> <%= farmer.escape('name') %> </li>
+  <% })%>
+</ul>

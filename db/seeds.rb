@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-farmers = Farmer.create([{ name: "sam"}, {name: 'becca'}])
+farmers = Farmer.create([{ name: "sam"}, {name: 'becca'}, { name: 'lamb guy'}])
 
 product_types = ProductType.create([{name: "lamb"},{name:'vegetables'}])
 
@@ -18,7 +18,8 @@ shoppers = Shopper.create(
 
 product_manifests = ProductManifest.create(
       [{farmer_id: 1, product_type_id: 1},
-        {farmer_id: 2, product_type_id: 2}])
+        {farmer_id: 2, product_type_id: 2},
+        {farmer_id: 3, product_type_id: 1}])
 
 shopping_lists = ShoppingList.create(
       [{shopper_id: 1, product_type_id: 1},

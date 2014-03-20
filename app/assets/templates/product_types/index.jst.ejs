@@ -1,0 +1,10 @@
+<h1>PRODUCT TYPES</h1>
+<ul>
+<% product_types.each(function(product_type){ %>
+  <li>
+    <button class ='shop' data-product-type="<%=product_type.escape('name')%>">
+      <%=product_type.escape('name')%>
+    </button>
+  </li>
+<% }) %>
+</ul>
