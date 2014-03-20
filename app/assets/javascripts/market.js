@@ -8,7 +8,7 @@ window.Market = {
 
     product_types.fetch({
       success: function(){
-        var rowter = new Market.Routers.Router({ product_types: product_types });
+        new Market.Routers.Router({ product_types: product_types });
         Backbone.history.start();
       }
     });
