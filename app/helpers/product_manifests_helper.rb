@@ -1,0 +1,2 @@
+module ProductManifestsHelper
+end

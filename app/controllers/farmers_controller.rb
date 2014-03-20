@@ -3,9 +3,9 @@ class FarmersController < ApplicationController
   def create
     #current_user stuff?
 
-    farmy = Farmer.new(farmer_params);
-    farmy.save!()
-    redirect_to "/"
+    @farmer = Farmer.new(farmer_params);
+    @farmer.save!()
+    render '/farmers/farmer'
   end
 
   private

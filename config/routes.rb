@@ -6,6 +6,8 @@ Market::Application.routes.draw do
     get '/shoppers', to: 'product_types#shoppersIndex'
   end
 
+  resources :product_manifests, :only  => [:create, :destroy]
+
   resources :farmers
   resources :shoppers
 
