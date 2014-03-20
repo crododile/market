@@ -22,12 +22,13 @@ Market.Views.ProductsNew = Backbone.View.extend({
     var pt = this.collection.findWhere({ name: params['product_type']['name'] })
     params['product_listing']["product_type_id"] = pt.id
 
-    var newP = new Market.Models.Product( params['product_listing'] );
+    var newP = new Market.Models.ProductManifest( params['product_listing'] );
+
 
     newP.save( {},
       {
         success: function(){
-          debugger
+
           Backbone.history.navigate("/productShow/"+newP.id, { trigger:true } );
         }
       }

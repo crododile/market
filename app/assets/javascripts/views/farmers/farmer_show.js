@@ -9,7 +9,7 @@ Market.Views.FarmerShow = Backbone.View.extend({
   template: JST['farmers/show'],
 
   render: function(){
-    console.log(this.farmer.attributes)
+
     var rc = this.template( { farmer: this.farmer });
     this.$el.html(rc);
     return this;

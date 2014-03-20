@@ -7,6 +7,7 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  zipcodes   :string(255)
+#  bio        :string(255)
 #
 
 class Farmer < ActiveRecord::Base

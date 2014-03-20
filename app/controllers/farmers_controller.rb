@@ -1,7 +1,6 @@
 class FarmersController < ApplicationController
 
   def show
-
     @farmer = Farmer.find_by_name(params[:id]);
     render "farmers/farmer"
   end
