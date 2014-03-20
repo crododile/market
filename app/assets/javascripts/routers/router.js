@@ -1,7 +1,8 @@
 Market.Routers.Router = Backbone.Router.extend({
   routes: {
     '':'productsIndex',
-    'addProduct':'addProduct'
+    'addProduct':'addProduct',
+    "newFarmer":"newFarmer"
 
   },
 
@@ -11,6 +12,11 @@ Market.Routers.Router = Backbone.Router.extend({
 
   addProduct: function(){
 
+  },
+
+  newFarmer: function(){
+    var nfView = new Market.Views.FarmersNew();
+    this._swapView(nfView);
   },
 
   productsIndex: function(){

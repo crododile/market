@@ -14,7 +14,6 @@ Market.Collections.FarmersForProductType = Backbone.Collection.extend({
       return farmer.get('zipcodes') &&
              farmer.get('zipcodes').split(',').indexOf(zip) != -1;
     });
-    console.log(filteredFarmers)
     return filteredFarmers
   }
 
