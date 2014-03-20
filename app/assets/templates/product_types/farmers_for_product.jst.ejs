@@ -2,6 +2,6 @@
 <button class="leaveMarket">LEAVE THIS MARKET</button>
 <ul>
   <% ptFarmers.each(function(farmer){ %>
-    <li> <%= farmer.escape('name') %> </li>
+    <li> <a href="#farmers/<%= farmer.escape('name') %>"><%= farmer.escape('name') %> </li>
   <% })%>
 </ul>

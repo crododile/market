@@ -1,5 +1,6 @@
 Market.Models.Farmer = Backbone.Model.extend({
 
-  urlRoot:"/farmers"
+  url: function(){
+    return "/farmers/"+this.get('name')}
 
 });
