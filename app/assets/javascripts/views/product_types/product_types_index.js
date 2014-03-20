@@ -7,8 +7,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
   template: JST['product_types/index'],
 
   events: {
-    "click button#shop":"shop",
-    "click button#analyze":"analyze"
+    "click button":"goToMarket"
   },
 
 
@@ -25,12 +24,9 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
     return this;
   },
 
-  analyze: function(){
-    var ptName
-  },
 
 
-  shop: function(){
+  goToMarket: function(){
     var  ptName = $(event.target).attr("class");
     var ptModel = this.collection.findWhere( {name: ptName})
     var ptFarmers = new Market.Collections.FarmersForProductType({
