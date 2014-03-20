@@ -1,7 +1,6 @@
 Market.Routers.Router = Backbone.Router.extend({
   routes: {
     '':'productsIndex',
-    "i":'productsIndex'
 
   },
 
