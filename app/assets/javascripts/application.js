@@ -15,6 +15,7 @@
 //= require underscore
 //= require backbone
 //= require market
+//= require bootstrap
 //= require serializeJSON
 //= require_tree ../templates
 //= require_tree ./models
