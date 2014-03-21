@@ -12,6 +12,6 @@ Market::Application.routes.draw do
   get '/current', to: 'farmers#current'
   patch '/current', to: 'farmers#update'
 
-  resources :shoppers
+  resources :farmers, :except => [:create, :index]
 
 end
