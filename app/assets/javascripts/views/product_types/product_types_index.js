@@ -2,7 +2,6 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 
   initialize: function(){
     this.listenTo( this.collection, "sync", this.render );
-    this.collection
   },
 
   template: JST['product_types/index'],
@@ -52,7 +51,6 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
       collection: ptFarmers
 
     });
-
     $('li.'+ptName).html(ptMarketView.render().$el)
   },
 

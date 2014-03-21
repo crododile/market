@@ -1,3 +1,40 @@
 // Place all the styles related to the farmers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.favorites-bar {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  display: block;
+  border-top: solid 1px #000;
+  z-index: 11000;
+}
+
+.main-nav{
+  left: 0;
+  right: 0;
+  top: 0;
+  position: relative;
+  display: block;
+  border-bottom: solid 1px #000;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.farmer-thumbnail{
+  width: 120px;
+  height: 120px;
+  margin: 0 20px 15px 0;
+  margin-bottom: 0;
+  position: relative;
+  float: left;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.connected-lists{
+  height:10px;
+}
+
+body{
+  background: url(http://img.mi9.com/landscape/5026/national-geographic-chicken-farm-animals_1600x1200_94488.jpg);
+}

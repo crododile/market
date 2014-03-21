@@ -8,20 +8,19 @@
 
 </head>
 <body>
-  <nav class='navbar'>
-    <div class='title'>Marketplace</div>
-      <ul>
-        <li>
+  <nav class='navbar main-nav'>
+      <ul class="nav nav-pills nav-justified">
+        <li class='nav-item'>
           <span class='title'>Marketplace</span>
         </li>
-        <li>
+        <li class='nav-item'>
           <a href="#">INDEX</a>
         </li>
-        <li>
+        <li class='nav-item'>
           <a href='#newFarmer'>ADD FARMER</a>
           <!-- get this into account dropdown? -->
         </li>
-        <li>
+        <li class='nav-item'>
           <a href='#addProducts'>ADD PRODUCTS</a>
         </li>
       </ul>
@@ -30,6 +29,9 @@
 
 
 <%= yield %>
+<nav class='navbar favorites-bar'>
 
+
+</nav>
 </body>
 </html>

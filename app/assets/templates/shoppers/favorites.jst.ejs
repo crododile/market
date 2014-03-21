@@ -1,6 +1,8 @@
-<ul class='favorite-farmers'>
+<ul class='nav nav-pills favorite-farmers connected-lists'>
   <% shopper.favorite_farmers().each(function(farmer){ %>
-    <li><%=farmer.escape('product_favorited') %> </li>
+    <li class='farmer-thumbnail'>
+      <%=farmer.escape('product_favorited') %>
+    </li>
 
   <% })%>
 

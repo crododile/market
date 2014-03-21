@@ -17,6 +17,7 @@ Market.Views.FarmersForProductType = Backbone.View.extend({
       });
 
     this.$el.html(renderedContent);
+     $('.connected-lists').sortable( { connectWith: ".connected-lists" } );
 
     return this;
   },

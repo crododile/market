@@ -40,7 +40,7 @@ Market.Routers.Router = Backbone.Router.extend({
      demoShopper.fetch();
 
      var favesBar = new Market.Views.ShoppersFavorites({ model: demoShopper })
-     $('.favorites-bar').append(favesBar.render().$el)
+     $('.favorites-bar').html(favesBar.render().$el)
 
     this._swapView(pIndexView);
   },
@@ -49,7 +49,8 @@ Market.Routers.Router = Backbone.Router.extend({
     this.currentView && this.currentView.remove();
     this.currentView = view;
     view.render();
-     $('#content').html(view.$el);
+   $('#content').html(view.$el);
+   $('.connected-lists').sortable( { connectWith: ".connected-lists" } );
   }
 
 
