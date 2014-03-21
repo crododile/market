@@ -2,6 +2,14 @@
 <button class="leaveMarket">LEAVE THIS MARKET</button>
 <ul class="connected-lists">
   <% ptFarmers.each(function(farmer){ %>
-    <li class='farmer-thumbnail'> <a href="#farmers/<%= farmer.escape('name') %>"><%= farmer.escape('name') %> </li>
+    <li>
+      <div class='farmer-thumbnail'>
+        <div class='thumbnail-product'>
+        <%=pt.escape('name') %>
+        <div>
+        <div class='thumbnail-fname'>
+          <a href="#farmers/<%= farmer.escape('name') %>"><%= farmer.escape('name') %></a>
+        </div>
+      </div>
   <% })%>
 </ul>

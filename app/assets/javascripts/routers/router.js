@@ -36,6 +36,7 @@ Market.Routers.Router = Backbone.Router.extend({
     var pIndexView = new Market.Views.ProductTypesIndex({
        collection: this.product_types
      });
+     //THIS DEMOSHOPPER NEEDS TO BE CURRENT USER
      var demoShopper = new Market.Models.Shopper({id: 1})
      demoShopper.fetch();
 

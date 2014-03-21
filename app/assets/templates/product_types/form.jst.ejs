@@ -1,8 +1,9 @@
-<label> PRODUCT-TYPE (can be new, add dropdown of old ones)
+<label> PRODUCT-TYPE (ONLY TOLERATES EXISTING TYPES)
 <input type="text" name="product_type[name]" value="<%=productT.escape('name')%>">
 </label>
 <br>
 <label> DESCRIPTION (unique to maker, added to listing)
-  <input type="text" name="product_listing[description]">
+  <textarea name="product_listing[description]"
+     placeholder="Think vivid!"></textarea>
 </label>
-<button class='make-product'>ADD PRODUCT INFORMATION</button>
+<button class='make-product'>ADD PRODUCT DESCRIPTION</button>
