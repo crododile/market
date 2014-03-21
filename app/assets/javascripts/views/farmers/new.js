@@ -18,7 +18,7 @@ Market.Views.FarmersNew = Backbone.View.extend({
     event.preventDefault();
 
     var params = $(event.currentTarget).serializeJSON();
-
+    debugger
     var newF = new Market.Models.Farmer( params );
     newF.save({},
       { success: function(){

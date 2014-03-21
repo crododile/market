@@ -1,7 +1,6 @@
 class FarmersController < ApplicationController
 
   def current
-    debugger
     @farmer = current_farmer
     render "farmers/farmer"
   end
@@ -15,7 +14,7 @@ class FarmersController < ApplicationController
 
   def update
     @farmer = current_farmer;
-    @farmer.update(zipcodes: params[:zipcodes] )
+    @farmer.update( farmer_params )
     render "farmers/farmer"
   end
 

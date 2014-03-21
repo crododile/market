@@ -1,8 +1,8 @@
 <label> NAME
-<input type="text" name="farmer[name]" value="<%=farmer.escape('name')%>">
+<input type="text" class='new-name' name="farmer[name]" value="<%=farmer.escape('name')%>">
 </label>
 <br>
 <label> AREAS SERVED (ZIPCODES AS CSV)
-  <input type="text" name="farmer[zipcodes]" value="" id="z">
+  <input type="text" class='new-zipcodes'  value="<%=farmer.escape('zipcodes')%>" name="farmer[zipcodes]">
 </label>
 <button class='make-farmer'>ADD FARMER INFORMATION</button>

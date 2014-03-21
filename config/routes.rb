@@ -10,6 +10,7 @@ Market::Application.routes.draw do
   resources :product_manifests, :only  => [:create, :destroy, :show]
 
   get '/current', to: 'farmers#current'
+  patch '/current', to: 'farmers#update'
 
   resources :shoppers
 

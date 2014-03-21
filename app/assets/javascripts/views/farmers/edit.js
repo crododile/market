@@ -1,24 +1,24 @@
 Market.Views.FarmersEdit = Backbone.View.extend({
-  initialize: function(options){
-    debugger
-    //get access to current_farmer
-    this.name = options.name
-    this.farmer = new Market.Models.Farmer( {name: options.name});
+  template: JST['farmers/form'],
+  tagName: 'form',
+
+  initialize: function(){
+    this.farmer = new Market.Models.CurrentFarmer();
     this.farmer.fetch();
     this.listenTo(this.farmer, 'sync', this.render);
   },
 
   events: {
-    "click button.add-market":"addMarket"
+    'click .make-farmer':'makeFarmer'
   },
 
-  addMarket: function(){
+  makeFarmer: function(){
     event.preventDefault();
-    var newZips = $('input.add-market').val();
-    this.farmer.save( {zipcodes: newZips }, {patch:true});
+
+    var params = $(event.currentTarget).serializeJSON();
+    this.farmer.save( params , { patch: true } );
   },
 
-  template: JST['farmers/form'],
 
   render: function(){
     var rc = this.template( { farmer: this.farmer });
