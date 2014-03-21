@@ -2,7 +2,7 @@ Market.Views.FarmerShow = Backbone.View.extend({
   initialize: function(options){
     this.name = options.name
     this.farmer = new Market.Models.Farmer( {name: options.name});
-    debugger
+
     this.farmer.fetch();
     this.listenTo(this.farmer, 'sync', this.render);
   },

@@ -20,8 +20,6 @@ class FarmersController < ApplicationController
 
 
   def create
-    #current_user stuff?
-    debugger
     @farmer = Farmer.new(farmer_params);
     @farmer.save!()
     render "farmers/farmer"
@@ -30,7 +28,7 @@ class FarmersController < ApplicationController
   private
 
   def farmer_params
-    params.require(:farmer).permit(:name, :zipcodes);
+    params.require(:farmer).permit(:name, :zipcodes, :bio);
   end
 
 end

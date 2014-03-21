@@ -5,4 +5,9 @@
 <label> AREAS SERVED (ZIPCODES AS CSV)
   <input type="text" class='new-zipcodes'  value="<%=farmer.escape('zipcodes')%>" name="farmer[zipcodes]">
 </label>
+<br>
+<label> TELL US ABOUT YOURSELF
+  <textarea name="farmer[bio]"><%=farmer.escape('bio')%></textarea>
+</label>
+<br>
 <button class='make-farmer'>ADD FARMER INFORMATION</button>
