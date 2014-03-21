@@ -14,21 +14,11 @@ farmers = Farmer.create!([
 product_types = ProductType.create!([{name: "lamb"},{name:'vegetables'}])
 
 
-shoppers = Shopper.create(
-    [{name: "carnivore"},
-      {name: "herbivore"},
-      {name: "omnivore"}])
-
 product_manifests = ProductManifest.create(
       [{farmer_id: 1, product_type_id: 1, description: 'sambos lambos'},
         {farmer_id: 2, product_type_id: 2, description: 'beccas greens'},
         {farmer_id: 3, product_type_id: 1, description: 'gizzies lambs'}])
 
-shopping_lists = ShoppingList.create!(
-      [{shopper_id: 1, product_type_id: 1},
-        {shopper_id: 2, product_type_id: 2},
-        {shopper_id: 3, product_type_id: 1},
-        {shopper_id: 3, product_type_id: 2}])
 
 favorites = FavoriteFarmer.create!(
         [{shopper_id: 1, farmer_id: 1, farmer_name: "sam", product_favorited: "lamb"},

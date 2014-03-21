@@ -60,17 +60,4 @@ ActiveRecord::Schema.define(version: 20140321183444) do
     t.datetime "updated_at"
   end
 
-  create_table "shoppers", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "shopping_lists", force: true do |t|
-    t.integer  "shopper_id"
-    t.integer  "product_type_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
 end

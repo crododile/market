@@ -11,6 +11,4 @@
 class ProductType < ActiveRecord::Base
   has_many :product_listings, class_name: "ProductManifest"
   has_many :farmers, through: :product_listings
-  has_many :shopping_lists
-  has_many :shoppers, through: :shopping_lists
 end
