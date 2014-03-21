@@ -9,7 +9,7 @@ class ProductManifestsController < ApplicationController
 
 
   def create
-    @farmer = Farmer.find(1)
+    @farmer = current_farmer
 
     @product = @farmer.product_manifests.create( listing_params )
     @type = @product.product_type.name

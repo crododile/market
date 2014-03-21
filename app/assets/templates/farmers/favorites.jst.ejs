@@ -1,12 +1,12 @@
 <ul class='nav nav-pills favorite-farmers connected-lists'>
-  <% shopper.favorite_farmers().each(function(farmer){ %>
+  <% farmer.favorite_farmers().each(function(favFarmer){ %>
     <li>
       <div class='farmer-thumbnail'>
         <div class='thumbnail-product'>
-        <%=farmer.escape('product_favorited') %>
+        <%=favFarmer.escape('product_favorited') %>
         <div>
         <div class='thumbnail-fname'>
-          <a href="#/farmers/<%= farmer.escape('farmer_name') %>"><%=farmer.escape('farmer_name')%></a>
+          <a href="#/farmers/<%= favFarmer.escape('farmer_name') %>"><%=favFarmer.escape('farmer_name')%></a>
         </div>
       </div>
     </li>

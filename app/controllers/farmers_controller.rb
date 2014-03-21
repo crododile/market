@@ -1,13 +1,20 @@
 class FarmersController < ApplicationController
 
+  def current
+    debugger
+    @farmer = current_farmer
+    render "farmers/farmer"
+  end
+
+
   def show
     @farmer = Farmer.find_by_name(params[:id]);
+
     render "farmers/farmer"
   end
 
   def update
-    @farmer = Farmer.find_by_name(params[:id]);
-    debugger
+    @farmer = current_farmer;
     @farmer.update(zipcodes: params[:zipcodes] )
     render "farmers/farmer"
   end
@@ -15,7 +22,7 @@ class FarmersController < ApplicationController
 
   def create
     #current_user stuff?
-
+    debugger
     @farmer = Farmer.new(farmer_params);
     @farmer.save!()
     render "farmers/farmer"
@@ -24,7 +31,7 @@ class FarmersController < ApplicationController
   private
 
   def farmer_params
-    params.require('farmer').permit(:name, :zipcodes);
+    params.require(:farmer).permit(:name, :zipcodes);
   end
 
 end

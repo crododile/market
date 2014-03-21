@@ -19,7 +19,18 @@ Market.Models.Farmer = Backbone.Model.extend({
     return this._product_types;
   },
 
+  favorite_farmers: function(){
+    if (!this._favorite_farmers){
+      this._favorite_farmers = new Market.Collections.Farmers([], {});
+    }
+    return this._favorite_farmers;
+  },
+
+
   parse: function(jsonResp){
+    if (jsonResp.favorite_farmers){
+      this.favorite_farmers().set(jsonResp.favorite_farmers);
+    }
 
     if (jsonResp.product_types){
       this.product_types().set(jsonResp.product_types);

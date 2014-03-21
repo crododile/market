@@ -2,7 +2,7 @@ Market.Routers.Router = Backbone.Router.extend({
   routes: {
     '':'productsIndex',
     'addProducts':'addProduct',
-    "newFarmer":"newFarmer",
+    "editFarmer":"editFarmer",
     "productShow/:id":"productShow",
     "farmers/:name":"farmerShow",
 
@@ -27,8 +27,8 @@ Market.Routers.Router = Backbone.Router.extend({
     this._swapView(apView);
   },
 
-  newFarmer: function(){
-    var nfView = new Market.Views.FarmersNew();
+  editFarmer: function(){
+    var nfView = new Market.Views.FarmersEdit();
     this._swapView(nfView);
   },
 
@@ -37,10 +37,10 @@ Market.Routers.Router = Backbone.Router.extend({
        collection: this.product_types
      });
      //THIS DEMOSHOPPER NEEDS TO BE CURRENT USER
-     var demoShopper = new Market.Models.Shopper({id: 1})
+     var demoShopper = new Market.Models.CurrentFarmer()
      demoShopper.fetch();
 
-     var favesBar = new Market.Views.ShoppersFavorites({ model: demoShopper })
+     var favesBar = new Market.Views.FarmersFavorites({ model: demoShopper })
      $('.favorites-bar').html(favesBar.render().$el)
 
     this._swapView(pIndexView);

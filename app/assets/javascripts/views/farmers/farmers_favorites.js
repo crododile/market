@@ -1,6 +1,6 @@
-Market.Views.ShoppersFavorites = Backbone.View.extend({
+Market.Views.FarmersFavorites = Backbone.View.extend({
 
-  template: JST['shoppers/favorites'],
+  template: JST['farmers/favorites'],
 
   initialize: function(){
     this.listenTo(this.model, "sync", this.render);
@@ -9,7 +9,7 @@ Market.Views.ShoppersFavorites = Backbone.View.extend({
 
 
   render: function(){
-    var rc = this.template( {shopper: this.model} );
+    var rc = this.template( {farmer: this.model} );
     this.$el.html(rc);
     return this
   }
