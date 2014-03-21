@@ -30,5 +30,10 @@ shopping_lists = ShoppingList.create(
         {shopper_id: 3, product_type_id: 1},
         {shopper_id: 3, product_type_id: 2}])
 
+favorites = FavoriteFarmer.create(
+        [{shopper_id: 1, farmer_id: 1, product_favorited: "lamb"},
+          {shopper_id: 1, farmer_id:2, product_favorited: "vegetables"}]
+        )
+
 
 

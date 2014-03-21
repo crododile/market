@@ -1,0 +1,7 @@
+<ul class='favorite-farmers'>
+  <% shopper.favorite_farmers().each(function(farmer){ %>
+    <li><%=farmer.escape('product_favorited') %> </li>
+
+  <% })%>
+
+</ul>

@@ -4,7 +4,8 @@ Market.Routers.Router = Backbone.Router.extend({
     'addProducts':'addProduct',
     "newFarmer":"newFarmer",
     "productShow/:id":"productShow",
-    "farmers/:name":"farmerShow"
+    "farmers/:name":"farmerShow",
+
   },
 
   initialize: function(options){
@@ -35,6 +36,11 @@ Market.Routers.Router = Backbone.Router.extend({
     var pIndexView = new Market.Views.ProductTypesIndex({
        collection: this.product_types
      });
+     var demoShopper = new Market.Models.Shopper({id: 1})
+     demoShopper.fetch();
+
+     var favesBar = new Market.Views.ShoppersFavorites({ model: demoShopper })
+     $('.favorites-bar').append(favesBar.render().$el)
 
     this._swapView(pIndexView);
   },
