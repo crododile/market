@@ -17,7 +17,7 @@ Market.Models.CurrentFarmer = Backbone.Model.extend({
 
  favorite_farmers: function(){
    if (!this._favorite_farmers){
-     this._favorite_farmers = new Market.Collections.Farmers([], {});
+     this._favorite_farmers = new Market.Collections.FavoriteFarmers([], {});
    }
    return this._favorite_farmers;
  },

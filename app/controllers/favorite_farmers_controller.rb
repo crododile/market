@@ -1,13 +1,13 @@
 class FavoriteFarmersController < ApplicationController
   def create
     freshFave = FavoriteFarmer.create!(fave_params)
-    status :ok
+    render :json => freshFave
   end
 
   def destroy
     deadFave = FavoriteFarmer.find(params[:id]);
     deadFave.destroy();
-    status :ok
+    render :json => deadFave
   end
 
   def fave_params

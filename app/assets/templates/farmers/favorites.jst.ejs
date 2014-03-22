@@ -1,7 +1,7 @@
 <ul class='nav nav-pills favorite-farmers connected-lists'>
   <% farmer.favorite_farmers().each(function(favFarmer){ %>
     <li>
-      <div class='farmer-thumbnail'>
+      <div class='farmer-thumbnail' data-id='<%= favFarmer.id %>'>
         <div class='thumbnail-product'>
         <%=favFarmer.escape('product_favorited') %>
         </div>

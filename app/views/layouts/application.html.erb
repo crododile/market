@@ -10,6 +10,24 @@
 <body>
   <nav class='navbar main-nav'>
       <ul class="nav nav-pills nav-justified">
+        <% if farmer_signed_in? %>
+          <li>
+          <%= link_to('Logout', destroy_farmer_session_path, :method => :delete) %>
+          </li>
+        <% else %>
+          <li>
+          <%= link_to('Login', new_farmer_session_path)  %>
+          </li>
+        <% end %>
+        <% if farmer_signed_in? %>
+          <li>
+          <%= link_to('Edit registration', edit_farmer_registration_path) %>
+          </li>
+        <% else %>
+          <li>
+          <%= link_to('Register', new_farmer_registration_path)  %>
+          </li>
+        <% end %>
         <li class='nav-item'>
           <span class='title'>Marketplace</span>
         </li>
