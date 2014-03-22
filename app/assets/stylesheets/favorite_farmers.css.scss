@@ -1,3 +1,15 @@
 // Place all the styles related to the favorite_farmers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+ul.favorite-farmers .farmer-thumbnail:hover{
+  height: 500px;
+
+}
+
+.delete-button {
+  position:absolute;
+  top:0px;
+  right:0px;
+  height:10px;
+  width:10px;
+}
