@@ -8,8 +8,9 @@ Market.Views.ProductsNew = Backbone.View.extend({
   },
 
   render: function(){
+    console.log('ho')
     var productT = new Market.Models.ProductType();
-    var rc = this.template( { productT: productT});
+    var rc = this.template( { productT: productT });
     this.$el.html(rc);
     return this;
   },

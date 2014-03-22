@@ -15,7 +15,10 @@ Market.Routers.Router = Backbone.Router.extend({
   },
 
   farmerHome: function(){
-    var hView = new Market.Views.FarmerHome({ model: this.current_farmer });
+    var hView = new Market.Views.FarmerHome({
+      model: this.current_farmer,
+      collection: this.product_types
+     });
     this._swapView(hView);
   },
 
