@@ -8,7 +8,6 @@ Market.Views.ProductsNew = Backbone.View.extend({
   },
 
   render: function(){
-    console.log('ho')
     var productT = new Market.Models.ProductType();
     var rc = this.template( { productT: productT });
     this.$el.html(rc);
@@ -18,6 +17,8 @@ Market.Views.ProductsNew = Backbone.View.extend({
   makeProduct: function(){
 
     event.preventDefault();
+
+    debugger
 
     var params = $(event.currentTarget).serializeJSON();
     var pt = this.collection.findWhere({ name: params['product_type']['name'] })
@@ -29,8 +30,7 @@ Market.Views.ProductsNew = Backbone.View.extend({
     newP.save( {},
       {
         success: function(){
-
-          Backbone.history.navigate("/productShow/"+newP.id, { trigger:true } );
+          $('#myModal').modal('hide');
         }
       }
     );
