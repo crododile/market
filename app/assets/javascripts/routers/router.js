@@ -4,12 +4,19 @@ Market.Routers.Router = Backbone.Router.extend({
     'addProducts':'addProduct',
     "editFarmer":"editFarmer",
     "productShow/:id":"productShow",
+    "home":"farmerHome",
     "farmers/:name":"farmerShow",
-
   },
 
   initialize: function(options){
    this.product_types = options.product_types
+   this.current_farmer = new Market.Models.CurrentFarmer()
+   this.current_farmer.fetch();
+  },
+
+  farmerHome: function(){
+    var hView = new Market.Views.FarmerHome({ model: this.current_farmer });
+    this._swapView(hView);
   },
 
   farmerShow: function(name){
@@ -37,11 +44,8 @@ Market.Routers.Router = Backbone.Router.extend({
     var pIndexView = new Market.Views.ProductTypesIndex({
        collection: this.product_types
      });
-     //THIS DEMOSHOPPER NEEDS TO BE CURRENT USER
-     var demoShopper = new Market.Models.CurrentFarmer()
-     demoShopper.fetch();
 
-     var favesBar = new Market.Views.FarmersFavorites({ model: demoShopper })
+     var favesBar = new Market.Views.FarmersFavorites({ model: this.current_farmer })
      $('.favorites-bar').html(favesBar.render().$el)
 
     this._swapView(pIndexView);
