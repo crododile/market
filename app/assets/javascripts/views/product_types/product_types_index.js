@@ -11,6 +11,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
     "click button.zipfilter":"filter"
   },
 
+
   filter: function(){
     event.preventDefault();
     this.zip= $('input.zipfilter').val()

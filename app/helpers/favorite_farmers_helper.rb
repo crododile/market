@@ -1,0 +1,2 @@
+module FavoriteFarmersHelper
+end

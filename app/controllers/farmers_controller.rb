@@ -5,7 +5,6 @@ class FarmersController < ApplicationController
     render "farmers/farmer"
   end
 
-
   def show
     @farmer = Farmer.find_by_name(params[:id]);
 
@@ -30,5 +29,10 @@ class FarmersController < ApplicationController
   def farmer_params
     params.require(:farmer).permit(:name, :zipcodes, :bio);
   end
+
+  def fave_params
+    params.require(:fave).permit(:farmer_id, :product_favorited)
+  end
+
 
 end

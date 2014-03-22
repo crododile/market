@@ -6,8 +6,8 @@
       <div class='farmer-thumbnail'>
         <div class='thumbnail-product'>
         <%=pt.escape('name') %>
-        <div>
-        <div class='thumbnail-fname'>
+        </div>
+        <div class='thumbnail-fname'  data-id='<%=farmer.id%>'>
           <a href="#farmers/<%= farmer.escape('name') %>"><%= farmer.escape('name') %></a>
         </div>
       </div>

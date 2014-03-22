@@ -4,8 +4,8 @@
       <div class='farmer-thumbnail'>
         <div class='thumbnail-product'>
         <%=favFarmer.escape('product_favorited') %>
-        <div>
-        <div class='thumbnail-fname'>
+        </div>
+        <div class='thumbnail-fname' data-id='<%=favFarmer.id%>'>
           <a href="#/farmers/<%= favFarmer.escape('farmer_name') %>"><%=favFarmer.escape('farmer_name')%></a>
         </div>
       </div>
