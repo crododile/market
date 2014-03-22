@@ -9,6 +9,14 @@ Market.Views.FarmersFavorites = Backbone.View.extend({
 
   events: {
     'sortupdate':'sortStuff',
+    'click button.delete-button':'deleter'
+  },
+
+  deleter: function(){
+    dataId = $(event.target.parentElement).data('id')
+    deadModel = this.model.favorite_farmers().get( dataId )
+    event.target.parentElement.remove();
+    deadModel.destroy()
   },
 
   sortStuff: function(event, ui){
@@ -18,39 +26,28 @@ Market.Views.FarmersFavorites = Backbone.View.extend({
 
     var nFave = new Market.Models.FavoriteFarmer({
       shopper_id: this.model.id, farmer_id: fId,
-      product_favorited: pType, farmer_name: fName });
+      product_favorited: pType, farmer_name: fName
+    });
 
-
-       var that = this
-
-    nFave.save({success: function(){alert(saved)}})
-
-
+    nFave.save({ success: function(){ alert(saved) } })
 
     this.model.favorite_farmers().add(nFave);
-
   },
 
   render: function(){
     var rc = this.template( {farmer: this.model} );
     this.$el.html(rc);
 
-    $delButton = $('<button>');
+    var $delButton = $('<button>');
     $delButton.addClass('delete-button');
     $delButton.text('D');
     var that = this
 
-    $delButton.click(function(){
-      debugger
-      dataId = $(event.target.parentElement).data('id')
-      deadModel = that.model.favorite_farmers().get( dataId )
-      event.target.parentElement.remove();
-      deadModel.destroy()
-    });
-
+    $('.connected-lists').sortable( { connectWith: ".connected-lists" } );
     $('ul.favorite-farmers .farmer-thumbnail').hover(
       function(){  $(event.currentTarget).append( $delButton ) },
-      function(){  $delButton.remove() } );
+      function(){  $delButton.remove() }
+    );
     return this
   }
 
