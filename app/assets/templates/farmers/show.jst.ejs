@@ -3,13 +3,17 @@
 <%= farmer.escape('bio') %>
 <ul>PRODUCT TYPES
 <% farmer.product_types().each(function(pt){ %>
-  <li><%=pt.escape('name') %>
-  <ul>SPECIFIC PRODUCTS
-    <% farmer.products().each(function(product){ %>
-      <% if ( product.get('product_type_id') === pt.get('id') ){ %>
-      <li><%= product.escape('description') %> </li>
-      <%}%>
-    <% }) %>
+  <ul><%=pt.escape('name') %>
+    <li>
+      <ul class='product-list' >
+        <% farmer.products().each(function(product){ %>
+          <% if ( product.get('product_type_id') === pt.get('id') ){ %>
+            <li class='farmer-thumbnail'><a href="<%='#/productShow/'+product.id %>"><%= product.escape('description') %></a> </li>
+          <%}%>
+        <% }) %>
+      </ul>
+    </li>
   </ul>
+  <br>
   <% })%>
 </ul>

@@ -5,10 +5,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  position: fixed;
   display: block;
   border-top: solid 1px #000;
-  z-index: 11000;
 }
 
 .main-nav{
@@ -27,13 +25,50 @@
   margin: 0 20px 15px 0;
   margin-bottom: 0;
   position: relative;
-  float: left;
+  display: inline-block;;
   background: rgba(255, 255, 255, 0.3);
 }
 
-.connected-lists{
-  height:10px;
+
+.thumbnail-fname{
+
+  font-size:18pt;
+  color: black;
 }
+
+.thumbnail-product{
+  color: white;
+  font-weight: bold;
+}
+
+.thumbnail-product.lamb{
+  background-color: blue;
+}
+
+.thumbnail-product.vegetables{
+  background-color: green;
+}
+
+.connected-lists{
+  minimum-height:10px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap
+}
+
+.product-list{
+  width: 90%;
+  height: 160px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+   white-space:nowrap
+}
+
+.main-background{
+  position:relative;
+}
+
 
 body{
   background: url(http://img.mi9.com/landscape/5026/national-geographic-chicken-farm-animals_1600x1200_94488.jpg);

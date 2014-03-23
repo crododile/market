@@ -7,7 +7,7 @@
   <ul>SPECIFIC PRODUCTS
     <% farmer.products().each(function(product){ %>
       <% if ( product.get('product_type_id') === pt.get('id') ){ %>
-      <li><%= product.escape('description') %> </li>
+      <li><a href="<%='#/productShow/'+product.id %>"><%= product.escape('description') %></a> </li>
       <%}%>
     <% }) %>
   </ul>

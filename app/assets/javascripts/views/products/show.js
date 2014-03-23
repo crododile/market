@@ -9,16 +9,10 @@ Market.Views.ProductShow = Backbone.View.extend({
   template: JST['products/show'],
 
   render: function(){
-    console.log(this.product.attributes)
+
     var rc = this.template( { product: this.product });
     this.$el.html(rc);
     return this;
   },
-
-
-
-
-
-
 
 })
