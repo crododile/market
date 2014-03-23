@@ -18,18 +18,18 @@ Market.Views.ProductsNew = Backbone.View.extend({
 
     event.preventDefault();
 
-    debugger
-
     var params = $(event.currentTarget).serializeJSON();
     var pt = this.collection.findWhere({ name: params['product_type']['name'] })
     params['product_listing']["product_type_id"] = pt.id
 
     var newP = new Market.Models.ProductManifest( params['product_listing'] );
 
-
+    var that = this
     newP.save( {},
       {
         success: function(){
+          debugger
+          that.model.products().add(newP)
           $('#myModal').modal('hide');
         }
       }

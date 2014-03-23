@@ -1,18 +1,22 @@
 Market.Views.FarmerHome = Backbone.View.extend({
   initialize: function(){
     this.listenTo( this.model, 'sync', this.render);
+    this.listenTo (this.collection, 'change', this.render );
   },
 
   template: JST['farmers/home'],
 
-  events: {'click button.add-product':'addProduct'},
+  events: { 'click button.add-product':'addProduct' },
 
   addProduct: function(){
-    console.log('hi')
-    var apView = new Market.Views.ProductsNew({ collection: this.collection });
+
+    var apView = new Market.Views.ProductsNew({ collection: this.collection, model: this.model });
     apView.render()
-    // apView.$el.modal()
+
+    var that = this
+
     $('div.modal-body').html(apView.render().$el)
+    $('#myModal').on('hide.bs.modal', function(){ that.render() })
   },
 
   render: function(){
