@@ -4,10 +4,14 @@
 <ul>PRODUCT TYPES
 <% farmer.product_types().each(function(pt){ %>
   <li><%=pt.escape('name') %>
-  <ul>SPECIFIC PRODUCTS
+  <ul class='product-list'>SPECIFIC PRODUCTS
     <% farmer.products().each(function(product){ %>
       <% if ( product.get('product_type_id') === pt.get('id') ){ %>
-      <li><a href="<%='#/productShow/'+product.id %>"><%= product.escape('description') %></a> </li>
+      <li>
+        <button class="show-product btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-id="<%=product.id%>">
+          <%=product.escape('description')%>
+        </button>
+      </li>
       <%}%>
     <% }) %>
   </ul>
@@ -21,6 +25,20 @@
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Add Product Information</h4>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">

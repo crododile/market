@@ -2,10 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .favorites-bar {
-  left: 0;
-  right: 0;
+  width: 100%;
   bottom: 0;
-  display: block;
   border-top: solid 1px #000;
 }
 
@@ -24,14 +22,11 @@
   height: 120px;
   margin: 0 20px 15px 0;
   margin-bottom: 0;
-  position: relative;
   display: inline-block;;
   background: rgba(255, 255, 255, 0.3);
 }
 
-
 .thumbnail-fname{
-
   font-size:18pt;
   color: black;
 }
@@ -63,6 +58,33 @@
   overflow-x: auto;
   overflow-y: hidden;
    white-space:nowrap
+}
+
+::-webkit-scrollbar {
+height: 10px;
+opacity: 0.5;
+}
+
+:-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {
+height: 10px;
+display: block;
+}
+
+::-webkit-scrollbar-track-piece {
+background-color: transparent;
+-webkit-border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+width: 20px;
+opacity: 0.5;
+background-color: rgba(255, 255, 255, 0.6);
+-webkit-border-radius: 6px;
+}
+
+.product-list li{
+  display: inline-block;
 }
 
 .main-background{

@@ -20,7 +20,7 @@ class ProductManifestsController < ApplicationController
 
   private
   def listing_params
-    params.require(:product_manifest).permit(:description, :product_type_id);
+    params.require(:product_manifest).permit(:description, :variety, :product_type_id);
   end
 
 

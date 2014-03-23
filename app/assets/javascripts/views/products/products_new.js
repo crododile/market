@@ -28,7 +28,6 @@ Market.Views.ProductsNew = Backbone.View.extend({
     newP.save( {},
       {
         success: function(){
-          debugger
           that.model.products().add(newP)
           $('#myModal').modal('hide');
         }

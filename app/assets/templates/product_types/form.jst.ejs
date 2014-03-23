@@ -2,10 +2,12 @@
 <input type="text" name="product_type[name]" value="<%=productT.escape('name')%>">
 </label>
 <br>
-<label> DESCRIPTION (unique to maker, added to listing)
-  <textarea name="product_listing[description]"
-     placeholder="Think vivid!"></textarea>
+<label> VARIETY (unique to maker, added to listing)
+  <input name="product_listing[variety]" placeholder="Think vivid!"
+  value="<%=productT.escape('description')%>"></input>
 </label>
+<label> DESCRIPTION (in depth shit)
+  <input type="text" name="product_listing[description]" value="">
 <div class="modal-footer">
   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
   <button type="button" class="btn btn-primary make-product">Save changes</button>

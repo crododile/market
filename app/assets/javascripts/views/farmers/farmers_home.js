@@ -6,7 +6,18 @@ Market.Views.FarmerHome = Backbone.View.extend({
 
   template: JST['farmers/home'],
 
-  events: { 'click button.add-product':'addProduct' },
+  events: {
+    'click button.add-product':'addProduct',
+    'click button.show-product':'showProduct'
+ },
+
+ showProduct: function(){
+   var id = $(event.target).data('id')
+   var psView = new Market.Views.ProductShow({ id: id});
+   $('#myModal2 h4.modal-title').html(psView.render().$el);
+   $('div.modal-body').html(psView.$el2)
+
+ },
 
   addProduct: function(){
 
