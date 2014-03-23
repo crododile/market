@@ -1,8 +1,7 @@
 <h1> FARMERS FOR <%= pt.escape('name') %> </h1>
 <button class="leaveMarket">LEAVE THIS MARKET</button>
-<ul class="connected-lists">
+<div class="connected-lists">
   <% ptFarmers.each(function(farmer){ %>
-    <li>
       <div class='farmer-thumbnail'>
          <div class="<%='thumbnail-product ' + pt.escape('name') %>">
         <%=pt.escape('name') %>
