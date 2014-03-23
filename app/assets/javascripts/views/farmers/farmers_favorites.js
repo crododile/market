@@ -40,7 +40,7 @@ Market.Views.FarmersFavorites = Backbone.View.extend({
 
     var $delButton = $('<button>');
     $delButton.addClass('delete-button');
-    $delButton.text('D');
+    $delButton.text('X');
     var that = this
 
     $('.connected-lists').sortable( { connectWith: ".connected-lists" } );

@@ -17,12 +17,22 @@
   background: rgba(255, 255, 255, 0.3);
 }
 
+
+.delete-button {
+  position:absolute;
+  top:0px;
+  right:0px;
+  height:10px;
+  width:10px;
+}
+
 .farmer-thumbnail{
   width: 120px;
   height: 120px;
   margin: 0 20px 15px 0;
   margin-bottom: 0;
-  display: inline-block;;
+  position: relative;
+  float: left;
   background: rgba(255, 255, 255, 0.3);
 }
 
@@ -45,7 +55,7 @@
 }
 
 .connected-lists{
-  minimum-height:10px;
+  min-height:10px;
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap
