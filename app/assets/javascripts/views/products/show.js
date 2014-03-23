@@ -12,8 +12,8 @@ Market.Views.ProductShow = Backbone.View.extend({
 
   render: function(){
 
-    var rc = this.template( { product: this.product });
-    var rc2 = this.template2( { product: this.product })
+    var rc = this.template( { product: this.product } );
+    var rc2 = this.template2( { product: this.product } )
     this.$el.html(rc);
     this.$el2.html(rc2);
     return this;

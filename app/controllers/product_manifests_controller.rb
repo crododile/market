@@ -18,6 +18,13 @@ class ProductManifestsController < ApplicationController
     render 'product_manifests/product'
   end
 
+  def destroy
+    @product =  ProductManifest.find(params[:id])
+    @product.destroy
+    render :json  => @product
+  end
+
+
   private
   def listing_params
     params.require(:product_manifest).permit(:description, :variety, :product_type_id);
