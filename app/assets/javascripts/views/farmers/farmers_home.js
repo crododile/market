@@ -12,10 +12,6 @@ Market.Views.FarmerHome = Backbone.View.extend({
     'click button.delete-product':'deleter',
  },
 
- hider: function(){
-   alert('wut')
- },
-
  showProduct: function(){
    var id = $(event.target).data('id')
    var psView = new Market.Views.ProductShow({ id: id});

@@ -9,7 +9,7 @@
       <% if ( product.get('product_type_id') === pt.get('id') ){ %>
       <li>
         <button class="show-product btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-id="<%=product.id%>">
-          <%=product.escape('description')%>
+          <%=product.escape('variety')%>
         </button>
       </li>
       <%}%>

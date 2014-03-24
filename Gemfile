@@ -54,4 +54,6 @@ gem 'backbone-on-rails'
 group :development do
   gem 'binding_of_caller'
   gem 'better_errors'
+  gem 'factory_girl_rails'
+  gem 'faker'
 end

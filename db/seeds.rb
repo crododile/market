@@ -6,24 +6,47 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-farmers = Farmer.create!([
-   { email: 'foo@gmail.com', password: 'egg500010', name: "sam", zipcodes: '37064,90210', bio: "I live in Columbia"},
-   { email: 'foz@gmail.com', password: 'egg500010',name: 'becca', zipcodes: "37064", bio: "I am a Natural!" },
-   { email: 'fob@gmail.com',password: 'egg500010', name: 'lamb guy', zipcodes: '90210', bio: "I met Becca once!"}])
 
-product_types = ProductType.create!([{name: "lamb"},{name:'vegetables'}])
+product_types = [
+  {name: "lamb"},
+  {name:'other vegetables'},
+  {name:'beef'},
+  {name:'tomatoes'},
+  {name:'lettuce'},
+  {name:'greens'},
+  {name:'pork'},
+  {name:'poultry'},
+  {name:'eggplant'},
+  {name:'corn'},
+  {name:'squash'},
+  {name:'pumpkin'},
+  {name:'goat'},
+  {name:'fruit'},
+]
+
+ProductType.create!( product_types )
 
 
-product_manifests = ProductManifest.create(
-      [{farmer_id: 1, product_type_id: 1, description: 'sambos lambos'},
-        {farmer_id: 2, product_type_id: 2, description: 'beccas greens'},
-        {farmer_id: 3, product_type_id: 1, description: 'gizzies lambs'}])
+FactoryGirl.define do
+  factory :farmer do
+    name { Faker::Name.name }
+    email { rand(100000).to_s + "@gmail.com" }
+    password 'demodemo'
+    zipcodes "37064,90210,43230"
+    bio "WOW WE ALL HAVE THE SAME BIO!"
+  end
 
 
-favorites = FavoriteFarmer.create!(
-        [{shopper_id: 1, farmer_id: 1, farmer_name: "sam", product_favorited: "lamb"},
-          {shopper_id: 1, farmer_id:2, farmer_name: "becca", product_favorited: "vegetables"}]
-        )
+  factory :product_manifest do
+    farmer_id { 1 + rand(50) }
+    product_type_id { 1 + rand(14) }
+    variety { Faker::Commerce.product_name }
+    description { Faker::Company.catch_phrase }
+  end
+
+end
+50.times{ FactoryGirl.create :farmer }
+30.times{ FactoryGirl.create :product_manifest }
 
 
 
