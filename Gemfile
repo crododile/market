@@ -46,6 +46,9 @@ end
 
 # Use debugger
 
+gem 'factory_girl_rails'
+gem 'faker'
+
 
 gem 'debugger', group: [:development, :test]
 
@@ -54,6 +57,5 @@ gem 'backbone-on-rails'
 group :development do
   gem 'binding_of_caller'
   gem 'better_errors'
-  gem 'factory_girl_rails'
-  gem 'faker'
+
 end
