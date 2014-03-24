@@ -27,7 +27,8 @@ class FarmersController < ApplicationController
   private
 
   def farmer_params
-    params.require(:farmer).permit(:name, :zipcodes, :bio);
+    params.require(:farmer).permit(:name, :zipcodes, :bio, :city, :state,
+    :street_address, :postal_code, :contact_email, :phone_number);
   end
 
   def fave_params

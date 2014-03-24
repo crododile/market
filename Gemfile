@@ -48,6 +48,7 @@ end
 
 gem 'factory_girl_rails'
 gem 'faker'
+gem 'figaro'
 
 
 gem 'debugger', group: [:development, :test]

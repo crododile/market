@@ -4,6 +4,7 @@ window.Market = {
   Views: {},
   Routers: {},
   initialize: function() {
+
     var product_types = new Market.Collections.ProductTypes()
 
     product_types.fetch({

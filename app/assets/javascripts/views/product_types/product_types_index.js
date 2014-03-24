@@ -12,7 +12,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
   },
 
 
-  filter: function(){
+  filter: function(event){
     event.preventDefault();
     this.zip= $('input.zipfilter').val()
   },
@@ -31,7 +31,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 
 
 
-  goToMarket: function(){
+  goToMarket: function(event){
     var  ptName = $(event.target).parent().attr("class");
     var ptModel = this.collection.findWhere( {name: ptName})
     var ptFarmers = new Market.Collections.FarmersForProductType({

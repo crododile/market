@@ -1,4 +1,5 @@
-json.(@farmer, :id, :name, :bio, :zipcodes)
+json.(@farmer, :id, :name, :bio, :zipcodes, :street_address, :city,
+:state, :postal_code, :contact_email, :phone_number )
 
 json.product_types @farmer.products, :id, :name
 

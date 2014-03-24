@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140323104509) do
+ActiveRecord::Schema.define(version: 20140324190420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,12 @@ ActiveRecord::Schema.define(version: 20140323104509) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "street_address"
+    t.string   "state"
+    t.string   "postal_code"
+    t.string   "phone_number"
+    t.string   "contact_email"
+    t.string   "city"
   end
 
   add_index "farmers", ["email"], name: "index_farmers_on_email", unique: true, using: :btree

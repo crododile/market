@@ -1,6 +1,8 @@
 // Place all the styles related to the farmers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
 .favorites-bar {
   width: 100%;
   bottom: 0;
@@ -17,6 +19,17 @@
   background: rgba(255, 255, 255, 0.3);
 }
 
+.lamb{
+  color: white;
+
+  background-color: blue;
+  opacity: 0.3;
+
+  -webkit-border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    -o-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+}
 
 .delete-button {
   position:absolute;
@@ -36,6 +49,12 @@
   background: rgba(255, 255, 255, 0.3);
 }
 
+#map-canvas{
+  width: 80%;
+  height: 300px;
+
+}
+
 .thumbnail-fname{
   display: inline;
   color: black;
@@ -43,6 +62,7 @@
 
 .thumbnail-product{
   color: white;
+  opacity: 1;
   font-weight: bold;
 }
 
@@ -50,7 +70,8 @@
   background-color: blue;
 }
 
-.thumbnail-product.vegetables{
+.vegetables{
+  opacity: 0.3;
   background-color: green;
 }
 
@@ -95,10 +116,6 @@ background-color: rgba(255, 255, 255, 0.6);
 
 .product-list li{
   display: inline-block;
-}
-
-.main-background{
-  position:relative;
 }
 
 

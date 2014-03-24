@@ -34,6 +34,14 @@ FactoryGirl.define do
     password 'demodemo'
     zipcodes "37064,90210,43230"
     bio "WOW WE ALL HAVE THE SAME BIO!"
+
+    street_address { Faker::Address.street_address }
+    city {Faker::Address.city}
+    state { Faker::Address.state }
+    postal_code { Faker::Address.zip_code }
+
+    phone_number { Faker::PhoneNumber.phone_number }
+    contact_email { Faker::Internet.email }
   end
 
 

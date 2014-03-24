@@ -16,6 +16,7 @@ Market.Views.FarmersEdit = Backbone.View.extend({
     event.preventDefault();
 
     var params = $(event.currentTarget).serializeJSON();
+
     this.farmer.save( params , { patch: true } );
   },
 
@@ -23,6 +24,7 @@ Market.Views.FarmersEdit = Backbone.View.extend({
   render: function(){
     var rc = this.template( { farmer: this.farmer });
     this.$el.html(rc);
+
     return this;
   },
 

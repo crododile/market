@@ -1,24 +1,52 @@
+
 <h1><%= farmer.escape('name') %></h1>
 
 <%= farmer.escape('bio') %>
-<ul>PRODUCT TYPES
-<% farmer.product_types().each(function(pt){ %>
-  <ul><%=pt.escape('name') %>
-    <li>
-      <ul class='product-list' >
-        <% farmer.products().each(function(product){ %>
-          <% if ( product.get('product_type_id') === pt.get('id') ){ %>
-              <button class="show-product btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="<%=product.id%>">
-                <%=product.escape('variety')%>
-              </button>
-          <%}%>
-        <% }) %>
-      </ul>
-    </li>
-  </ul>
-  <br>
-  <% })%>
-</ul>
+<div class='container-fluid'>
+<row>
+  <div class='col-md-6'>
+    <ul>PRODUCT TYPES
+      <% farmer.product_types().each(function(pt){ %>
+        <div class='<%=pt.escape('name')%>'><%=pt.escape('name') %>
+          <li>
+            <ul class='product-list' >
+              <% farmer.products().each(function(product){ %>
+                <% if ( product.get('product_type_id') === pt.get('id') ){ %>
+                    <button class="show-product btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="<%=product.id%>">
+                      <%=product.escape('variety')%>
+                    </button>
+                <%}%>
+              <% }) %>
+            </ul>
+          </li>
+        </div>
+        <br>
+      <% })%>
+    </ul>
+  </div>
+  <div class='col-md-6 location-dashboard'>
+    <div class='contact-info-container'>
+      <div class='contact-info'>
+        <div class='phone-number'><%=farmer.escape('phone_number')%></div><br>
+        <div class='contact-email'><%=farmer.escape('contact_email')%></div><br>
+        <div class='street-address'> <%=farmer.escape('street_address')%></div><br>
+        <div class='city'><%=farmer.escape('city')%></div><br>
+        <div class='state'><%=farmer.escape('state')%></div><br>
+        <div class='postal-code'><%=farmer.escape('postal_code')%></div><br>
+      </div>
+      <button class='btn btn-success visit-us'>VISIT US</button>
+    </div>
+    <br>
+
+    <div id="map-canvas">
+      MAP GOES HERE
+    </div>
+
+  </div>
+</row>
+
+
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
