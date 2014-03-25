@@ -9,6 +9,8 @@ Market.Views.FarmerShow = Backbone.View.extend({
 
   },
 
+  template: JST['farmers/show'],
+
   events: {
     "click button.show-product":"showProduct",
     "click button.visit-us":"showMap"
@@ -68,7 +70,6 @@ Market.Views.FarmerShow = Backbone.View.extend({
 
   },
 
-  template: JST['farmers/show'],
 
   render: function(){
     var rc = this.template( { farmer: this.farmer });
