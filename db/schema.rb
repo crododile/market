@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140325153157) do
+ActiveRecord::Schema.define(version: 20140325173946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20140325153157) do
     t.string   "street_number"
     t.string   "lat"
     t.string   "lng"
+    t.string   "filepicker_url"
   end
 
   add_index "farmers", ["email"], name: "index_farmers_on_email", unique: true, using: :btree

@@ -49,6 +49,7 @@ end
 gem 'factory_girl_rails'
 gem 'faker'
 gem 'figaro'
+gem 'filepicker-rails'
 
 
 gem 'debugger', group: [:development, :test]

@@ -17,7 +17,9 @@
 <label>AUTOCOMPLETE
     <div id="locationField">
       <input id="autocomplete" placeholder="Enter your address"
-             onFocus="geolocate" type="text"></input>
+             onFocus="geolocate" type="text" value='<%=farmer.escape('street_number')
+             +" "+farmer.escape('route')+" "+farmer.escape('city')+" "+
+             farmer.escape('state')+ " "+farmer.escape('postal_code')%>'></input>
     </div>
 </label>
 <br>
@@ -48,5 +50,7 @@
   <textarea name="farmer[bio]"><%=farmer.escape('bio')%></textarea>
 </label>
 <br>
+
+<button class='upload-image btn btn-primary'>UPLOAD IMAGE</button>
 <button class='make-farmer'>EDIT FARMER INFORMATION</button>
 

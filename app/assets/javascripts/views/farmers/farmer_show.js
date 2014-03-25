@@ -39,7 +39,7 @@ Market.Views.FarmerShow = Backbone.View.extend({
 
 
    function initialize (options) {
-     debugger
+
      var myLatLng = new google.maps.LatLng(
        parseFloat(this.farmer.get('lat')), parseFloat(this.farmer.get('lng')) );
 
@@ -57,7 +57,7 @@ Market.Views.FarmerShow = Backbone.View.extend({
         title: 'marky'
       });
     }
-    debugger
+
     initialize.call(this)
   },
 

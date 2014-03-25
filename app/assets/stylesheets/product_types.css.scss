@@ -10,11 +10,17 @@
 .tomatoes{
   background-color: red;
   opacity: 0.7;
+
 }
 
-.lettuce{
-  background-color: green;
-  opacity: 0.7;
+.btn-tomatoes{
+    background-image: url("./marketpics/tomatoes.jpg");
+}
+
+.btn-lettuce{
+  height: 80px !important;
+  width: 80px !important;
+  background-image: url("./marketpics/lettuce.jpg");
 }
 
 .eggplant{
@@ -25,6 +31,10 @@
 .fourup {width: 23%;margin:1%;}
 
 .map-canvas{width:500px; height: 500px; background-color:blue;}
+
+.btn-greens{
+  background-image: url("./marketpics/greens-other.jpg");
+}
 
 .btn-beef{
     background-color: hsl(0, 69%, 22%) !important;

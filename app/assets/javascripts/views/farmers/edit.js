@@ -19,15 +19,30 @@ Market.Views.FarmersEdit = Backbone.View.extend({
 
   events: {
     'click .make-farmer':'makeFarmer',
+    'click .upload-image':'addImage'
+  },
+
+  addImage: function(event){
+    event.preventDefault()
+    var that = this
+    var imgUrl;
+    filepicker.pick(function(Inkblob){
+      imgUrl = Inkblob.url;
+
+      that.model.save( { farmer: { filepicker_url: imgUrl } }, { patch: true })
+       $('.modal').modal('hide');
+    });
+
   },
 
   makeFarmer: function(event){
     event.preventDefault();
     this.autocomplete.getPlace()
-    debugger
+
     var params = $('form').serializeJSON();
     params['farmer']['lat'] = this.autocomplete.getPlace().geometry.location.lat()
     params['farmer']['lng'] = this.autocomplete.getPlace().geometry.location.lng()
+
     this.model.save( params , { patch: true } );
     $('#edit-div').html('')
   },
