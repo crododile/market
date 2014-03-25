@@ -7,24 +7,40 @@
   <input type="text" class='new-zipcodes'  value="<%=farmer.escape('zipcodes')%>" name="farmer[zipcodes]">
 </label>
 <br>
+
+<label>AUTOCOMPLETE
+    <div id="locationField">
+      <input id="autocomplete" placeholder="Enter your address"
+             onFocus="geolocate" type="text"></input>
+    </div>
+</label>
+<br>
 <label>STREET ADDRESS
-  <input type="text" class='controls' name="farmer[street_address]" value="<%=farmer.escape('street_address')%>">
+  <input class="field" name=farmer[street_number]
+     value="<%=farmer.escape('street_number')%>" id="street_number"></input>
+
+  <input class="field" name=farmer[route]
+     value="<%=farmer.escape('route')%>" id="route"></input>
 </label>
 <br>
-<label>CITY
-  <input type="text" class='controls' name="farmer[city]"value="<%=farmer.escape('city')%>">
-</label>
+<label>City
+   <input class="field" name=farmer[city]
+      value="<%=farmer.escape('city')%>" id="locality"></input>
+
+<label>State</label>
+<input class="field" id="administrative_area_level_1"
+  value="<%=farmer.escape('state')%>" name=farmer[state]></input>
+<label>Zip code</label>
+<input class="field" id="postal_code" value="<%=farmer.escape('postal_code')%>"
+    name=farmer[postal_code]></input>
 <br>
-<label>STATE
-  <input type="text" class='controls' name="farmer[state]" value="<%=farmer.escape('state')%>">
-</label>
-<br>
-<label>POSTAL CODE
-  <input type="text" class='controls' name="farmer[postal_code]" value="<%=farmer.escape('postal_code')%>">
-</label>
+<label>Country</label>
+<input class="field" id="country" value="<%=farmer.escape('country')%>"
+  name=farmer[country]></input>
 <br>
 <label> TELL US ABOUT YOURSELF
   <textarea name="farmer[bio]"><%=farmer.escape('bio')%></textarea>
 </label>
 <br>
 <button class='make-farmer'>ADD FARMER INFORMATION</button>
+

@@ -3,27 +3,64 @@ Market.Views.FarmersEdit = Backbone.View.extend({
   tagName: 'form',
 
   initialize: function(){
-    this.farmer = new Market.Models.CurrentFarmer();
-    this.farmer.fetch();
-    this.listenTo(this.farmer, 'sync', this.render);
+
+    this.listenTo(this.model, 'sync', this.render);
+    this.autocomplete = {};
+
+    this.componentForm = {
+      street_number: 'short_name',
+      route: 'long_name',
+      locality: 'long_name',
+      administrative_area_level_1: 'short_name',
+      country: 'long_name',
+      postal_code: 'short_name'
+    };
   },
 
   events: {
-    'click .make-farmer':'makeFarmer'
+    'click .make-farmer':'makeFarmer',
   },
 
-  makeFarmer: function(){
+  makeFarmer: function(event){
     event.preventDefault();
+    this.autocomplete
+    var params = $('form').serializeJSON();
+    this.model.save( params , { patch: true } );
+  },
 
-    var params = $(event.currentTarget).serializeJSON();
+  fillInAddress: function(ac) {
+    // Get the place details from the autocomplete object.
+    place = ac.getPlace();
 
-    this.farmer.save( params , { patch: true } );
+    for (var component in this.componentForm) {
+      document.getElementById(component).value = '';
+      document.getElementById(component).disabled = false;
+    }
+
+    // Get each component of the address from the place details
+    // and fill the corresponding field on the form.
+    for (var i = 0; i < place.address_components.length; i++) {
+      var addressType = place.address_components[i].types[0];
+      if (this.componentForm[addressType]) {
+        var val = place.address_components[i][this.componentForm[addressType]];
+        document.getElementById(addressType).value = val;
+      }
+    }
   },
 
 
   render: function(){
-    var rc = this.template( { farmer: this.farmer });
+    var rc = this.template( { farmer: this.model });
     this.$el.html(rc);
+    var that = this
+
+    this.autocomplete = new google.maps.places.Autocomplete(
+      (this.$el.find('#autocomplete')[0]),
+      { types: ['geocode'] });
+
+    google.maps.event.addListener(this.autocomplete, 'place_changed', function() {
+         that.fillInAddress(that.autocomplete).bind(that);
+       });
 
     return this;
   },

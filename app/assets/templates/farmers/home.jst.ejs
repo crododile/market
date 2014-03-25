@@ -1,4 +1,4 @@
-<h1><%= farmer.escape('name') %></h1>
+<h1 class='name-head'><%= farmer.escape('name') %></h1>
 
 <%= farmer.escape('bio') %>
 <ul>PRODUCT TYPES
@@ -22,6 +22,11 @@
 <button class="add-product btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
   ADD A PRODUCT
 </button>
+<button class="edit-profile btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  EDIT PROFILE
+</button>
+
+<div id='edit-div'></div>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
