@@ -41,7 +41,6 @@ Market.Views.FarmerShow = Backbone.View.extend({
      var myLatLng = new google.maps.LatLng( options['lat'], options['lng'] );
 
       var mapOptions = {
-       // useStaticMap: false,
         zoom: 8,
         center: myLatLng ,
       };

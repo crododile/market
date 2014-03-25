@@ -27,8 +27,9 @@ Market.Views.FarmersForProductType = Backbone.View.extend({
     var  ptName = $(event.target).parent().parent().attr("class");
     var $goToMarketButton = $('<button>');
 
-    $goToMarketButton.addClass(ptName);
+    $goToMarketButton.addClass("btn btn-"+ptName);
     $goToMarketButton.addClass("goToMarket");
+    $goToMarketButton.addClass("fourup");
     $goToMarketButton.text(ptName)
     $('li.'+ptName).html($goToMarketButton);
   }
