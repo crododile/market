@@ -26,6 +26,7 @@ Market.Views.FarmersEdit = Backbone.View.extend({
     this.autocomplete
     var params = $('form').serializeJSON();
     this.model.save( params , { patch: true } );
+    $('#edit-div').html('')
   },
 
   fillInAddress: function(ac) {
