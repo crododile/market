@@ -1,3 +1,5 @@
+<row>
+  <div class='col-xs-6'>
 <h1 class='name-head'><%= farmer.escape('name') %></h1>
 
 <%= farmer.escape('bio') %>
@@ -26,6 +28,13 @@
 <button class="edit-profile btn btn-primary btn-lg"  data-toggle="modal" data-target="#myModal" >
   EDIT PROFILE
 </button>
+</div>
+  <div class='col-xs-6'>
+    <div class='picture-spot'>
+      <img class='picture' src="<%=farmer.escape('filepicker_url')%>">
+    </div>
+  </div>
+</row>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

@@ -5,4 +5,7 @@ json.product_types @farmer.products, :id, :name
 
 json.products @farmer.product_manifests, :id, :description, :product_type_id, :variety
 
-json.favorite_farmers @farmer.favorite_farmers, :id, :farmer_id, :farmer_name, :shopper_id, :product_favorited
+json.favorite_farmers @farmer.favorite_farmers do |farmer|
+  json.(farmer, :id, :farmer_id, :farmer_name, :shopper_id, :product_favorited)
+  json.filepicker_url farmer.farmer.filepicker_url
+end

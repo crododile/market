@@ -7,6 +7,7 @@
         </div>
         <div class='thumbnail-fname' data-id='<%=favFarmer.id%>'>
           <a href="#/farmers/<%= favFarmer.escape('farmer_name') %>"><%=favFarmer.escape('farmer_name')%></a>
+          <img src='<%=favFarmer.get('filepicker_url')%>'>
         </div>
       </div>
     </li>
