@@ -20,6 +20,11 @@ Market.Views.FarmerHome = Backbone.View.extend({
     'click button.show-product':'showProduct',
     'click button.delete-product':'deleter',
     'click button.edit-profile':'editProfile',
+    'click button.make-farmer':'closeEdit'
+ },
+
+ closeEdit: function(){
+   $('#myModal').modal('hide');
  },
 
  editProfile: function(){
@@ -28,19 +33,17 @@ Market.Views.FarmerHome = Backbone.View.extend({
    var that = this;
    nfView.render()
 
-   // $('div.modal-body').html(nfView.render().$el)
-   // $('#myModal h4.modal-title').html("EDIT PROFILE");
-   //
-   // $('#myModal').on('hide.bs.modal', function(){ that.render() })
+   $('div.modal-body').html(nfView.render().$el)
+   $('#myModal h4.modal-title').html("EDIT PROFILE");
 
-  $('#edit-div').append(nfView.$el)
+   $('#myModal').on('hide.bs.modal', function(){ that.render() })
  },
 
 
  showProduct: function(event){
    var id = $(event.target).data('id')
    var psView = new Market.Views.ProductShow({ id: id});
-   $('#myModal2 h4.modal-title').html(psView.render().$el);
+   $('#myModal h4.modal-title').html(psView.render().$el);
    $('div.modal-body').html(psView.$el2)
 
    var $delButton = $('<button>');
@@ -62,12 +65,12 @@ Market.Views.FarmerHome = Backbone.View.extend({
      deadProduct.destroy({
        success: function(){
          that.model.products().remove(deadProduct);
-         $('#myModal2').modal('hide');
+         $('#myModal').modal('hide');
 
      }
    });
 
-   $('#myModal2').on('hide.bs.modal', function(){ that.render() })
+   $('#myModal').on('hide.bs.modal', function(){ that.render() })
  },
 
   addProduct: function(){

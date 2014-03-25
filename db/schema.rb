@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140325054400) do
+ActiveRecord::Schema.define(version: 20140325153157) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20140325054400) do
     t.string   "country"
     t.string   "route"
     t.string   "street_number"
+    t.string   "lat"
+    t.string   "lng"
   end
 
   add_index "farmers", ["email"], name: "index_farmers_on_email", unique: true, using: :btree
