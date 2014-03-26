@@ -45,7 +45,7 @@ Market.Views.FarmersFavorites = Backbone.View.extend({
 
 
     $('.connected-lists').sortable( { connectWith: ".connected-lists" } );
-    $('ul.favorite-farmers .farmer-thumbnail').hover(
+    $('.favorite-farmers .farmer-thumbnail').hover(
       function(){  $(event.currentTarget).append( $delButton ) },
       function(){  $delButton.remove() }
     );

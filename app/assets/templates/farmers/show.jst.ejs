@@ -1,10 +1,14 @@
 
-<h1><%= farmer.escape('name') %></h1>
-
-<%= farmer.escape('bio') %>
 <div class='container-fluid'>
 <row>
-  <div class='col-md-6'>
+  <div class='col-md-6 left-show'>
+    <div class='jumbotron'>
+    <h1><%= farmer.escape('name') %></h1>
+        <img src="<%=farmer.get('filepicker_url')%>" class='avatar pull-right img-circle'>
+    </div>
+    <h2>About Us</h2>
+    <p><%= farmer.escape('bio') %></p>
+    <h1>
     <ul>PRODUCT TYPES
       <% farmer.product_types().each(function(pt){ %>
         <div class='<%=pt.escape('name')%>'><%=pt.escape('name') %>
@@ -25,16 +29,20 @@
     </ul>
   </div>
   <div class='col-md-6 location-dashboard'>
-    <div class='contact-info-container'>
-      <div class='contact-info'>
-        <div class='phone-number'><%=farmer.escape('phone_number')%></div><br>
-        <div class='contact-email'><%=farmer.escape('contact_email')%></div><br>
-        <div class='street-address'> <%=farmer.escape('street_number')+" "+farmer.escape('route')%></div><br>
-        <div class='city'><%=farmer.escape('city')%></div><br>
-        <div class='state'><%=farmer.escape('state')%></div><br>
-        <div class='postal-code'><%=farmer.escape('postal_code')%></div><br>
+    <div class='jumbotron'>
+      <div class='contact-info-container right-show'>
+        <div class='contact-info'>
+          <h2>
+          <div class='phone-number'><%=farmer.escape('phone_number')%></div><br>
+          <div class='contact-email'><%=farmer.escape('contact_email')%></div><br>
+          <div class='street-address'> <%=farmer.escape('street_number')+" "+farmer.escape('route')%></div><br>
+          <div class='city'><%=farmer.escape('city')%></div><br>
+          <div class='state'><%=farmer.escape('state')%></div><br>
+          <div class='postal-code'><%=farmer.escape('postal_code')%></div><br>
+          </h2>
+        </div>
+        <button class='btn btn-success visit-us'>VISIT US</button>
       </div>
-      <button class='btn btn-success visit-us'>VISIT US</button>
     </div>
     <br>
 

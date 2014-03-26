@@ -6,6 +6,31 @@
     z-index: 19999999999 !important;
 }
 
+.jumbotron{
+  background:transparent;
+}
+
+.left-show{
+  background: rgba(255, 255, 255, 0.3);
+  -webkit-border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    -o-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.right-show{
+  background: rgba(255, 255, 255, 0.3);
+  -webkit-border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    -o-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.avatar{
+  width: 200px;
+  height: 200px;
+}
+
 .picture-spot{
   width:250px;
   height: 250px;
@@ -83,6 +108,10 @@ background-color: rgba(255, 255, 255, 0.6);
 
 body{
 //  background:url(https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQQmJMxxya9H_DP-Gzv6eeAVHqdjRvbP3Qd6I3sepcAi4A9G7vqpA);
-  background: url(http://img.mi9.com/landscape/5026/national-geographic-chicken-farm-animals_1600x1200_94488.jpg);
-//  background-size: cover;
+//  background: url(http://img.mi9.com/landscape/5026/national-geographic-chicken-farm-animals_1600x1200_94488.jpg);
+  background:url(http://www.pageresource.com/wallpapers/wallpaper/cows-free-latoro_337568.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }

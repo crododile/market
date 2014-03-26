@@ -57,7 +57,6 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
     var ptMarketView = new Market.Views.FarmersForProductType({
       model: ptModel,
       collection: ptFarmers
-
     });
     $('div.show-area').html(ptMarketView.render().$el)
   },

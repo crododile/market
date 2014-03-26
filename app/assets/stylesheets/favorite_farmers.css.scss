@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .favorites-bar {
-  position: absolute;
+  position: fixed;
   width: 100%;
   bottom: 0;
 }
@@ -63,23 +63,23 @@
   bottom: 0;
   margin-bottom: 5;
   position: relative;
-  float: left;
+  display: inline-block;
   background: rgba(255, 255, 255, 0.3);
-  -webkit-transition: width  0.6s ease;
-  -moz-transition: width 0.6s ease;
-  -o-transition: width 0.6s ease;
-  transition: width  0.6s ease;
-
-  -webkit-transition: height  0.4s ease;
-  -moz-transition: height 0.4s ease;
-  -o-transition: height 0.4s ease;
-  transition: height  0.4s ease;
+//  -webkit-transition: width  0.6s ease;
+//  -moz-transition: width 0.6s ease;
+//  -o-transition: width 0.6s ease;
+//  transition: width  0.6s ease;
+//
+//  -webkit-transition: height  0.4s ease;
+//  -moz-transition: height 0.4s ease;
+//  -o-transition: height 0.4s ease;
+//  transition: height  0.4s ease;
 }
 
-.farmer-thumbnail:hover{
-  width:170px;
-  height: 170px;
-}
+//.farmer-thumbnail:hover{
+//  width:170px;
+//  height: 170px;
+//}
 
 .thumbnail-fname{
   display: inline;

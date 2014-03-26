@@ -1,12 +1,12 @@
 <row>
-  <div class='col-xs-6'>
+  <div class='col-xs-6 fshow jumbotron'>
 <h1 class='name-head'><%= farmer.escape('name') %></h1>
 
 <%= farmer.escape('bio') %>
 <ul>PRODUCT TYPES
 <% farmer.product_types().each(function(pt){ %>
   <li><%=pt.escape('name') %>
-  <ul class='product-list'>SPECIFIC PRODUCTS
+  <ul class='hero product-list'>SPECIFIC PRODUCTS
     <% farmer.products().each(function(product){ %>
       <% if ( product.get('product_type_id') === pt.get('id') ){ %>
       <li>
