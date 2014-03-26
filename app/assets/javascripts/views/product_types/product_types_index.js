@@ -7,12 +7,13 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
   template: JST['product_types/index'],
 
   events: {
-    "click button.go-to-market":"goToMarket",
+    "click div.market-button":"goToMarket",
     // "mouseover div.market-button":"addText",
 //     "mouseout div.market-button":"removeText",
     "click button.zipfilter":"filter",
     "click button.add-map":"addMap",
-    "click button.close-map":'closeMap'
+    "click button.close-map":'closeMap',
+    "click button.fresh-feed":'freshFeed'
   },
 
   // removeText: function(event){
@@ -22,6 +23,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
  //  addText: function(event){
  //    var pType = $(event.target.children[0]).toggleClass('hidden').toggleClass('visible')
  //  },
+
 
   closeMap: function(){
     this.$el.find('#index-map').html("").removeAttr('style')
@@ -70,7 +72,8 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
   },
 
   goToMarket: function(event){
-    var  ptName = $(event.target).parent().data("type");
+
+    var  ptName = $(event.target).closest('div').data("type");
 
     var ptModel = this.collection.findWhere( {name: ptName})
     var ptFarmers = new Market.Collections.FarmersForProductType({

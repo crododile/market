@@ -12,6 +12,31 @@ Market.Routers.Router = Backbone.Router.extend({
    this.product_types = options.product_types
    this.current_farmer = new Market.Models.CurrentFarmer()
    this.current_farmer.fetch();
+
+   this.favoritesFeed()
+
+  },
+
+  favoritesFeed: function(){
+    var favesBar = new Market.Views.FarmersFavorites({ model: this.current_farmer });
+    $('.favorites-bar').html(favesBar.render().$el);
+
+    $.ajax({
+      url: "/feed",
+      type: "GET",
+      success: function(respData){
+        var $freshie, $flink
+        respData.forEach( function(frsh){
+          $freshie = $('<li>')
+          $flink = $('<a>')
+          $flink.attr('href', '/#/farmers/'+frsh['farmer_name'])
+          $flink.text("new " + frsh['product_favorited'] + " from " + frsh['farmer_name'])
+          debugger
+          $freshie.html($flink)
+          $('.dropdown-menu').append($freshie)
+        })
+      }
+    });
   },
 
   farmerHome: function(){
@@ -47,10 +72,6 @@ Market.Routers.Router = Backbone.Router.extend({
     var pIndexView = new Market.Views.ProductTypesIndex({
        collection: this.product_types
      });
-
-     var favesBar = new Market.Views.FarmersFavorites({ model: this.current_farmer })
-     $('.favorites-bar').html(favesBar.render().$el)
-
     this._swapView(pIndexView);
   },
 

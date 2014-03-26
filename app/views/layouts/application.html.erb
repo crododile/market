@@ -29,13 +29,28 @@
           <%= link_to('SIGN UP', new_farmer_registration_path)  %>
           </li>
         <% end %>
-
         <li class='nav-item'>
           <a href="#">INDEX</a>
         </li>
         <li class='nav-item'>
           <a href="#home">HOME</a>
         </li>
+        <li class='nav-item'>
+          <a class="dropdown-toggle" data-toggle="dropdown">Fresh Feed<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+                <li class="divider"></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+        </li>
+
+
+
+
         <% if farmer_signed_in? %>
           <li>
           <%= link_to('LOGOUT', destroy_farmer_session_path, :method => :delete) %>
@@ -52,7 +67,8 @@
 <%= yield %>
 </div>
 
-<nav class='navbar navbar-fixed-bottom favorites-bar'></div>
+<nav class='navbar navbar-fixed-bottom favorites-bar'>
+</nav>
 
 </body>
 </html>

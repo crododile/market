@@ -1,17 +1,17 @@
 <row>
 <div class='col-md-6'>
-  <h1>PRODUCT TYPES</h1>
+  <h1>Product Types</h1>
   <form class='zipform'>
     <label>INPUT ZIP FOR FILTER
       <input type="text" name="zipfilter" value="ALL" class="zipfilter">
     </label>
-    <button class='zipfilter'>FIND LOCAL FARMERS</button>
+    <button class='zipfilter'>Find Local Farmers</button>
   </form>
 
    <div class='pt-area'>
   <% product_types.each(function(product_type){ %>
-      <div class="market-button <%=product_type.escape('name')%> button-width" data-type="<%=product_type.escape('name')%>">
-        <button class="go-to-market btn btn-block btn-<%=product_type.escape('name')%>">
+      <div class="market-button btn-<%=product_type.escape('name')%> <%=product_type.escape('name')%> button-width" data-type="<%=product_type.escape('name')%>">
+        <button class="go-to-market helper btn btn-block btn-<%=product_type.escape('name')%>">
          <p> <%=product_type.escape('name')%> </p>
         </button>
       </div>
@@ -27,6 +27,8 @@
  <button class='btn btn-success add-map'>ADD MAP</button>
   <div class='map-canvas' id="index-map">
   </div>
+
+
 
 </div>
 
