@@ -1,13 +1,17 @@
+<div class='form-group'>
 <label> PRODUCT-TYPE (ONLY TOLERATES EXISTING TYPES)
-<input type="text" name="product_type[name]" value="<%=productT.escape('name')%>">
+<input type="text" class='form-control' name="product_type[name]">
 </label>
 <br>
 <label> VARIETY (unique to maker, added to listing)
-  <input name="product_listing[variety]" placeholder="Think vivid!"
-  value="<%=productT.escape('variety')%>"></input>
+  <input class='form-control' name="product_listing[variety]"
+  placeholder="Think vivid!"></input>
 </label>
+<br>
 <label> DESCRIPTION (in depth shit)
-  <input type="text" name="product_listing[description]">
+  <input type="text" class='form-control' name="product_listing[description]"
+  placeholder="Think vivid!"></input>
+</div>
 <div class="modal-footer">
   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
   <button type="button" class="btn btn-primary make-product">Save changes</button>

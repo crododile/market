@@ -1,56 +1,58 @@
-
+<div class='form-group'>
 <label> NAME
-<input type="text" class='new-name' name="farmer[name]" value="<%=farmer.escape('name')%>">
+<input type="text" class='new-name form-control' name="farmer[name]" value="<%=farmer.escape('name')%>">
 </label>
 <br>
 <label> AREAS SERVED (ZIPCODES AS CSV eg. 37064,90210,43230 )
-  <input type="text" class='new-zipcodes'  value="<%=farmer.escape('zipcodes')%>" name="farmer[zipcodes]">
+  <input type="text" class='new-zipcodes form-control'  value="<%=farmer.escape('zipcodes')%>" name="farmer[zipcodes]">
 </label>
 <br>
 <label>PHONE NUMBER
-<input type="text" name="farmer[phone_number]" value="<%=farmer.escape('phone_number')%>"></input>
+<input type="text" class='form-control' name="farmer[phone_number]" value="<%=farmer.escape('phone_number')%>"></input>
 </label>
 <label>CONTACT EMAIL
-  <input type="text" name="farmer[contact_email]" value="<%=farmer.escape('contact_email')%>"></input>
+  <input type="text" class='form-control' name="farmer[contact_email]" value="<%=farmer.escape('contact_email')%>"></input>
 </label>
 
 <label>AUTOCOMPLETE
     <div id="locationField">
-      <input id="autocomplete" placeholder="Enter your address"
+      <input id="autocomplete" class='form-control' placeholder="Enter your address"
              onFocus="geolocate" type="text" value='<%=farmer.escape('street_number')
              +" "+farmer.escape('route')+" "+farmer.escape('city')+" "+
              farmer.escape('state')+ " "+farmer.escape('postal_code')%>'></input>
     </div>
 </label>
 <br>
-<label>STREET ADDRESS
-  <input class="field" name=farmer[street_number]
+<label>HOUSE NUMBER
+  <input class="field form-control" name=farmer[street_number]
      value="<%=farmer.escape('street_number')%>" id="street_number"></input>
-
-  <input class="field" name=farmer[route]
+</label>
+<label>STREET
+  <input class="field form-control" name=farmer[route]
      value="<%=farmer.escape('route')%>" id="route"></input>
 </label>
 <br>
 <label>City
-   <input class="field" name=farmer[city]
+   <input class="field form-control" name=farmer[city]
       value="<%=farmer.escape('city')%>" id="locality"></input>
 
 <label>State</label>
-<input class="field" id="administrative_area_level_1"
+<input class="field form-control" id="administrative_area_level_1"
   value="<%=farmer.escape('state')%>" name=farmer[state]></input>
 <label>Zip code</label>
-<input class="field" id="postal_code" value="<%=farmer.escape('postal_code')%>"
+<input class="field form-control" id="postal_code" value="<%=farmer.escape('postal_code')%>"
     name=farmer[postal_code]></input>
 <br>
 <label>Country</label>
-<input class="field" id="country" value="<%=farmer.escape('country')%>"
+<input class="field form-control" id="country" value="<%=farmer.escape('country')%>"
   name=farmer[country]></input>
 <br>
 <label> TELL US ABOUT YOURSELF
   <textarea name="farmer[bio]"><%=farmer.escape('bio')%></textarea>
 </label>
 <br>
-
+</div>
+<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 <button class='upload-image btn btn-primary'>UPLOAD IMAGE</button>
-<button class='make-farmer'>EDIT FARMER INFORMATION</button>
+<button class='btn btn-primary make-farmer'>EDIT FARMER INFORMATION</button>
 
