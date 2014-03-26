@@ -1,4 +1,7 @@
 Market.Views.FarmersForProductType = Backbone.View.extend({
+
+  template: JST['product_types/farmers_for_product'],
+
   initialize: function () {
     this.listenTo(this.collection, 'sync add remove', this.render);
   },
@@ -7,9 +10,9 @@ Market.Views.FarmersForProductType = Backbone.View.extend({
         "click button.leaveMarket":"leaveMarket"
       },
 
-  template: JST['product_types/farmers_for_product'],
 
   render: function(){
+
     var renderedContent = this.template(
       {
         ptFarmers: this.collection,
@@ -23,14 +26,14 @@ Market.Views.FarmersForProductType = Backbone.View.extend({
   },
 
   leaveMarket: function(){
-
-    var  ptName = $(event.target).parent().parent().attr("class");
-    var $goToMarketButton = $('<button>');
-
-    $goToMarketButton.addClass("btn btn-"+ptName);
-    $goToMarketButton.addClass("goToMarket");
-    $goToMarketButton.addClass("fourup");
-    $goToMarketButton.text(ptName)
-    $('li.'+ptName).html($goToMarketButton);
+    // var  ptName = $(event.target).parent().parent().data("type");
+    // var $goToMarketButton = $('<button>');
+    //
+    // $goToMarketButton.addClass("btn btn-block btn-"+ptName);
+    // $goToMarketButton.addClass("go-to-market");
+    // $goToMarketButton.text(ptName)
+    // $('div.'+ptName).html($goToMarketButton);
+    $('div.show-area').html('')
+    this.remove()
   }
 });

@@ -15,7 +15,7 @@
 
   <%= filepicker_js_include_tag %>
 
-    <script> filepicker.setKey("AbCIsBwERPKXAOYlEHstAz")</script>
+    <script>$(window).load( filepicker.setKey("AbCIsBwERPKXAOYlEHstAz"))</script>
 </head>
 <body>
   <nav class='navbar main-nav'>
@@ -36,13 +36,6 @@
         <li class='nav-item'>
           <a href="#home">HOME</a>
         </li>
-        <li class='nav-item'>
-          <a href='#editFarmer'>EDIT FARMER</a>
-          <!-- get this into account dropdown? -->
-        </li>
-        <li class='nav-item'>
-          <a href='#addProducts'>MY PRODUCTS</a>
-        </li>
         <% if farmer_signed_in? %>
           <li>
           <%= link_to('LOGOUT', destroy_farmer_session_path, :method => :delete) %>
@@ -60,10 +53,5 @@
 </div>
 
 
-
-<nav class='navbar navbar-fixed-bottom favorites-bar'>
-
-
-</nav>
 </body>
 </html>

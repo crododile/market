@@ -2,9 +2,96 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.favorites-bar {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
 .farmer-thumbnail{
+  bottom: 0;
+  float:left;
+}
+
+.fourup{
+  width:200 !important;
+  height:120 !important;
+}
+
+.thumbnail-personal{
+  position:relative;
+  width:100%;
+  height:100%;
+}
+
+.thumbnail-image-container{
+  position:relative;
+  width: 100%;
+  height: 100%;
+}
+
+.thumbnail-fname{
+  position: absolute;
+  font-weight: bold;
+  color: white;
+  top:0;
+  left:0;
+  z-index:2;
+}
+
+.thumbnail-fname:a{
+  font-weight: bold;
+  color: white;
+}
+
+.thumbnail-image{
   cursor:hand;
-   cursor:grab;
-   cursor:-moz-grab;
-   cursor:-webkit-grab;
+  cursor:grab;
+  cursor:-moz-grab;
+  cursor:-webkit-grab;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.farmer-thumbnail{
+  width: 130px;
+  height: 130px;
+  margin: 0 20px 15px 0;
+  bottom: 0;
+  margin-bottom: 5;
+  position: relative;
+  float: left;
+  background: rgba(255, 255, 255, 0.3);
+  -webkit-transition: width  0.6s ease;
+  -moz-transition: width 0.6s ease;
+  -o-transition: width 0.6s ease;
+  transition: width  0.6s ease;
+
+  -webkit-transition: height  0.4s ease;
+  -moz-transition: height 0.4s ease;
+  -o-transition: height 0.4s ease;
+  transition: height  0.4s ease;
+}
+
+.farmer-thumbnail:hover{
+  width:170px;
+  height: 170px;
+}
+
+.thumbnail-fname{
+  display: inline;
+  color: black;
+}
+
+.thumbnail-product{
+  color: white;
+  opacity: 1;
+  font-weight: bold;
+}
+
+.thumbnail-product.lamb{
+  background-color: blue;
 }

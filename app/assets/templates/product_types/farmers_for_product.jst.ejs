@@ -1,16 +1,23 @@
-<h1> FARMERS FOR <%= pt.escape('name') %> </h1>
-<button class="leaveMarket">LEAVE THIS MARKET</button>
-<div class="connected-lists product-list">
+<div class="connected-lists">
   <% ptFarmers.each(function(farmer){ %>
-      <li class='farmer-thumbnail'>
-         <div class="<%='thumbnail-product ' + pt.escape('name') %>">
-        <%=pt.escape('name') %>
+  <div>
+    <div class='farmer-thumbnail' data-id='<%= farmer.id %>'>
+      <div class="<%='thumbnail-product ' + pt.escape('name') %>">
+      <%=pt.escape('name') %>
+      </div>
+        <div class='thumbnail-personal'>
+          <div class='thumbnail-fname' data-id='<%=farmer.id%>'>
+            <a href="#/farmers/<%= farmer.escape('name') %>"><%=farmer.escape('name')%>
+              </div>
+          <div class='thumbnail-image-container'>
+            <img class='thumbnail-image' src='<%=farmer.get('filepicker_url')%>'></a>
+          </div>
         </div>
-        <div class='thumbnail-fname'  data-id='<%=farmer.id%>'>
-          <a href="#farmers/<%= farmer.escape('name') %>"><%= farmer.escape('name') %></a>
-          <img src='<%=farmer.get('filepicker_url')%>'>
-        </div>
-      </li>
+      </div>
+    </div>
   <% })%>
   END OF ENTRIES
 </div>
+
+<h1> FARMERS FOR <%= pt.escape('name') %> </h1>
+<button class="leaveMarket">LEAVE THIS MARKET</button>

@@ -2,123 +2,78 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.product-list{
+  width: 90%;
+  height: 160px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space:nowrap
+}
+
+.button-width{
+  width: 200px;
+  float: left;
+  margin:1px 1px 1px 1px;
+}
+
+.pt-area{
+  width:100%;
+  overflow: auto;
+}
+
+.go-to-market{
+  height:150px;
+  font-weight: bold;
+  float:left;
+}
+
+#index-map{
+  float: right;
+  margin-right: 8%;
+}
+
+.btn-pork{
+    background-image: url("./marketpics/pork.jpg");
+    background-size: contain;
+}
+
+.btn-corn{
+    background-image: url("./marketpics/corn.jpg");
+        background-size: contain;
+}
+
+.btn-poultry{
+    background-image: url("./marketpics/chicken.jpg");
+        background-size: contain;
+}
+.btn-pumpkin{
+    background-image: url("./marketpics/pumpkins-squash.jpg");
+        background-size: contain;
+}
+
+.btn-lamb{
+    background-image: url("./marketpics/lamb.jpg");
+        background-size: contain;
+}
+
+.btn-pork{
+    background-image: url("./marketpics/pork.jpg");
+        background-size: contain;
+}
 
 .btn-tomatoes{
     background-image: url("./marketpics/tomatoes.jpg");
+        background-size: contain;
 }
-
 .btn-lettuce{
-  height: 80px !important;
-  width: 80px !important;
   background-image: url("./marketpics/lettuce.jpg");
+      background-size: contain;
 }
-
-
-.map-canvas{width:500px; height: 500px; background-color:blue;}
 
 .btn-greens{
   background-image: url("./marketpics/greens-other.jpg");
-}
-
-.btn-beef{
-    background-color: hsl(0, 69%, 22%) !important;
-    background-repeat: repeat-x;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b42121", endColorstr="#5e1111");
-    background-image: -khtml-gradient(linear, left top, left bottom, from(#b42121), to(#5e1111));
-    background-image: -moz-linear-gradient(top, #b42121, #5e1111);
-    background-image: -ms-linear-gradient(top, #b42121, #5e1111);
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #b42121), color-stop(100%, #5e1111));
-    background-image: -webkit-linear-gradient(top, #b42121, #5e1111);
-    background-image: -o-linear-gradient(top, #b42121, #5e1111);
-    background-image: linear-gradient(#b42121, #5e1111);
-    border-color: #5e1111 #5e1111 hsl(0, 69%, 17%);
-    color: #fff !important;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.33);
-    -webkit-font-smoothing: antialiased;
-}
-
-.btn-eggplant{
-    background-color: hsl(284, 69%, 22%) !important;
-    background-repeat: repeat-x;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#8d21b4", endColorstr="#4a115e");
-    background-image: -khtml-gradient(linear, left top, left bottom, from(#8d21b4), to(#4a115e));
-    background-image: -moz-linear-gradient(top, #8d21b4, #4a115e);
-    background-image: -ms-linear-gradient(top, #8d21b4, #4a115e);
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #8d21b4), color-stop(100%, #4a115e));
-    background-image: -webkit-linear-gradient(top, #8d21b4, #4a115e);
-    background-image: -o-linear-gradient(top, #8d21b4, #4a115e);
-    background-image: linear-gradient(#8d21b4, #4a115e);
-    border-color: #4a115e #4a115e hsl(284, 69%, 17%);
-    color: #fff !important;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.33);
-    -webkit-font-smoothing: antialiased;
-}
-
-.btn-poultry {
-  background-color: hsl(54, 96%, 40%) !important;
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fae737", endColorstr="#c7b404");
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#fae737), to(#c7b404));
-  background-image: -moz-linear-gradient(top, #fae737, #c7b404);
-  background-image: -ms-linear-gradient(top, #fae737, #c7b404);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fae737), color-stop(100%, #c7b404));
-  background-image: -webkit-linear-gradient(top, #fae737, #c7b404);
-  background-image: -o-linear-gradient(top, #fae737, #c7b404);
-  background-image: linear-gradient(#fae737, #c7b404);
-  border-color: #c7b404 #c7b404 hsl(54, 96%, 35%);
-  color: #333 !important;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.33);
-  -webkit-font-smoothing: antialiased;
+      background-size: contain;
 }
 
 
-.btn-pumpkin {
-  background-color: hsl(36, 100%, 40%) !important;
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffad32", endColorstr="#cc7a00");
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#ffad32), to(#cc7a00));
-  background-image: -moz-linear-gradient(top, #ffad32, #cc7a00);
-  background-image: -ms-linear-gradient(top, #ffad32, #cc7a00);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffad32), color-stop(100%, #cc7a00));
-  background-image: -webkit-linear-gradient(top, #ffad32, #cc7a00);
-  background-image: -o-linear-gradient(top, #ffad32, #cc7a00);
-  background-image: linear-gradient(#ffad32, #cc7a00);
-  border-color: #cc7a00 #cc7a00 hsl(36, 100%, 35%);
-  color: #333 !important;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.33);
-  -webkit-font-smoothing: antialiased;
-}
-
-.btn-fruit {
-  background-color: hsl(36, 100%, 67%) !important;
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fff8ef", endColorstr="#febb56");
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#fff8ef), to(#febb56));
-  background-image: -moz-linear-gradient(top, #fff8ef, #febb56);
-  background-image: -ms-linear-gradient(top, #fff8ef, #febb56);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff8ef), color-stop(100%, #febb56));
-  background-image: -webkit-linear-gradient(top, #fff8ef, #febb56);
-  background-image: -o-linear-gradient(top, #fff8ef, #febb56);
-  background-image: linear-gradient(#fff8ef, #febb56);
-  border-color: #febb56 #febb56 hsl(36, 100%, 59.5%);
-  color: #333 !important;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.49);
-  -webkit-font-smoothing: antialiased;
-}
-
-.btn-pork {
-  background-color: hsl(0, 100%, 82%) !important;
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fecccc", endColorstr="#fea3a3");
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#fecccc), to(#fea3a3));
-  background-image: -moz-linear-gradient(top, #fecccc, #fea3a3);
-  background-image: -ms-linear-gradient(top, #fecccc, #fea3a3);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fecccc), color-stop(100%, #fea3a3));
-  background-image: -webkit-linear-gradient(top, #fecccc, #fea3a3);
-  background-image: -o-linear-gradient(top, #fecccc, #fea3a3);
-  background-image: linear-gradient(#fecccc, #fea3a3);
-  border-color: #fea3a3 #fea3a3 hsl(0, 100%, 80%);
-  color: #333 !important;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.13);
-  -webkit-font-smoothing: antialiased;
-}

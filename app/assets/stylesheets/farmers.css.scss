@@ -7,19 +7,14 @@
 }
 
 .picture-spot{
-  width:100%;
-  height: 400px;
+  width:250px;
+  height: 250px;
+  float: right;
 }
 
 .picture{
   width: 100%;
   height:100%;
-}
-
-.favorites-bar {
-  width: 100%;
-  bottom: 0;
-  border-top: solid 1px #000;
 }
 
 .main-nav{
@@ -47,34 +42,10 @@
   width:10px;
 }
 
-.farmer-thumbnail{
-  width: 120px;
-  height: 120px;
-  margin: 0 20px 15px 0;
-  margin-bottom: 0;
-  position: relative;
-  float: left;
-  background: rgba(255, 255, 255, 0.3);
-}
-
 #map-canvas{
   width: 80%;
   height: 300px;
-}
-
-.thumbnail-fname{
-  display: inline;
-  color: black;
-}
-
-.thumbnail-product{
-  color: white;
-  opacity: 1;
-  font-weight: bold;
-}
-
-.thumbnail-product.lamb{
-  background-color: blue;
+  float: left;
 }
 
 .connected-lists{
@@ -84,15 +55,7 @@
   white-space: nowrap
 }
 
-.product-list{
-  width: 90%;
-  height: 160px;
-
-  overflow-x: auto;
-  overflow-y: hidden;
-  white-space:nowrap
-}
-
+.map-canvas{width:500px; height: 500px; float:left;}
 ::-webkit-scrollbar {
 height: 10px;
 opacity: 0.5;
@@ -116,15 +79,10 @@ background-color: rgba(255, 255, 255, 0.6);
 -webkit-border-radius: 6px;
 }
 
-.product-list li{
-  display: inline-block;
-}
-
 
 
 body{
-  background:url(https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQQmJMxxya9H_DP-Gzv6eeAVHqdjRvbP3Qd6I3sepcAi4A9G7vqpA)
-  no-repeat center center fixed;
-//  background: url(http://img.mi9.com/landscape/5026/national-geographic-chicken-farm-animals_1600x1200_94488.jpg);
-  background-size: cover;
+//  background:url(https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQQmJMxxya9H_DP-Gzv6eeAVHqdjRvbP3Qd6I3sepcAi4A9G7vqpA);
+  background: url(http://img.mi9.com/landscape/5026/national-geographic-chicken-farm-animals_1600x1200_94488.jpg);
+//  background-size: cover;
 }

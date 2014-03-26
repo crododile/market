@@ -1,26 +1,30 @@
 <row>
-  <div class='col-md-6'>
-<h1>PRODUCT TYPES</h1>
+<div class='col-md-6'>
+  <h1>PRODUCT TYPES</h1>
   <form class='zipform'>
     <label>INPUT ZIP FOR FILTER
       <input type="text" name="zipfilter" value="ALL" class="zipfilter">
     </label>
     <button class='zipfilter'>FIND LOCAL FARMERS</button>
   </form>
-  <ul>
-    <% product_types.each(function(product_type){ %>
-      <li class="<%=product_type.escape('name')%>" data-type="<%=product_type.escape('name')%>">
-        <button class="goToMarket btn fourup btn-<%=product_type.escape('name')%>">
+
+   <div class='pt-area'>
+  <% product_types.each(function(product_type){ %>
+      <div class="<%=product_type.escape('name')%> button-width" data-type="<%=product_type.escape('name')%>">
+        <button class="go-to-market btn btn-block btn-<%=product_type.escape('name')%>">
           <%=product_type.escape('name')%>
         </button>
-      </li>
-    <% }) %>
-  </ul>
+      </div>
+  <% }) %>
+    </div>
 </div>
-<div class='right col-md-6 map-canvas' id='index-map' >
-  <button class='btn btn-success addMap'>ADD MAP</button>
 
-  map goes here
+<div class='right col-md-6' >
+  <div class='show-area'></div>
+
+  <div class='map-canvas' id="index-map">
+ <button class='btn btn-success addMap'>ADD MAP</button>
+  </div>
 
 </div>
 
