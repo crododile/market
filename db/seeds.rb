@@ -39,7 +39,6 @@ FactoryGirl.define do
     city {Faker::Address.city}
     state { Faker::Address.state }
     postal_code { Faker::Address.zip_code }
-
     phone_number { Faker::PhoneNumber.phone_number }
     contact_email { Faker::Internet.email }
   end

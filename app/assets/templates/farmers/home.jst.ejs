@@ -31,7 +31,11 @@
 </div>
   <div class='col-xs-6'>
     <div class='picture-spot'>
+      <% if(!farmer.escape('filepicker_url')) { %>
+         <div class='picture placeholder'></div>
+     <% } else { %>
       <img class='picture' src="<%=farmer.escape('filepicker_url')%>">
+      <% } %>
     </div>
   </div>
 </row>

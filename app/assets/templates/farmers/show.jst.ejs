@@ -4,7 +4,13 @@
   <div class='col-md-6 left-show'>
     <div class='jumbotron'>
     <h1><%= farmer.escape('name') %></h1>
-        <img src="<%=farmer.get('filepicker_url')%>" class='avatar pull-right img-circle'>
+      <div class='picture-spot'>
+       <% if(!farmer.get('filepicker_url')) { %>
+          <div class='placeholder picture pull-right img-circle'></div>
+      <% } else { %>
+         <img src="<%=farmer.get('filepicker_url')%>" class='avatar pull-right img-circle'>
+       <% } %>
+      </div>
     </div>
     <h2>About Us</h2>
     <p><%= farmer.escape('bio') %></p>
@@ -16,7 +22,9 @@
             <ul class='product-list' >
               <% farmer.products().each(function(product){ %>
                 <% if ( product.get('product_type_id') === pt.get('id') ){ %>
-                    <button class="show-product btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="<%=product.id%>">
+                    <button class="show-product btn btn-primary btn-lg"
+                        data-toggle="modal" data-target="#myModal"
+                        data-id="<%=product.id%>">
                       <%=product.escape('variety')%>
                     </button>
                 <%}%>
