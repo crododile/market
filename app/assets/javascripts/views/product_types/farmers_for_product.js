@@ -4,6 +4,7 @@ Market.Views.FarmersForProductType = Backbone.View.extend({
 
   initialize: function () {
     this.listenTo(this.collection, 'sync add remove', this.render);
+    this.collection.fetch()
   },
 
   events: {

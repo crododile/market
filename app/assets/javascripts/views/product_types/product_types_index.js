@@ -32,7 +32,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
   filter: function(event){
     event.preventDefault();
     this.zip= $('input.zipfilter').val()
-    addMap(this.zip)
+    // addMap(this.zip)
   },
 
   render: function(){
