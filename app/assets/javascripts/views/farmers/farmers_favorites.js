@@ -43,6 +43,23 @@ Market.Views.FarmersFavorites = Backbone.View.extend({
     $delButton.text('X');
     var that = this
 
+    $.ajax({
+      url: "/feed",
+      type: "GET",
+      success: function(respData){
+        var $freshie, $flink
+        respData.forEach( function(frsh){
+          $freshie = $('<li>')
+          $flink = $('<a>')
+          $flink.attr('href', '/#/farmers/'+frsh['farmer_name'])
+          $flink.text("new " + frsh['product_favorited'] + " from " + frsh['farmer_name'])
+          debugger
+          $freshie.html($flink)
+          $('.dropdown-menu').append($freshie)
+        })
+      }
+    });
+
 
     $('.connected-lists').sortable( { connectWith: ".connected-lists" } );
     $('.favorite-farmers .farmer-thumbnail').hover(
