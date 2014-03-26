@@ -4,6 +4,7 @@
   <div class='col-md-6 left-show'>
     <div class='jumbotron'>
     <h1><%= farmer.escape('name') %></h1>
+
       <div class='picture-spot'>
        <% if(!farmer.get('filepicker_url')) { %>
           <div class='placeholder picture pull-right img-circle'></div>
@@ -11,6 +12,7 @@
          <img src="<%=farmer.get('filepicker_url')%>" class='avatar pull-right img-circle'>
        <% } %>
       </div>
+
     </div>
     <h2>About Us</h2>
     <p><%= farmer.escape('bio') %></p>
@@ -37,8 +39,10 @@
     </ul>
   </div>
   <div class='col-md-6 location-dashboard'>
-    <div class='jumbotron'>
+
       <div class='contact-info-container right-show'>
+            <div class='jumbotron'>
+        <h1>Contact Us!</h1>
         <div class='contact-info'>
           <h2>
           <div class='phone-number'><%=farmer.escape('phone_number')%></div><br>
@@ -49,15 +53,13 @@
           <div class='postal-code'><%=farmer.escape('postal_code')%></div><br>
           </h2>
         </div>
-        <button class='btn btn-success visit-us'>VISIT US</button>
+        <button class='btn btn-success add-map'>VISIT US</button>
+        <div id="map-canvas" class='pull-right'>
+          MAP GOES HERE
+        </div>
       </div>
     </div>
     <br>
-
-    <div id="map-canvas">
-      MAP GOES HERE
-    </div>
-
   </div>
 </row>
 

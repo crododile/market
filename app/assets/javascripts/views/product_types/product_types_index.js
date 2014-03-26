@@ -9,14 +9,23 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
   events: {
     "click button.go-to-market":"goToMarket",
     "click button.zipfilter":"filter",
-    "click button.addMap":"addMap"
+    "click button.add-map":"addMap",
+    "click button.close-map":'closeMap'
   },
 
-  addMap: function(){
+  closeMap: function(){
+    this.$el.find('#index-map').html("").removeAttr('style')
+    $(event.target).toggleClass('close-map').toggleClass('add-map');
+    $(event.target).text('Open Map')
+  },
 
-    this.mc = this.$el.find('#index-map')
-    var center = new google.maps.LatLng(-33.8665433, 151.1956316)
-    var map = new google.maps.Map(this.mc[0], {center: center, zoom: 15})
+  addMap: function(event){
+    $(event.target).toggleClass('close-map').toggleClass('add-map');
+    $(event.target).text('Close Map')
+
+    this.mc = this.$el.find('#index-map');
+    var center = new google.maps.LatLng(-33.8665433, 151.1956316);
+    var map = new google.maps.Map(this.mc[0], {center: center, zoom: 15});
 
   },
 
@@ -58,7 +67,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
       model: ptModel,
       collection: ptFarmers
     });
-    $('div.show-area').html(ptMarketView.render().$el)
+    $('div.show-area').append(ptMarketView.render().$el)
   },
 
 });

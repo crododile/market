@@ -25,7 +25,10 @@ Market.Views.FarmersForProductType = Backbone.View.extend({
     return this;
   },
 
-  leaveMarket: function(){
+  leaveMarket: function(event){
+    event.preventDefault()
+    var showDivClass = $(event.target).data('id')
+
     // var  ptName = $(event.target).parent().parent().data("type");
     // var $goToMarketButton = $('<button>');
     //
@@ -33,7 +36,7 @@ Market.Views.FarmersForProductType = Backbone.View.extend({
     // $goToMarketButton.addClass("go-to-market");
     // $goToMarketButton.text(ptName)
     // $('div.'+ptName).html($goToMarketButton);
-    $('div.show-area').html('')
+    $('div.showDivclass').remove()
     this.remove()
   }
 });

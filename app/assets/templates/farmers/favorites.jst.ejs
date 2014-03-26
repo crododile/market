@@ -5,18 +5,20 @@
         <div class="<%='thumbnail-product ' + favFarmer.escape('product_favorited') %>">
         <%=favFarmer.escape('product_favorited') %>
         </div>
+
         <div class='thumbnail-personal'>
           <div class='thumbnail-fname' data-id='<%=favFarmer.id%>'>
             <a href="#/farmers/<%= favFarmer.escape('farmer_name') %>"><%=favFarmer.escape('farmer_name')%>
           </div>
+
           <div class='thumbnail-image-container'>
              <% if(!favFarmer.get('filepicker_url')) { %>
                 <div class='placeholder thumbnail-image'></div>
             <% } else { %>
                  <img class='thumbnail-image' src='<%=favFarmer.get('filepicker_url')%>'></a>
              <% } %>
-
           </div>
+
         </div>
       </div>
 
