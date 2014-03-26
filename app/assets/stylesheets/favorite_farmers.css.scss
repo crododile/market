@@ -3,9 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .favorites-bar {
-  position: fixed;
   width: 100%;
   bottom: 0;
+  position: fixed;
+  border-top: solid 1px #000;
 }
 
 .farmer-thumbnail{
@@ -63,7 +64,7 @@
   bottom: 0;
   margin-bottom: 5;
   position: relative;
-  display: inline-block;
+  float: left;
   background: rgba(255, 255, 255, 0.3);
 //  -webkit-transition: width  0.6s ease;
 //  -moz-transition: width 0.6s ease;
