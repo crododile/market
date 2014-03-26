@@ -8,10 +8,20 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 
   events: {
     "click button.go-to-market":"goToMarket",
+    // "mouseover div.market-button":"addText",
+//     "mouseout div.market-button":"removeText",
     "click button.zipfilter":"filter",
     "click button.add-map":"addMap",
     "click button.close-map":'closeMap'
   },
+
+  // removeText: function(event){
+ //    var pType = $(event.target.children[0]).toggleClass('hidden').toggleClass('visible')
+ //  },
+ //
+ //  addText: function(event){
+ //    var pType = $(event.target.children[0]).toggleClass('hidden').toggleClass('visible')
+ //  },
 
   closeMap: function(){
     this.$el.find('#index-map').html("").removeAttr('style')
@@ -43,6 +53,18 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
       });
 
     this.$el.html(renderedContent);
+
+    var that = this
+    function setUpHoverStuff(){
+      that.$el.find('div.market-button').hover(function(){
+        $(this).find('p').show();
+       }, function() {
+        $(this).find('p').hide();
+       }
+      )
+    }
+
+    setUpHoverStuff()
 
     return this;
   },

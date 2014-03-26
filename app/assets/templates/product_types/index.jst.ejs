@@ -10,9 +10,9 @@
 
    <div class='pt-area'>
   <% product_types.each(function(product_type){ %>
-      <div class="<%=product_type.escape('name')%> button-width" data-type="<%=product_type.escape('name')%>">
+      <div class="market-button <%=product_type.escape('name')%> button-width" data-type="<%=product_type.escape('name')%>">
         <button class="go-to-market btn btn-block btn-<%=product_type.escape('name')%>">
-          <%=product_type.escape('name')%>
+         <p> <%=product_type.escape('name')%> </p>
         </button>
       </div>
   <% }) %>
