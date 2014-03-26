@@ -37,11 +37,13 @@ Market.Views.FarmersEdit = Backbone.View.extend({
 
   makeFarmer: function(event){
     event.preventDefault();
-    this.autocomplete.getPlace()
 
     var params = $('form').serializeJSON();
-    params['farmer']['lat'] = this.autocomplete.getPlace().geometry.location.lat()
-    params['farmer']['lng'] = this.autocomplete.getPlace().geometry.location.lng()
+
+    if( this.autocomplete.getPlace() ){
+      params['farmer']['lat'] = this.autocomplete.getPlace().geometry.location.lat()
+      params['farmer']['lng'] = this.autocomplete.getPlace().geometry.location.lng()
+    }
 
     this.model.save( params , { patch: true } );
     $('#edit-div').html('')
