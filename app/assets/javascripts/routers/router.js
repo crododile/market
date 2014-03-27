@@ -18,11 +18,9 @@ Market.Routers.Router = Backbone.Router.extend({
   },
 
   favoritesFeed: function(){
-
     var favesBar = new Market.Views.FarmersFavorites({ model: this.current_farmer });
-    $('.favorites-bar').html(favesBar.render().$el);
-
-
+    favesBar.render();
+    $('.favorites-bar').html(favesBar.$el);
   },
 
   farmerHome: function(){
@@ -66,7 +64,21 @@ Market.Routers.Router = Backbone.Router.extend({
     this.currentView = view;
     view.render();
    $('#content').html(view.$el);
+
+
+
    $('.connected-lists').sortable( { connectWith: ".connected-lists" } );
+
+   var $delButton = $('<button>');
+   $delButton.addClass('delete-button');
+   $delButton.text('X');
+
+   $('.favorite-farmers .farmer-thumbnail').hover(
+
+     function(){  $(event.currentTarget).append( $delButton ) },
+     function(){  $delButton.remove() }
+   );
+
   }
 
 

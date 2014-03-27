@@ -6,6 +6,24 @@
   width: 100%;
   bottom: 0;
   position: fixed;
+  min-height: 130px;
+  border-top: solid 1px #000;
+}
+
+//div.favorite-farmers{
+//  width:100%;
+//  background: rgba(255, 255, 255, 0.3);
+//  overflow-x: scroll;
+//}
+
+.favorites-logo{
+  bottom: 0;
+  right:0;
+  position: fixed;
+  background: blue;
+  color: white;
+  font-weight: bold;
+  min-height: 130px;
   border-top: solid 1px #000;
 }
 

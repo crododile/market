@@ -4,7 +4,7 @@ Market.Views.FarmersFavorites = Backbone.View.extend({
 
   initialize: function(){
     this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.model.favorite_farmers(), "add", this.render)
+    this.listenTo(this.model.favorite_farmers(), "change sync", this.render)
   },
 
   events: {
@@ -53,7 +53,7 @@ Market.Views.FarmersFavorites = Backbone.View.extend({
           $flink = $('<a>')
           $flink.attr('href', '/#/farmers/'+frsh['farmer_name'])
           $flink.text("new " + frsh['product_favorited'] + " from " + frsh['farmer_name'])
-          debugger
+
           $freshie.html($flink)
           $('.dropdown-menu').append($freshie)
         })
@@ -62,9 +62,9 @@ Market.Views.FarmersFavorites = Backbone.View.extend({
 
 
     $('.connected-lists').sortable( { connectWith: ".connected-lists" } );
-    $('.favorite-farmers .farmer-thumbnail').hover(
 
-      function(){  $(event.currentTarget).append( $delButton ) },
+    $('.favorite-farmers .farmer-thumbnail').hover(
+      function(){ console.log('deleteable');  $(event.currentTarget).append( $delButton ) },
       function(){  $delButton.remove() }
     );
     return this
