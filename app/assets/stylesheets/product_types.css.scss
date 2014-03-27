@@ -79,6 +79,9 @@ div.index-map-container{
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
+
+
+
 .btn-fruit{
     background-image: url("./marketpics/fruit.jpg");
     background-size: contain;
@@ -92,60 +95,84 @@ div.index-map-container{
 
 .btn-goat{
     background-image: url("./marketpics/goat.jpg");
-    background-size: contain;
+    background-repeat: no-repeat;
+       background-position: center;
+       background-size: cover;
 }
 
 .btn-beef{
-    background-image: url("./marketpics/beef.jpg");
-    background-size: contain;
+    background-image: url("./marketpics/beef.jpg") ;
+    background-repeat: no-repeat;
+       background-position: center;
+       background-size: cover;
 }
 
 .btn-pork{
     background-image: url("./marketpics/pork.jpg");
-    background-size: contain;
+    background-repeat: no-repeat;
+       background-position: center;
+       background-size: cover;
 }
 
 .btn-eggplant{
     background-image: url("./marketpics/eggplant.jpg");
-    background-size: contain;
+    background-repeat: no-repeat;
+       background-position: center;
+       background-size: cover;
 }
 
 .btn-corn{
     background-image: url("./marketpics/corn.jpg");
-        background-size: contain;
+    background-repeat: no-repeat;
+       background-position: center;
+       background-size: cover;
 }
 
 .btn-poultry{
     background-image: url("./marketpics/chicken.jpg");
-        background-size: contain;
+    background-repeat: no-repeat;
+       background-position: center;
+       background-size: cover;
 }
 .btn-pumpkin{
     background-image: url("./marketpics/pumpkins-squash.jpg");
-        background-size: contain;
+    background-repeat: no-repeat;
+       background-position: center;
+       background-size: cover;
 }
 
 .btn-lamb{
     background-image: url("./marketpics/lamb.jpg");
-        background-size: contain;
+    background-repeat: no-repeat;
+       background-position: center;
+       background-size: cover;
 }
 
 .btn-pork{
     background-image: url("./marketpics/pork.jpg");
-        background-size: contain;
+    background-repeat: no-repeat;
+       background-position: center;
+       background-size: cover;
 }
 
 .btn-tomatoes{
     background-image: url("./marketpics/tomatoes.jpg");
-        background-size: contain;
+    background-repeat: no-repeat;
+       background-position: center;
+       background-size: cover;
 }
 .btn-lettuce{
   background-image: url("./marketpics/lettuce.jpg");
-      background-size: contain;
+  background-repeat: no-repeat;
+     background-position: center;
+     background-size: cover;
 }
 
 .btn-greens{
   background-image: url("./marketpics/greens-other.jpg");
-      background-size: contain;
+  background-repeat: no-repeat;
+     background-position: center;
+     background-size: cover;
 }
 
 
