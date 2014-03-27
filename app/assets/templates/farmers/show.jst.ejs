@@ -18,22 +18,30 @@
     <p><%= farmer.escape('bio') %></p>
     <h1>
 
+      <ul>
+        <h1>Products</h1>
+        <% farmer.product_types().each(function(pt){ %>
+          <div class='<%=pt.escape('name')%>'><h2><%=pt.escape('name') %></h2>
+            <li>
+              <ul class='product-list' >
+                <% farmer.products().each(function(product){ %>
+                  <% if ( product.get('product_type_id') === pt.get('id') ){ %>
+                      <button class="show-product btn btn-primary btn-lg"
+                          data-toggle="modal" data-target="#myModal"
+                          data-id="<%=product.id%>">
+                        <%=product.escape('variety')%>
+                      </button>
+                  <%}%>
+                <% }) %>
+              </ul>
+            </li>
+          </div>
+          <br>
+        <% })%>
+      </ul>
 
-      <h1>Contact Us!</h1>
-      <div class='contact-info'>
-        <h2>
-        <div class='phone-number'><%=farmer.escape('phone_number')%></div><br>
-        <div class='contact-email'><%=farmer.escape('contact_email')%></div><br>
-        <div class='street-address'> <%=farmer.escape('street_number')+" "+farmer.escape('route')%></div><br>
-        <div class='city'><%=farmer.escape('city')%></div><br>
-        <div class='state'><%=farmer.escape('state')%></div><br>
-        <div class='postal-code'><%=farmer.escape('postal_code')%></div><br>
-        </h2>
-      </div>
-      <button class='btn btn-success add-map'>VISIT US</button>
-      <div id="map-canvas" class='pull-right'>
-        MAP GOES HERE
-      </div>
+
+
 
   </div>
   <div class='col-md-6 location-dashboard'>
@@ -41,27 +49,24 @@
       <div class='contact-info-container right-show'>
             <div class='jumbotron'>
 
-              <ul>
-                <h1>Products</h1>
-                <% farmer.product_types().each(function(pt){ %>
-                  <div class='<%=pt.escape('name')%>'><h2><%=pt.escape('name') %></h2>
-                    <li>
-                      <ul class='product-list' >
-                        <% farmer.products().each(function(product){ %>
-                          <% if ( product.get('product_type_id') === pt.get('id') ){ %>
-                              <button class="show-product btn btn-primary btn-lg"
-                                  data-toggle="modal" data-target="#myModal"
-                                  data-id="<%=product.id%>">
-                                <%=product.escape('variety')%>
-                              </button>
-                          <%}%>
-                        <% }) %>
-                      </ul>
-                    </li>
-                  </div>
-                  <br>
-                <% })%>
-              </ul>
+              <button class='btn btn-success add-map'>VISIT US</button>
+              <div id="map-canvas" class='pull-right'>
+
+              </div>
+
+
+              <h1>Contact Us!</h1>
+              <div class='contact-info'>
+                <h2>
+                <div class='phone-number'><%=farmer.escape('phone_number')%></div><br>
+                <div class='contact-email'><%=farmer.escape('contact_email')%></div><br>
+                <div class='street-address'> <%=farmer.escape('street_number')+" "+farmer.escape('route')%></div><br>
+                <div class='city'><%=farmer.escape('city')%></div><br>
+                <div class='state'><%=farmer.escape('state')%></div><br>
+                <div class='postal-code'><%=farmer.escape('postal_code')%></div><br>
+                </h2>
+              </div>
+
 
 
 

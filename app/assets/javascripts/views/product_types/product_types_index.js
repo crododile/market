@@ -2,12 +2,14 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 
   initialize: function(){
     this.listenTo( this.collection, "sync", this.render );
+    this.zip = '94103'
   },
 
-  template: JST['product_types/index'],
+  template: JST['product_types/sortedindex'],
 
   events: {
-    "click div.market-button":"goToMarket",
+    "click div.s-market-button":"goToMarket",
+    // "click div.market-button":"goToMarket",
     // "mouseover div.market-button":"addText",
 //     "mouseout div.market-button":"removeText",
     "click button.zipfilter":"filter",
@@ -36,9 +38,24 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
     $(event.target).text('Close Map')
 
     this.mc = this.$el.find('#index-map');
-    var center = new google.maps.LatLng(-33.8665433, 151.1956316);
-    var map = new google.maps.Map(this.mc[0], {center: center, zoom: 15});
 
+    var markers = this.ptFarmers.getMarkers()
+    var center =  markers[0].position
+    var map = new google.maps.Map(this.mc[0], {center: center, zoom: 12});
+
+    markers.forEach(function(marker){
+      marker.setMap(map);
+
+      var infowindow = new google.maps.InfoWindow({
+          content: "<span>"+marker.title +"</span>"
+      });
+
+      // google.maps.event.addListener(marker, 'click', function() {
+     //    infowindow.open(map,marker);
+     //  });
+
+    infowindow.open(map,marker);
+    })
   },
 
   filter: function(event){
@@ -76,14 +93,14 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
     var  ptName = $(event.target).closest('div').data("type");
 
     var ptModel = this.collection.findWhere( {name: ptName})
-    var ptFarmers = new Market.Collections.FarmersForProductType({
+    var ptFarmers = this.ptFarmers = new Market.Collections.FarmersForProductType({
       product_type: ptModel,
       zip: this.zip
     });
 
     ptFarmers.fetch({
       success: function(){
-        ptFarmers.set( ptFarmers.byRegion(ptFarmers.zip));
+        ptFarmers.set( ptFarmers.byRegion( ptFarmers.zip));
         ptFarmers.trigger("sync")
       }
     });
@@ -92,7 +109,12 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
       model: ptModel,
       collection: ptFarmers
     });
-    $('div.show-area').append(ptMarketView.render().$el)
+    $('div.show-area').html(ptMarketView.render().$el)
+    // var tarClass = "."+ptName+'-farmers'
+    // console.log(tarClass)
+    //
+    // $('body').scrollspy({ target: tarClass })
+
   },
 
 });

@@ -16,6 +16,21 @@ Market.Collections.FarmersForProductType = Backbone.Collection.extend({
              farmer.get('zipcodes').split(',').indexOf(zip) != -1;
     });
     return filteredFarmers
+  },
+
+  getMarkers: function(mapp){
+    var farmerMarkers = this.map(function(farmer){
+      var farlatlng
+      farLatLng = new google.maps.LatLng(
+        parseFloat(farmer.get('lat')), parseFloat(farmer.get('lng')) );
+      return new google.maps.Marker({
+        position: farLatLng,
+
+        title: farmer.escape('name')
+      });
+
+    });
+  return farmerMarkers
   }
 
 

@@ -1,1 +1,1 @@
-json.array! @farmers, :id, :name, :zipcodes, :filepicker_url
+json.array! @farmers, :id, :name, :zipcodes, :filepicker_url, :lat, :lng

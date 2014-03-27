@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+//this is to make sure autocomplete field is above the modal
 .pac-container {
     z-index: 19999999999 !important;
 }
@@ -71,8 +73,13 @@
   position:absolute;
   top:0px;
   right:0px;
-  height:10px;
-  width:10px;
+  height:20px;
+  width:30px;
+
+  -webkit-border-radius: 12px 12px 12px 12px;
+    -moz-border-radius: 12px 12px 12px 12px;
+    -o-border-radius: 12px 12px 12px 12px;
+    border-radius: 12px 12px 12px 12px;
 }
 
 #map-canvas{

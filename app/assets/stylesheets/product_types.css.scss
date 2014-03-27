@@ -11,6 +11,20 @@
   white-space:nowrap
 }
 
+div.directions{
+  text-align: center;
+}
+
+div.index-map-container{
+  text-align: center;
+  padding-bottom: 300px;
+}
+
+.ind-map-button{
+  margin-left: 50%;
+  margin-right: 50%;
+}
+
 .product-list-item{
   display: inline-block;
 }
@@ -26,6 +40,19 @@
   height: 610px;
   overflow: auto;
   margin-bottom: 160px;
+}
+
+.s-pt-area{
+  text-align: justify;
+     -ms-text-justify: distribute-all-lines;
+     text-justify: distribute-all-lines;
+   width: 100%;
+}
+
+.s-market-button{
+  vertical-align: top;
+     display: inline-block;
+
 }
 
 .go-to-market{

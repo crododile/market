@@ -8,8 +8,27 @@ Market.Views.FarmersForProductType = Backbone.View.extend({
   },
 
   events: {
-        "click button.leaveMarket":"leaveMarket"
+        "click button.leaveMarket":"leaveMarket",
+        "click button.add-map":"addMap",
+        "click button.close-map":'closeMap'
       },
+
+      closeMap: function(){
+        this.$el.find('#index-map').html("").removeAttr('style')
+        $(event.target).toggleClass('close-map').toggleClass('add-map');
+        $(event.target).text('Open Map')
+      },
+
+      addMap: function(event){
+        $(event.target).toggleClass('close-map').toggleClass('add-map');
+        $(event.target).text('Close Map')
+
+        this.mc = this.$el.find('#index-map');
+
+        var map = new google.maps.Map(this.mc[0], {center: center, zoom: 15});
+        this.collection.getMarkers(map)
+      },
+
 
 
   render: function(){

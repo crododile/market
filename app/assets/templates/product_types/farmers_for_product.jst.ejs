@@ -1,4 +1,4 @@
-<div class='<%=pt.escape('name')+"-farmers"%>'>
+<div id="<%=pt.escape('name')%>" class='<%=pt.escape('name')+"-farmers"%>'>
   <div class="connected-lists">
     <% ptFarmers.each(function(farmer){ %>
     <div>
@@ -8,7 +8,7 @@
         </div>
           <div class='thumbnail-personal'>
             <div class='thumbnail-fname' data-id='<%=farmer.id%>'>
-              <a href="#/farmers/<%= farmer.escape('name') %>"><%=farmer.escape('name')%>
+              <a href="#/farmers/<%= farmer.escape('name') %>"><%=farmer.escape('name')%></a>
                 </div>
 
              <div class='thumbnail-image-container'>
@@ -26,6 +26,6 @@
     END OF ENTRIES
   </div>
 
-  <h1> FARMERS FOR <%= pt.escape('name') %> </h1>
-  <button class="leaveMarket" data-id='<%=pt.escape('name')+"-farmers"%>'>LEAVE THIS MARKET</button>
+  <button class="leaveMarket btn btn-warning"
+    data-id='<%=pt.escape('name')+"-farmers"%>'>LEAVE THIS MARKET</button>
 </div>

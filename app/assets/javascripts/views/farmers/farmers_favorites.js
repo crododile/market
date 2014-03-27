@@ -39,8 +39,8 @@ Market.Views.FarmersFavorites = Backbone.View.extend({
     this.$el.html(rc);
 
     var $delButton = $('<button>');
-    $delButton.addClass('delete-button');
-    $delButton.text('X');
+    $delButton.addClass('delete-button btn-danger');
+    $delButton.html( 'X');
     var that = this
 
     $.ajax({
@@ -64,7 +64,7 @@ Market.Views.FarmersFavorites = Backbone.View.extend({
     $('.connected-lists').sortable( { connectWith: ".connected-lists" } );
 
     $('.favorite-farmers .farmer-thumbnail').hover(
-      function(){ console.log('deleteable');  $(event.currentTarget).append( $delButton ) },
+      function(){ $(event.currentTarget).append( $delButton ) },
       function(){  $delButton.remove() }
     );
     return this

@@ -9,7 +9,7 @@
 
 product_types = [
   {name: "lamb"},
-  {name:'other vegetables'},
+
   {name:'beef'},
   {name:'tomatoes'},
   {name:'lettuce'},
@@ -21,7 +21,7 @@ product_types = [
   {name:'squash'},
   {name:'pumpkin'},
   {name:'goat'},
-  {name:'fruit'},
+
 ]
 
 ProductType.create!( product_types )
