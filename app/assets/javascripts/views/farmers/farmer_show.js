@@ -62,8 +62,9 @@ Market.Views.FarmerShow = Backbone.View.extend({
        console.log(myLatLng)
      }
       var mapOptions = {
-        zoom: 8,
+        zoom: 15,
         center: myLatLng ,
+        mapTypeId: google.maps.MapTypeId.SATELLITE
       };
 
       var mc = this.$el.find('#map-canvas')[0]

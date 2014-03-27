@@ -33,6 +33,7 @@ Market.Views.Map = Backbone.View.extend({
     var marker = new google.maps.Marker({
       map: this.map,
       position: place.geometry.location
+      mapTypeId: google.maps.MapTypeId.SATELLITE
     });
 
     google.maps.event.addListener(marker, 'click', function() {
