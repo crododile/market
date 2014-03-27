@@ -12,18 +12,22 @@
 
 .left-show{
   background: rgba(255, 255, 255, 0.3);
-  -webkit-border-radius: 5px 5px 5px 5px;
-    -moz-border-radius: 5px 5px 5px 5px;
-    -o-border-radius: 5px 5px 5px 5px;
-    border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 12px 12px 12px 12px;
+    -moz-border-radius: 12px 12px 12px 12px;
+    -o-border-radius: 12px 12px 12px 12px;
+    border-radius: 12px 12px 12px 12px;
+  overflow-y: scroll;
+  max-height: 700px;
 }
 
 .right-show{
   background: rgba(255, 255, 255, 0.3);
-  -webkit-border-radius: 5px 5px 5px 5px;
-    -moz-border-radius: 5px 5px 5px 5px;
-    -o-border-radius: 5px 5px 5px 5px;
-    border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 12px 12px 12px 12px;
+    -moz-border-radius: 12px 12px 12px 12px;
+    -o-border-radius: 12px 12px 12px 12px;
+    border-radius: 12px 12px 12px 12px;
+  overflow-y: scroll;
+  max-height: 700px;
 }
 
 .avatar{
@@ -81,6 +85,7 @@
 }
 
 .map-canvas{width:500px; height: 500px; float:left;}
+
 ::-webkit-scrollbar {
 height: 10px;
 opacity: 0.5;
@@ -103,6 +108,14 @@ opacity: 0.5;
 background-color: rgba(255, 255, 255, 0.6);
 -webkit-border-radius: 6px;
 }
+
+::-webkit-scrollbar-thumb:vertical {
+width: 20px;
+opacity: 0.5;
+background-color: rgba(255, 255, 255, 0.6);
+-webkit-border-radius: 6px;
+}
+
 
 
 
