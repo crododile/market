@@ -32,7 +32,7 @@ Market.Views.Map = Backbone.View.extend({
     var placeLoc = place.geometry.location;
     var marker = new google.maps.Marker({
       map: this.map,
-      position: place.geometry.location
+      position: place.geometry.location,
       mapTypeId: google.maps.MapTypeId.SATELLITE
     });
 
