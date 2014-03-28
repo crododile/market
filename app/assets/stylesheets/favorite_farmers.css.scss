@@ -10,11 +10,19 @@
   border-top: solid 1px #000;
 }
 
-//div.favorite-farmers{
-//  width:100%;
-//  background: rgba(255, 255, 255, 0.3);
-//  overflow-x: scroll;
-//}
+.connected-lists{
+  min-height:10px;
+  white-space: nowrap;
+
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space:nowrap
+}
+
+div.favorite-farmers{
+  width:100%;
+  background: rgba(255, 255, 255, 0.3);
+}
 
 .favorites-logo{
   bottom: 0;
@@ -29,7 +37,8 @@
 
 .farmer-thumbnail{
   bottom: 0;
-  float:left;
+  float: left;
+  display: inline-block;
 }
 
 .fourup{
