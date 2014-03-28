@@ -21,6 +21,7 @@ Market.Views.FarmerShow = Backbone.View.extend({
   closeMap: function(){
     this.$el.find('#map-canvas').html("").removeAttr('style')
     $(event.target).toggleClass('close-map').toggleClass('add-map');
+    $(event.target).show()
     $(event.target).text('Open Map')
   },
 
@@ -28,6 +29,7 @@ Market.Views.FarmerShow = Backbone.View.extend({
     event.preventDefault();
 
     $(event.target).toggleClass('close-map').toggleClass('add-map');
+
     $(event.target).text('Close Map')
 
 
@@ -98,7 +100,7 @@ Market.Views.FarmerShow = Backbone.View.extend({
   render: function(){
     var rc = this.template( { farmer: this.farmer });
     this.$el.html(rc);
-
+    $('button.add-map').trigger('click')
     return this;
   },
 
