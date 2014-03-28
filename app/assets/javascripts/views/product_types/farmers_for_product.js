@@ -42,6 +42,14 @@ Market.Views.FarmersForProductType = Backbone.View.extend({
     this.$el.html(renderedContent);
      $('.connected-lists').sortable( { connectWith: ".connected-lists" } );
 
+     $('.farmer-thumbnail').on('mousedown', function(){
+       $('div.favorite-farmers').addClass( 'highlight', { duration: 500 } );
+     });
+
+     $('.farmer-thumbnail').on('mouseup', function(){
+       $('div.favorite-farmers').removeClass( 'highlight', { duration: 500 } )
+     });
+
     return this;
   },
 

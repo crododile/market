@@ -24,6 +24,10 @@ div.favorite-farmers{
   background: rgba(255, 255, 255, 0.3);
 }
 
+div.favorite-farmers.highlight{
+  background: rgba(0, 218, 223, 0.5);
+}
+
 .favorites-logo{
   bottom: 0;
   right:0;
@@ -82,6 +86,12 @@ div.favorite-farmers{
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.thumbnail-image:active{
+  cursor:grabbing;
+  cursor:-moz-grabbing;
+  cursor:-webkit-grabbing;
 }
 
 .farmer-thumbnail{
