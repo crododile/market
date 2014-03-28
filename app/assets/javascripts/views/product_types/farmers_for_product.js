@@ -4,19 +4,19 @@ Market.Views.FarmersForProductType = Backbone.View.extend({
 
   initialize: function () {
     this.listenTo(this.collection, 'sync add remove', this.render);
-    this.collection.fetch()
+    this.collection.fetch({success: function(){$('button.add-map').trigger('click')}})
   },
 
   events: {
         "click button.leaveMarket":"leaveMarket",
-        "click button.add-map":"addMap",
-        "click button.close-map":'closeMap'
+        // "click button.add-map":"addMap",
+   //      "click button.close-map":'closeMap'
       },
 
       closeMap: function(){
+        $('button.close-map').toggleClass('close-map').toggleClass('add-map');
+        $('button.add-map').text('Open Map')
         this.$el.find('#index-map').html("").removeAttr('style')
-        $(event.target).toggleClass('close-map').toggleClass('add-map');
-        $(event.target).text('Open Map')
       },
 
       addMap: function(event){
@@ -47,6 +47,7 @@ Market.Views.FarmersForProductType = Backbone.View.extend({
 
   leaveMarket: function(event){
     event.preventDefault()
+    $('button.close-map').trigger('click')
     var showDivClass = $(event.target).data('id')
 
     // var  ptName = $(event.target).parent().parent().data("type");
@@ -56,6 +57,7 @@ Market.Views.FarmersForProductType = Backbone.View.extend({
     // $goToMarketButton.addClass("go-to-market");
     // $goToMarketButton.text(ptName)
     // $('div.'+ptName).html($goToMarketButton);
+    $('div.map-canvas').html('')
     $('div.showDivclass').remove()
     this.remove()
   }

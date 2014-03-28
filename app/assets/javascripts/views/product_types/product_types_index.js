@@ -29,8 +29,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 
   closeMap: function(){
     this.$el.find('#index-map').html("").removeAttr('style')
-    $(event.target).toggleClass('close-map').toggleClass('add-map');
-    $(event.target).text('Open Map')
+    $("button.close-map").toggleClass('close-map').toggleClass('add-map');
   },
 
   addMap: function(event){
@@ -89,6 +88,9 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
   },
 
   goToMarket: function(event){
+
+    $('div.directions').html('')
+    if ($('button.leaveMarket').trigger('click'))
 
     var  ptName = $(event.target).closest('div').data("type");
 
