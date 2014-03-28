@@ -1,20 +1,20 @@
 <div class='form-group'>
-<label> NAME
+<label> Name
 <input type="text" class='new-name form-control' name="farmer[name]" value="<%=farmer.escape('name')%>">
 </label>
 <br>
-<label> AREAS SERVED (ZIPCODES AS CSV eg. 37064,90210,43230 )
-  <input type="text" class='new-zipcodes form-control'  value="<%=farmer.escape('zipcodes')%>" name="farmer[zipcodes]">
-</label>
+<!-- <label> AREAS SERVED (ZIPCODES AS CSV eg. 37064,90210,43230 ) -->
+  <input type="hidden" class='new-zipcodes form-control'  value="37064" name="farmer[zipcodes]">
+<!-- </label> -->
 <br>
-<label>PHONE NUMBER
+<label>Phone Number
 <input type="text" class='form-control' name="farmer[phone_number]" value="<%=farmer.escape('phone_number')%>"></input>
 </label>
-<label>CONTACT EMAIL
+<label>Contact Email
   <input type="text" class='form-control' name="farmer[contact_email]" value="<%=farmer.escape('contact_email')%>"></input>
 </label>
 
-<label>AUTOCOMPLETE
+<label>Address Bar
     <div id="locationField">
       <input id="autocomplete" class='form-control' placeholder="Enter your address"
              onFocus="geolocate" type="text" value='<%=farmer.escape('street_number')
@@ -23,11 +23,11 @@
     </div>
 </label>
 <br>
-<label>HOUSE NUMBER
+<label>House Number
   <input class="field form-control" name=farmer[street_number]
      value="<%=farmer.escape('street_number')%>" id="street_number"></input>
 </label>
-<label>STREET
+<label>Street
   <input class="field form-control" name=farmer[route]
      value="<%=farmer.escape('route')%>" id="route"></input>
 </label>
@@ -47,7 +47,7 @@
 <input class="field form-control" id="country" value="<%=farmer.escape('country')%>"
   name=farmer[country]></input>
 <br>
-<label> TELL US ABOUT YOURSELF
+<label> Tell the world about your farm!
   <textarea name="farmer[bio]"><%=farmer.escape('bio')%></textarea>
 </label>
 <br>

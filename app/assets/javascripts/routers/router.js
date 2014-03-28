@@ -79,6 +79,21 @@ Market.Routers.Router = Backbone.Router.extend({
      function(){  $delButton.remove() }
    );
 
+   this.setHighlighter()
+
+  },
+
+  setHighlighter: function(){
+    console.log('set highss')
+
+    $('.favorite-farmers .farmer-thumbnail').on('mousedown', function(){
+      $('div.favorite-farmers').addClass( 'highlight', { duration: 500 } );
+    });
+
+    $('.favorite-farmers .farmer-thumbnail').on('mouseup', function(){
+      $('div.favorite-farmers').removeClass( 'highlight', { duration: 500 } )
+    });
+
   }
 
 

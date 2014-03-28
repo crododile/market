@@ -28,9 +28,16 @@ ProductType.create!( product_types )
 
 
 FactoryGirl.define do
+
+
+  sequence :email do |n|
+    "#{n}@gmail.com"
+  end
+
   factory :farmer do
+
     name { Faker::Name.name }
-    email { rand(100000).to_s + "@gmail.com" }
+    email
     password 'demodemo'
     zipcodes "37064,90210,43230"
     bio "WOW WE ALL HAVE THE SAME BIO!"
@@ -41,17 +48,19 @@ FactoryGirl.define do
     postal_code { Faker::Address.zip_code }
     phone_number { Faker::PhoneNumber.phone_number }
     contact_email { Faker::Internet.email }
+
   end
 
 
   factory :product_manifest do
     farmer_id { 1 + rand(50) }
-    product_type_id { 1 + rand(14) }
+    product_type_id { 1 + rand(11) }
     variety { Faker::Commerce.product_name }
     description { Faker::Company.catch_phrase }
   end
 
 end
+
 50.times{ FactoryGirl.create :farmer }
 30.times{ FactoryGirl.create :product_manifest }
 
