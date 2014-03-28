@@ -17,6 +17,7 @@ Market.Views.FarmersFavorites = Backbone.View.extend({
     deadModel = this.model.favorite_farmers().get( dataId )
     event.target.parentElement.remove();
     deadModel.destroy()
+    this.render()
   },
 
   sortStuff: function(event, ui){
@@ -42,7 +43,7 @@ Market.Views.FarmersFavorites = Backbone.View.extend({
     $delButton.addClass('delete-button btn-danger');
     $delButton.html( 'X');
     var that = this
-
+    $('.dropdown-menu').empty()
     $.ajax({
       url: "/feed",
       type: "GET",

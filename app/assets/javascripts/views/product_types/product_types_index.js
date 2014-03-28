@@ -112,6 +112,9 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
       collection: ptFarmers
     });
     $('div.show-area').html(ptMarketView.render().$el)
+    $('html, body').animate({
+         scrollTop: $("div.show-area").offset().top - 300
+     }, 500);
     // var tarClass = "."+ptName+'-farmers'
     // console.log(tarClass)
     //
