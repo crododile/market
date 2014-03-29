@@ -1,7 +1,7 @@
 <div id="<%=pt.escape('name')%>" class='<%=pt.escape('name')+"-farmers"%>'>
   <div class="connected-lists">
     <% ptFarmers.each(function(farmer){ %>
-    <div>
+
       <div class='farmer-thumbnail' data-id='<%= farmer.id %>'>
         <div class="<%='thumbnail-product ' + pt.escape('name') %>">
         <%=pt.escape('name') %>
@@ -15,7 +15,7 @@
                 <% if(!farmer.get('filepicker_url')) { %>
                    <div class='placeholder thumbnail-image'></div>
                <% } else { %>
-                    <img class='thumbnail-image' src='<%=farmer.get('filepicker_url')%>'></a>
+                    <img class='thumbnail-image' src='<%=farmer.get('filepicker_url')%>'>
                 <% } %>
              </div>
 
