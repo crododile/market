@@ -30,7 +30,9 @@ Market.Views.ProductsNew = Backbone.View.extend({
       {
         success: function(){
           that.model.products().add(newP)
-          $('#myModal').modal('hide');
+					    $('#myModal').modal('hide');
+					that.collection.add(newP)
+
         }
       }
     );
