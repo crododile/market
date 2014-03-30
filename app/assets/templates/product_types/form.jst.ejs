@@ -1,6 +1,12 @@
 <div class='form-group'>
 <label> PRODUCT-TYPE (ONLY TOLERATES EXISTING TYPES)
-<input type="text" class='form-control' name="product_type[name]">
+<select name="product_type[name]">
+
+	<% pTs.each(function(pt){ %>
+		<option value="<%=pt.escape('name')%>"><%=pt.escape('name')%></option>
+	<% }) %>
+
+</select>
 </label>
 <br>
 <label> VARIETY (unique to maker, added to listing)
