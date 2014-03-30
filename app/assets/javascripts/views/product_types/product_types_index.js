@@ -75,9 +75,9 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
     var that = this
     function setUpHoverStuff(){
       that.$el.find('div.market-button').hover(function(){
-        $(this).find('p').show();
+        $(this).find('span').show();
        }, function() {
-        $(this).find('p').hide();
+        $(this).find('span').hide();
        }
       )
     }
