@@ -1,3 +1,5 @@
+<row>
+	<div class='col-xs-6'>
 <h2>Sign in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -15,3 +17,30 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
+
+
+<div class='col-xs-4 jumbotron right-show'>
+	<form action="/farmers/sign_in" method='post'>
+		<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>" id="authenticity_token">
+		<input type="hidden" name="farmer[email]" value="1@gmail.com">
+		<input type="hidden" name="farmer[password]" value="demodemo">
+	<button class='btn btn-lg btn-success'>Come on in!</button>
+	</form>
+	<h2>Welcome To Moospace.co!</h2>
+	<h2>Your Index for finding local farmers and being found!</h2>
+	<br>
+	<ol>
+		<li>If you are just browsing, go to step 2!
+			If you are selling, hit the home button to set up your profile!
+			Add products and contact information to make yourself available to your customers</li>
+		<li>Hit a button to view a list of farmers in your area for a specific product</li>
+		<li>Drag a collection of farmers down to the dock at the bottom for later reference</li>
+		<li>When your done gathering farmers, click the link on the farmer thumbnail to travel to 
+			each farmers personal page and explore their inventory and contact information!
+	</ol>
+	<h3>Thats it! Have Fun, make friends, eat well!</h3>
+			
+	</div>
+	
+	</row>
