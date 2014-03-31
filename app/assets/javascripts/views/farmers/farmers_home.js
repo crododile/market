@@ -81,7 +81,7 @@ Market.Views.FarmerHome = Backbone.View.extend({
     var that = this
 
     $('div.modal-body').html(apView.render().$el)
-    $('#myModal').on('hide.bs.modal', function(){ that.render() })
+    $('#myModal').on('hide.bs.modal', function(){ debugger; that.render() })
 
   },
 
