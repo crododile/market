@@ -27,8 +27,15 @@ div.favorite-farmers{
   background: rgba(255, 255, 255, 0.3);
 }
 
+div.favorite-farmers a:link{
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+
 div.favorite-farmers.highlight{
   background: yellow;
+  opacity: 0.7;
 }
 
 .favorites-logo{
@@ -74,9 +81,10 @@ div.favorite-farmers.highlight{
   z-index:2;
 }
 
-.thumbnail-fname:a{
+.thumbnail-fname{
+  display: inline;
+  color: black;
   font-weight: bold;
-  color: white;
 }
 
 .thumbnail-image{
@@ -122,10 +130,7 @@ div.favorite-farmers.highlight{
 //  height: 170px;
 //}
 
-.thumbnail-fname{
-  display: inline;
-  color: black;
-}
+
 
 .thumbnail-product{
   color: white;
