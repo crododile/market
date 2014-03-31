@@ -75,7 +75,7 @@ Market.Routers.Router = Backbone.Router.extend({
    
    var $visitButton = $('<button>');
    $visitButton.addClass('visit-button btn-success');
-   $visitButton.text('Visit Our Page');
+   $visitButton.text('Visit Us');
 
    $('.favorite-farmers .farmer-thumbnail').hover(
 	   
