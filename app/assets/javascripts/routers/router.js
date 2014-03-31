@@ -84,7 +84,6 @@ Market.Routers.Router = Backbone.Router.extend({
   },
 
   setHighlighter: function(){
-    console.log('set highss')
 
     $('.favorite-farmers .farmer-thumbnail').on('mousedown', function(){
       $('div.favorite-farmers').addClass( 'highlight', { duration: 100 } );

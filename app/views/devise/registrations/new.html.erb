@@ -21,7 +21,14 @@
 </div>
 
 
+
 <div class='col-xs-4 jumbotron right-show'>
+	<form action="/farmers/sign_in" method='post'>
+		<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>" id="authenticity_token">
+		<input type="hidden" name="farmer[email]" value="1@gmail.com">
+		<input type="hidden" name="farmer[password]" value="demodemo">
+	<button class='btn btn-lg btn-success'>Come on in!</button>
+	</form>
 	<h2>Welcome To Moospace.co!</h2>
 	<h2>Your Index for finding local farmers and being found!</h2>
 	<br>
@@ -37,3 +44,5 @@
 	<h3>Thats it! Have Fun, make friends, eat well!</h3>
 			
 	</div>
+	
+	</row>
