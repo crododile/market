@@ -24,13 +24,16 @@ Market.Views.FarmersFavorites = Backbone.View.extend({
     var fName = $(ui.item).find('.thumbnail-fname').text().trim()
     var fId = $(ui.item).find('.thumbnail-fname').data('id')
     var pType = $(ui.item).find('.thumbnail-product').text().trim()
+	var fPicker = $($(ui.item).find(".thumbnail-image-container").children()[0]).attr('src')
 
     var nFave = new Market.Models.FavoriteFarmer({
       shopper_id: this.model.id, farmer_id: fId,
-      product_favorited: pType, farmer_name: fName
+      product_favorited: pType, farmer_name: fName,
+	  filepicker_url: fPicker
     });
 
-    nFave.save({ success: function(){ alert(saved) } })
+    nFave.save({ success: function(){ } })
+	
 
     this.model.favorite_farmers().add(nFave);
   },
