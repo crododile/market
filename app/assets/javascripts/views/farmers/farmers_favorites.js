@@ -9,7 +9,12 @@ Market.Views.FarmersFavorites = Backbone.View.extend({
 
   events: {
     'sortupdate':'sortStuff',
-    'click button.delete-button':'deleter'
+    'click button.delete-button':'deleter',
+	'click button.visit-button':'visiter'
+  },
+  
+  visiter: function(){
+	  Backbone.history.navigate( $(event.target).attr('href'), {trigger: true})
   },
 
   deleter: function(){
@@ -45,6 +50,11 @@ Market.Views.FarmersFavorites = Backbone.View.extend({
     var $delButton = $('<button>');
     $delButton.addClass('delete-button btn-danger');
     $delButton.html( 'X');
+	
+    var $visitButton = $('<button>');
+    $visitButton.addClass('visit-button btn-success');
+    $visitButton.text('Visit');
+	
     var that = this
     $('.dropdown-menu').empty()
     $.ajax({
@@ -68,8 +78,12 @@ Market.Views.FarmersFavorites = Backbone.View.extend({
     $('.connected-lists').sortable( { connectWith: ".connected-lists" } );
 
     $('.favorite-farmers .farmer-thumbnail').hover(
-      function(){ $(event.currentTarget).append( $delButton ) },
-      function(){  $delButton.remove() }
+        function(){ $(event.currentTarget).append( $delButton );
+
+			$visitButton.attr('href', $(event.currentTarget).find('a').attr('href') )
+   		  $(event.currentTarget).append( $visitButton ) },
+        function(){  $delButton.remove();
+   		 $visitButton.remove() }
     );
     return this
   }

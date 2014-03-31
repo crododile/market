@@ -73,18 +73,13 @@ div.favorite-farmers.highlight{
 }
 
 .thumbnail-fname{
+	display: none;
   position: absolute;
   font-weight: bold;
   color: white;
   top:0;
   left:0;
   z-index:2;
-}
-
-.thumbnail-fname{
-  display: inline;
-  color: black;
-  font-weight: bold;
 }
 
 .thumbnail-image{

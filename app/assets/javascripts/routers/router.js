@@ -70,13 +70,20 @@ Market.Routers.Router = Backbone.Router.extend({
    $('.connected-lists').sortable( { connectWith: ".connected-lists"} );
 
    var $delButton = $('<button>');
-   $delButton.addClass('delete-button');
+   $delButton.addClass('delete-button btn-danger');
    $delButton.text('X');
+   
+   var $visitButton = $('<button>');
+   $visitButton.addClass('visit-button btn-success');
+   $visitButton.text('Visit Our Page');
 
    $('.favorite-farmers .farmer-thumbnail').hover(
-
-     function(){  $(event.currentTarget).append( $delButton ) },
-     function(){  $delButton.remove() }
+	   
+     function(){  $(event.currentTarget).append( $delButton );
+		 $visitButton.attr('href', $(event.currentTarget).find('a').attr('href') )
+		  $(event.currentTarget).append( $visitButton ) },
+     function(){  $delButton.remove();
+		 $visitButton.remove() }
    );
 
    this.setHighlighter()
