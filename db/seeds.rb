@@ -9,18 +9,21 @@
 
 product_types = [
   {name: "lamb"},
-
+  {name:'pork'},
   {name:'beef'},
+  
   {name:'tomatoes'},
   {name:'lettuce'},
   {name:'greens'},
-  {name:'pork'},
+  
   {name:'poultry'},
-  {name:'eggplant'},
+  {name:'goat'},
+   
   {name:'corn'},
   {name:'squash'},
   {name:'pumpkin'},
-  {name:'goat'},
+
+  {name:'eggplant'},
 
 ]
 
