@@ -29,10 +29,9 @@ Market.Views.ProductsNew = Backbone.View.extend({
     newP.save( {},
       {
         success: function(){
-          that.model.products().add(newP)
-					    $('#myModal').modal('hide');
-					that.collection.add(newP)
-
+          that.model.products().add(newP);
+		  that.collection.add(newP)
+		  $('#myModal').modal('hide');
         }
       }
     );

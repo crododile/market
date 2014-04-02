@@ -1,7 +1,7 @@
 Market.Views.FarmerHome = Backbone.View.extend({
   initialize: function(){
     this.listenTo( this.model, 'sync', this.render);
-    this.listenTo( this.collection, 'add change', this.render );
+    this.listenTo( this.collection, 'change', this.render );
 
     this.componentForm = {
       street_number: 'short_name',
