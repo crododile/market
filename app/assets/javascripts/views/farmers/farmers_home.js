@@ -66,11 +66,11 @@ Market.Views.FarmerHome = Backbone.View.extend({
        success: function(){
          that.model.products().remove(deadProduct);
          $('#myModal').modal('hide');
-
+		 that.model.fetch()
      }
    });
 
-   $('#myModal').on('hide.bs.modal', function(){ that.render() })
+   $('#myModal').on('hide.bs.modal', function(){ that.render(); that.model.fetch() })
  },
 
   addProduct: function(){
@@ -81,7 +81,7 @@ Market.Views.FarmerHome = Backbone.View.extend({
     var that = this
 
     $('div.modal-body').html(apView.render().$el)
-    $('#myModal').on('hide.bs.modal', function(){ that.render() })
+    $('#myModal').on('hide.bs.modal', function(){ that.render(); that.model.fetch() })
 
   },
 
