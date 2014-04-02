@@ -6,6 +6,7 @@ Market.Routers.Router = Backbone.Router.extend({
     "productShow/:id":"productShow",
     "home":"farmerHome",
     "farmers/:name":"farmerShow",
+	'about':'about'
   },
 
   initialize: function(options){
@@ -15,6 +16,11 @@ Market.Routers.Router = Backbone.Router.extend({
    this.listenTo(this.current_farmer.favorite_farmers(), "change", this.favoritesFeed )
    this.favoritesFeed()
 
+  },
+  
+  about: function(){
+	  var about = new Market.Views.About()
+	  this._swapView(about)
   },
 
   favoritesFeed: function(){
