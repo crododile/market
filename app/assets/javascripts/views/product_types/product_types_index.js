@@ -36,26 +36,43 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
     $(event.target).toggleClass('close-map').toggleClass('add-map');
     $(event.target).text('Close Map')
 
-    this.mc = this.$el.find('#index-map');
+    this.mapCanvas = this.$el.find('#index-map');
 
     var markers = this.ptFarmers.getMarkers()
     var center =  markers[0].position
-    var map = new google.maps.Map(this.mc[0], {center: center, zoom: 12});
+    var map = new google.maps.Map(this.mapCanvas[0], {zoom: 12});
 
     markers.forEach(function(marker){
       marker.setMap(map);
-
+ 
       var infowindow = new google.maps.InfoWindow({
           content: "<span>"+marker.title +"</span>"
       });
-
-      // google.maps.event.addListener(marker, 'click', function() {
-     //    infowindow.open(map,marker);
-     //  });
-
-    infowindow.open(map,marker);
+ 
+ 	  infowindow.open(map,marker);
     })
-  },
+	
+    if(navigator.geolocation) {
+       browserSupportFlag = true;
+       navigator.geolocation.getCurrentPosition(function(position) {
+         initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+         map.setCenter(initialLocation);
+       }, function() {
+         handleNoGeolocation(browserSupportFlag);
+       });
+     }
+     // Browser doesn't support Geolocation
+     else {
+       browserSupportFlag = false;
+       handleNoGeolocation(browserSupportFlag);
+     }
+
+     function handleNoGeolocation() {
+         alert("Your browser doesn't support geolocation. We've placed the map on a farmer");
+         initialLocation = center;
+       map.setCenter(initialLocation);
+     }
+   },
 
   filter: function(event){
     event.preventDefault();
