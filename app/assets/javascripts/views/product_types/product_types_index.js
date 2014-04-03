@@ -21,17 +21,14 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
   },
   
   closeMap: function(){
-    this.$el.find('#index-map').html("").removeAttr('style')
+    // this.$el.find('#index-map').html("").removeAttr('style')
     $("button.close-map").toggleClass('close-map').toggleClass('add-map');
   },
 
-  addMap: function(event){
-	  
-	 
+  addMap: function(event){	 
  	$('.zip-form').show()
 	
     $(event.target).toggleClass('close-map').toggleClass('add-map');
-    $(event.target).text('Close Map')
 
     this.mapCanvas = this.$el.find('#index-map');
 	
@@ -81,13 +78,11 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 	  
       google.maps.event.addListener(this.autocomplete, 'place_changed', function() {
 		  that.map.setCenter(that.autocomplete.getPlace().geometry.location)
-         });
-		 
-	 	$('.zip-form').hide()
-		 
-
+         });	
+		  
+ 	$('.zip-form').hide()	
+	
     setUpHoverStuff()
-
     return this;
   },
 
@@ -101,7 +96,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
     var ptModel = this.collection.findWhere( {name: ptName})
     var ptFarmers = this.ptFarmers = new Market.Collections.FarmersForProductType({
       product_type: ptModel,
-      // zip: this.zip
+      zip: this.zip
     });
 
     ptFarmers.fetch({
