@@ -13,7 +13,6 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
     "click button.add-map":"addMap",
     "click button.close-map":'closeMap',
     "click button.fresh-feed":'freshFeed',
-	"click button.change_zip":"changeZip",
 	"submit form.zip-form":'prevent'
   },
   
@@ -21,10 +20,6 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 	  event.preventDefault()
   },
   
-  changeZip: function(){
-  	
-  },
-
   closeMap: function(){
     this.$el.find('#index-map').html("").removeAttr('style')
     $("button.close-map").toggleClass('close-map').toggleClass('add-map');
@@ -33,13 +28,12 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
   addMap: function(event){
     $(event.target).toggleClass('close-map').toggleClass('add-map');
     $(event.target).text('Close Map')
-	$('.zip-form').show();
 
     this.mapCanvas = this.$el.find('#index-map');
 	
     var markers = this.ptFarmers.getMarkers()
     var center =  markers[0].position
-    this.map = new google.maps.Map(this.mapCanvas[0], {zoom: 12});
+    map = new google.maps.Map(this.mapCanvas[0], {center: center, zoom: 12});
 
     markers.forEach(function(marker){
       marker.setMap(map);
@@ -50,27 +44,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
  
  	  infowindow.open(map,marker);
     })
-	
-    if(navigator.geolocation) {
-	   browserSupportFlag = true;
-	   navigator.geolocation.getCurrentPosition(function(position) {
-	     initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-	     map.setCenter(initialLocation);
-	   }, function() {
-	     handleNoGeolocation(browserSupportFlag);
-	   });
-	 }
-	 // Browser doesn't support Geolocation
-	 else {
-	   browserSupportFlag = false;
-	   handleNoGeolocation(browserSupportFlag);
-	 }
-
-	 function handleNoGeolocation() {
-	     alert("Your browser doesn't support geolocation. We've placed the map on a farmer");
-	     initialLocation = center;
-	   map.setCenter(initialLocation);
-	 }
+	this.map = map
    },
   
   filter: function(event){
@@ -122,7 +96,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
     var ptModel = this.collection.findWhere( {name: ptName})
     var ptFarmers = this.ptFarmers = new Market.Collections.FarmersForProductType({
       product_type: ptModel,
-      zip: this.zip
+      // zip: this.zip
     });
 
     ptFarmers.fetch({
