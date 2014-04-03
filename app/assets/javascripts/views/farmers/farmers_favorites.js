@@ -57,6 +57,8 @@ Market.Views.FarmersFavorites = Backbone.View.extend({
 	
     var that = this
     $('.dropdown-menu').empty()
+	$('.dropdown-menu').append('<li>Products Added in Past 3 days</li>')
+	
     $.ajax({
       url: "/feed",
       type: "GET",
@@ -67,11 +69,11 @@ Market.Views.FarmersFavorites = Backbone.View.extend({
           $flink = $('<a>')
           $flink.attr('href', '/#/farmers/'+frsh['farmer_name'])
           $flink.text("new " + frsh['product_favorited'] + " from " + frsh['farmer_name'])
-
+	
           $freshie.html($flink)
           $('.dropdown-menu').append($freshie)
         })
-      }
+      },
     });
 
 
