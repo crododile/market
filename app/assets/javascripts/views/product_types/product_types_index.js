@@ -9,23 +9,16 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 
   events: {
     "click div.s-market-button":"goToMarket",
-    // "click div.market-button":"goToMarket",
-    // "mouseover div.market-button":"addText",
-//     "mouseout div.market-button":"removeText",
-    "click button.zipfilter":"filter",
+    "click button.zip-filter":"filter",
     "click button.add-map":"addMap",
     "click button.close-map":'closeMap',
-    "click button.fresh-feed":'freshFeed'
+    "click button.fresh-feed":'freshFeed',
+	"click button.change_zip":"changeZip"
   },
-
-  // removeText: function(event){
- //    var pType = $(event.target.children[0]).toggleClass('hidden').toggleClass('visible')
- //  },
- //
- //  addText: function(event){
- //    var pType = $(event.target.children[0]).toggleClass('hidden').toggleClass('visible')
- //  },
-
+  
+  changeZip: function(){
+  	
+  },
 
   closeMap: function(){
     this.$el.find('#index-map').html("").removeAttr('style')
@@ -35,12 +28,13 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
   addMap: function(event){
     $(event.target).toggleClass('close-map').toggleClass('add-map');
     $(event.target).text('Close Map')
+	$('.zip-form').show();
 
     this.mapCanvas = this.$el.find('#index-map');
-
+	
     var markers = this.ptFarmers.getMarkers()
     var center =  markers[0].position
-    var map = new google.maps.Map(this.mapCanvas[0], {zoom: 12});
+    this.map = new google.maps.Map(this.mapCanvas[0], {zoom: 12});
 
     markers.forEach(function(marker){
       marker.setMap(map);
@@ -53,31 +47,30 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
     })
 	
     if(navigator.geolocation) {
-       browserSupportFlag = true;
-       navigator.geolocation.getCurrentPosition(function(position) {
-         initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-         map.setCenter(initialLocation);
-       }, function() {
-         handleNoGeolocation(browserSupportFlag);
-       });
-     }
-     // Browser doesn't support Geolocation
-     else {
-       browserSupportFlag = false;
-       handleNoGeolocation(browserSupportFlag);
-     }
+	   browserSupportFlag = true;
+	   navigator.geolocation.getCurrentPosition(function(position) {
+	     initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+	     map.setCenter(initialLocation);
+	   }, function() {
+	     handleNoGeolocation(browserSupportFlag);
+	   });
+	 }
+	 // Browser doesn't support Geolocation
+	 else {
+	   browserSupportFlag = false;
+	   handleNoGeolocation(browserSupportFlag);
+	 }
 
-     function handleNoGeolocation() {
-         alert("Your browser doesn't support geolocation. We've placed the map on a farmer");
-         initialLocation = center;
-       map.setCenter(initialLocation);
-     }
+	 function handleNoGeolocation() {
+	     alert("Your browser doesn't support geolocation. We've placed the map on a farmer");
+	     initialLocation = center;
+	   map.setCenter(initialLocation);
+	 }
    },
-
+  
   filter: function(event){
     event.preventDefault();
     this.zip= $('input.zipfilter').val()
-    // addMap(this.zip)
   },
 
   render: function(){
@@ -98,6 +91,16 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
        }
       )
     }
+	
+    this.autocomplete = new google.maps.places.Autocomplete(
+      (this.$el.find('#autocomplete')[0]),
+      { types: ['geocode'] });
+	  
+      google.maps.event.addListener(this.autocomplete, 'place_changed', function() {
+		  that.map.setCenter(that.autocomplete.getPlace().geometry.location)
+         });
+		 
+		 
 
     setUpHoverStuff()
 
@@ -129,13 +132,6 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
       collection: ptFarmers
     });
     $('div.show-area').html(ptMarketView.render().$el)
-    // $('html, body').animate({
-   //       scrollTop: $("div.show-area").offset().top - 300
-   //   }, 500);
-    // var tarClass = "."+ptName+'-farmers'
-    // console.log(tarClass)
-    //
-    // $('body').scrollspy({ target: tarClass })
 
   },
 
