@@ -26,6 +26,10 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
   },
 
   addMap: function(event){
+	  
+	 
+ 	$('.zip-form').show()
+	
     $(event.target).toggleClass('close-map').toggleClass('add-map');
     $(event.target).text('Close Map')
 
@@ -79,6 +83,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 		  that.map.setCenter(that.autocomplete.getPlace().geometry.location)
          });
 		 
+	 	$('.zip-form').hide()
 		 
 
     setUpHoverStuff()
