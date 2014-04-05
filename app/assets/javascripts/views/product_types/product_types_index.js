@@ -11,8 +11,6 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
   events: {
     "click div.s-market-button":"goToMarket",
     "click button.zip-filter":"filter",
-    // "click button.add-map":"addMap",
-    "click button.close-map":'closeMap',
     "click button.fresh-feed":'freshFeed',
 	"submit form.zip-form":'prevent'
   },
@@ -22,7 +20,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
   },
   
   closeMap: function(){
-    // this.$el.find('#index-map').html("").removeAttr('style')
+
     $("button.close-map").toggleClass('close-map').toggleClass('add-map');
   },
 
@@ -50,7 +48,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 	      infowindow.close();
 	  });
 
-    })
+    });
 
    },
    
@@ -122,7 +120,6 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
   goToMarket: function(event){
 
     $('div.directions').html('')
-    // if ($('button.leaveMarket').trigger('click'))
 	
 	if (!$(event.target).hasClass('clicked')){
 		$(event.target).addClass('clicked')
@@ -151,9 +148,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 	    });
 	    $('div.show-area').html(ptMarketView.render().$el)
 	} else {
-		
-		  var  ptName = $(event.target).closest('div').data("type");
-		
+	    var  ptName = $(event.target).closest('div').data("type");
 		$(event.target).removeClass('clicked')
 		var toRemove = []
 		this.markers.forEach(function(marker, index){
@@ -166,10 +161,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 		toRemove.forEach(function(ind){
 			that.markers.splice(ind, 1)
 		})
-	    var  ptName = $(event.target).closest('div').data("type");
-		
-		
-		
+	    var  ptName = $(event.target).closest('div').data("type");		
 	}
   },
 

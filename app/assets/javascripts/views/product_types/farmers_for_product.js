@@ -8,9 +8,7 @@ Market.Views.FarmersForProductType = Backbone.View.extend({
   },
 
   events: {
-        "click button.leaveMarket":"leaveMarket",
-        // "click button.add-map":"addMap",
-   //      "click button.close-map":'closeMap'
+        "click button.leaveMarket":"leaveMarket"
       },
 
       closeMap: function(){
@@ -58,13 +56,6 @@ Market.Views.FarmersForProductType = Backbone.View.extend({
     $('button.close-map').trigger('click')
     var showDivClass = $(event.target).data('id')
 
-    // var  ptName = $(event.target).parent().parent().data("type");
-    // var $goToMarketButton = $('<button>');
-    //
-    // $goToMarketButton.addClass("btn btn-block btn-"+ptName);
-    // $goToMarketButton.addClass("go-to-market");
-    // $goToMarketButton.text(ptName)
-    // $('div.'+ptName).html($goToMarketButton);
     $('div.map-canvas').html('')
     $('div.showDivclass').remove()
     this.remove()
