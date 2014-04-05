@@ -91,7 +91,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
   goToMarket: function(event){
 
     $('div.directions').html('')
-    if ($('button.leaveMarket').trigger('click'))
+    // if ($('button.leaveMarket').trigger('click'))
 
     var  ptName = $(event.target).closest('div').data("type");
 
