@@ -27,7 +27,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
   },
 
   addMap: function(event){	 
- 	$('.zip-form').show()
+
 	
     $(event.target).toggleClass('close-map').toggleClass('add-map');
 
@@ -62,7 +62,6 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
        markers.forEach(function(marker){
          marker.setMap(map);
 		 that.markers.push(marker)
-		 debugger
          var infowindow = new google.maps.InfoWindow({
              content: "<span>"+marker.title +" "+  marker.content.attributes.name + "</span>"
          });
@@ -111,12 +110,10 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 		  that.map.setCenter(that.autocomplete.getPlace().geometry.location)
          });	
 		  
- 	$('.zip-form').hide()	
-
 	var center = new google.maps.LatLng(-28.643387, 153.612224)
     this.mapCanvas = this.$el.find('#index-map');
 	
-	 this.map = new google.maps.Map(this.mapCanvas[0], {center: center, zoom: 12});
+	this.map = new google.maps.Map(this.mapCanvas[0], {center: center, zoom: 12});
 	
     setUpHoverStuff()
     return this;
