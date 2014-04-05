@@ -119,11 +119,14 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
       product_type: ptModel,
       zip: this.zip
     });
+	
+	var that = this
 
     ptFarmers.fetch({
       success: function(){
         ptFarmers.set( ptFarmers.byRegion( ptFarmers.zip));
         ptFarmers.trigger("sync")
+		that.moreMarkers()
       }
     });
 
@@ -132,7 +135,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
       collection: ptFarmers
     });
     $('div.show-area').html(ptMarketView.render().$el)
-	this.moreMarkers();
+	
   },
 
 });
