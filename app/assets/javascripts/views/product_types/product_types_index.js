@@ -44,6 +44,24 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
     })
 
    },
+   
+   moreMarkers: function(){
+	   
+       var map = this.map
+       var markers = this.ptFarmers.getMarkers()
+
+       markers.forEach(function(marker){
+         marker.setMap(map);
+ 
+         var infowindow = new google.maps.InfoWindow({
+             content: "<span>"+marker.title +"</span>"
+         });
+ 
+    	  infowindow.open(map,marker);
+       })
+   	
+	
+   },
   
   filter: function(event){
     event.preventDefault();
@@ -93,6 +111,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
     $('div.directions').html('')
     // if ($('button.leaveMarket').trigger('click'))
 
+
     var  ptName = $(event.target).closest('div').data("type");
 
     var ptModel = this.collection.findWhere( {name: ptName})
@@ -113,7 +132,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
       collection: ptFarmers
     });
     $('div.show-area').html(ptMarketView.render().$el)
-
+	this.moreMarkers();
   },
 
 });
