@@ -19,6 +19,7 @@ Market.Collections.FarmersForProductType = Backbone.Collection.extend({
   },
 
   getMarkers: function(mapp){
+	  var that = this
     var farmerMarkers = this.map(function(farmer){
       var farlatlng
       farLatLng = new google.maps.LatLng(
@@ -26,7 +27,8 @@ Market.Collections.FarmersForProductType = Backbone.Collection.extend({
       return new google.maps.Marker({
         position: farLatLng,
 
-        title: farmer.escape('name')
+        title: farmer.escape('name'),
+		content: that.product_type
       });
 
     });

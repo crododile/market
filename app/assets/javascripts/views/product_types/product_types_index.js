@@ -3,7 +3,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
   initialize: function(){
     this.listenTo( this.collection, "sync", this.render );
     this.zip = '37064';
-	this.markers = []
+	this.markers = [];
   },
 
   template: JST['product_types/sortedindex'],
@@ -11,7 +11,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
   events: {
     "click div.s-market-button":"goToMarket",
     "click button.zip-filter":"filter",
-    "click button.add-map":"addMap",
+    // "click button.add-map":"addMap",
     "click button.close-map":'closeMap',
     "click button.fresh-feed":'freshFeed',
 	"submit form.zip-form":'prevent'
@@ -32,10 +32,11 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
     $(event.target).toggleClass('close-map').toggleClass('add-map');
 
     var map = this.map
-
-    this.markers.forEach(function(marker){
+    var markers = this.ptFarmers.getMarkers()
+	var that = this;
+    markers.forEach(function(marker){
       marker.setMap(map);
- 
+      that.markers.push(marker)
       var infowindow = new google.maps.InfoWindow({
           content: "<span>"+marker.title +"</span>"
       });
@@ -46,14 +47,16 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
    },
    
    moreMarkers: function(){
-	   
+	   console.log(this.markers)
        var map = this.map
-
-       this.markers.forEach(function(marker){
+       var markers = this.ptFarmers.getMarkers()
+	   var that = this
+       markers.forEach(function(marker){
          marker.setMap(map);
- 
+		 that.markers.push(marker)
+		 debugger
          var infowindow = new google.maps.InfoWindow({
-             content: "<span>"+marker.title +"</span>"
+             content: "<span>"+marker.title +" "+  marker.content.attributes.name + "</span>"
          });
  
     	  infowindow.open(map,marker);
