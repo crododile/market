@@ -2,7 +2,8 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 
   initialize: function(){
     this.listenTo( this.collection, "sync", this.render );
-    this.zip = '37064'
+    this.zip = '37064';
+	this.markers = []
   },
 
   template: JST['product_types/sortedindex'],
@@ -31,9 +32,8 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
     $(event.target).toggleClass('close-map').toggleClass('add-map');
 
     var map = this.map
-    var markers = this.ptFarmers.getMarkers()
 
-    markers.forEach(function(marker){
+    this.markers.forEach(function(marker){
       marker.setMap(map);
  
       var infowindow = new google.maps.InfoWindow({
@@ -48,9 +48,8 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
    moreMarkers: function(){
 	   
        var map = this.map
-       var markers = this.ptFarmers.getMarkers()
 
-       markers.forEach(function(marker){
+       this.markers.forEach(function(marker){
          marker.setMap(map);
  
          var infowindow = new google.maps.InfoWindow({
@@ -110,32 +109,42 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 
     $('div.directions').html('')
     // if ($('button.leaveMarket').trigger('click'))
-
-
-    var  ptName = $(event.target).closest('div').data("type");
-
-    var ptModel = this.collection.findWhere( {name: ptName})
-    var ptFarmers = this.ptFarmers = new Market.Collections.FarmersForProductType({
-      product_type: ptModel,
-      zip: this.zip
-    });
 	
-	var that = this
+	if (!$(event.target).hasClass('clicked')){
+		$(event.target).addClass('clicked')
 
-    ptFarmers.fetch({
-      success: function(){
-        ptFarmers.set( ptFarmers.byRegion( ptFarmers.zip));
-        ptFarmers.trigger("sync")
-		that.moreMarkers()
-      }
-    });
+	    var  ptName = $(event.target).closest('div').data("type");
 
-    var ptMarketView = new Market.Views.FarmersForProductType({
-      model: ptModel,
-      collection: ptFarmers
-    });
-    $('div.show-area').html(ptMarketView.render().$el)
+	    var ptModel = this.collection.findWhere( {name: ptName})
+	    var ptFarmers = this.ptFarmers = new Market.Collections.FarmersForProductType({
+	      product_type: ptModel,
+	      zip: this.zip
+	    });
 	
+		var that = this
+
+	    ptFarmers.fetch({
+	      success: function(){
+	        ptFarmers.set( ptFarmers.byRegion( ptFarmers.zip));
+	        ptFarmers.trigger("sync")
+			that.moreMarkers()
+	      }
+	    });
+
+	    var ptMarketView = new Market.Views.FarmersForProductType({
+	      model: ptModel,
+	      collection: ptFarmers
+	    });
+	    $('div.show-area').html(ptMarketView.render().$el)
+	} else {
+		
+		$(event.target).removeClass('clicked')
+		
+	    var  ptName = $(event.target).closest('div').data("type");
+		
+		
+		
+	}
   },
 
 });

@@ -11,6 +11,10 @@
   white-space:nowrap
 }
 
+.clicked{
+	opacity:0.7;
+}
+
 .product-list-item{
   display: inline-block;
 }
@@ -93,7 +97,9 @@ div.index-map-container{
 
 .btn-squash{
     background-image: url("./marketpics/squash.jpg");
-    background-size: contain;
+    background-repeat: no-repeat;
+       background-position: center;
+       background-size: cover;
 }
 
 .btn-goat{
@@ -177,9 +183,3 @@ div.index-map-container{
      background-position: center;
      background-size: cover;
 }
-
-.down-arrow{
-  image: url("./marketpics/curved-arrow-bright-green-md.png");
-}
-
-
