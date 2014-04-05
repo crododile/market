@@ -30,11 +30,8 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 	
     $(event.target).toggleClass('close-map').toggleClass('add-map');
 
-    this.mapCanvas = this.$el.find('#index-map');
-	
+    var map = this.map
     var markers = this.ptFarmers.getMarkers()
-    var center =  markers[0].position
-    map = new google.maps.Map(this.mapCanvas[0], {center: center, zoom: 12});
 
     markers.forEach(function(marker){
       marker.setMap(map);
@@ -45,7 +42,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
  
  	  infowindow.open(map,marker);
     })
-	this.map = map
+
    },
   
   filter: function(event){
@@ -81,6 +78,11 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
          });	
 		  
  	$('.zip-form').hide()	
+
+	var center = new google.maps.LatLng(-28.643387, 153.612224)
+    this.mapCanvas = this.$el.find('#index-map');
+	
+	 this.map = new google.maps.Map(this.mapCanvas[0], {center: center, zoom: 12});
 	
     setUpHoverStuff()
     return this;
