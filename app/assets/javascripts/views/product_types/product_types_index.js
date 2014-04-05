@@ -61,8 +61,6 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
  
     	  infowindow.open(map,marker);
        })
-   	
-	
    },
   
   filter: function(event){
@@ -141,8 +139,20 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 	    $('div.show-area').html(ptMarketView.render().$el)
 	} else {
 		
-		$(event.target).removeClass('clicked')
+		  var  ptName = $(event.target).closest('div').data("type");
 		
+		$(event.target).removeClass('clicked')
+		var toRemove = []
+		this.markers.forEach(function(marker, index){
+			if (marker.content.attributes.name === ptName){
+				toRemove.push[index]
+				marker.setMap(null)
+			}
+		});
+		var that = this
+		toRemove.forEach(function(ind){
+			that.markers.splice(ind, 1)
+		})
 	    var  ptName = $(event.target).closest('div').data("type");
 		
 		
