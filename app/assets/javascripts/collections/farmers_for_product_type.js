@@ -26,7 +26,7 @@ Market.Collections.FarmersForProductType = Backbone.Collection.extend({
         parseFloat(farmer.get('lat')), parseFloat(farmer.get('lng')) );
       return new google.maps.Marker({
         position: farLatLng,
-
+        animation: google.maps.Animation.DROP,
         title: farmer.escape('name'),
 		content: that.product_type
       });

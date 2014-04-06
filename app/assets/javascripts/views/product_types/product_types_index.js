@@ -12,46 +12,22 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
     "click div.s-market-button":"goToMarket",
     "click button.zip-filter":"filter",
     "click button.fresh-feed":'freshFeed',
+	"mouseenter .thumbnail-tab":"animateMarker",
 	"submit form.zip-form":'prevent'
+  },
+  
+  animateMarker: function(){
+	  var name = $(event.target).data('name')
+	  this.markers.forEach(function(marker){
+		  if (marker.title === name){
+			  marker.setAnimation(google.maps.Animation.DROP)
+		  }
+	  })
   },
   
   prevent: function(){
 	  event.preventDefault()
   },
-  
-  closeMap: function(){
-
-    $("button.close-map").toggleClass('close-map').toggleClass('add-map');
-  },
-
-  addMap: function(event){	 
-
-	
-    $(event.target).toggleClass('close-map').toggleClass('add-map');
-
-    var map = this.map
-    var markers = this.ptFarmers.getMarkers()
-	var that = this;
-    markers.forEach(function(marker){
-      marker.setMap(map);
-      that.markers.push(marker)
-      var infowindow = new google.maps.InfoWindow({
-          content: "<span>"+marker.title +"</span>"
-      });
- 
-	  google.maps.event.addListener(marker, 'mouseover', function() {
-	
-	      infowindow.open(map, this);
-	  });
-
-	  // assuming you also want to hide the infowindow when user mouses-out
-	  google.maps.event.addListener(marker, 'mouseout', function() {
-	      infowindow.close();
-	  });
-
-    });
-
-   },
    
    moreMarkers: function(){
 	   console.log(this.markers)
@@ -115,7 +91,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 		  that.map.setCenter(that.autocomplete.getPlace().geometry.location)
          });	
 		  
-	var center = new google.maps.LatLng(-28.643387, 153.612224)
+	var center = new google.maps.LatLng(37.7833, -122.4167)
     this.mapCanvas = this.$el.find('#index-map');
 	
 	this.map = new google.maps.Map(this.mapCanvas[0], {center: center, zoom: 12});
