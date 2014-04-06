@@ -2,53 +2,41 @@
 
 <div class='container-fluid'>
   <% product_types.each(function(product_type, x){ %>
-
-        <div class="s-market-button rounded-corners market-button <%=product_type.escape('name')%> button-width"
-           data-type="<%=product_type.escape('name')%>">
-          <button class="go-to-market helper rounded-corners btn btn-block  btn-<%=product_type.escape('name')%>">
-           <span> <%=product_type.escape('name')%> </span>
-          </button>
+        <div class="s-market-button market-button 
+			<%=product_type.escape('name')%> button-width"
+	           data-type="<%=product_type.escape('name')%>">
+	        <button class="go-to-market helper 
+		   	  btn btn-block btn-<%=product_type.escape('name')%>">
+	          <span> <%=product_type.escape('name')%> </span>
+	        </button>
         </div>
 
   <% }) %>
 </div>
 
 
-    <row class='container-fluid'>
-      <div class='col-xs-3  show-area'>
- 	
-	  </div>
-      <div class='col-xs-6'> 
+    <div class='container-fluid'>
+ 
 
-          <div class='index-map-container'>
+          <div class=''>
 		      <button class='btn btn-success 
 			  ind-map-button add-map'>ADD MAP</button>
               
 			  <div class='map-canvas' id="index-map">
               </div>
-			  
-          </div>
-	 
-	   </div>
-      <div class='col-xs-3 right-show'>
-	    <form class='zip-form'>
-		<label> Change Location
-			   <input id='autocomplete' type='text'></input>
-			   </label>
-	      </form>
-	   	<ol>
-	   		<li>Choose what looks tastiest</li>
-	   		<li>Drag the farmer thumbnails from the index to the bottom bar for a closer look</li>
-	   		<li>Click your favorite farmers and visit their profile pages, <br>
-	   		where you can have a closer look at their products, and learn how to contact them</li>
-	   	</ol>
-		  
-		  
-		  
-		  
+	
+	     </div>	  
+<div class='right-of-map'>
+		   <form class='zip-form'>
+			 <label> Change Location
+	 		   <input id='autocomplete' type='text'></input>
+	 		 </label>
+	       </form>
+	 	   <div class='show-area'></div>
+ 	
+	 	  </div>
 		  </div>
-		  
-    </row>
+    </div>
 
 
 

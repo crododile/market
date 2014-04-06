@@ -8,6 +8,24 @@
     z-index: 19999999999 !important;
 }
 
+.right-of-map{
+	position: absolute;
+	height: 500px;
+	overflow-y: scroll;
+	right: 0px;
+	width: 20%;
+	background-color:grey;
+}
+
+.map-canvas{
+	width:80%;
+	height: 500px;
+	position:absolute;
+	left:0px;
+	padding-left:0px;
+	padding-right:0px;
+}
+
 .add-map{
   display:none;
 }
@@ -56,10 +74,6 @@
     border-radius: 12px 12px 12px 12px;
   overflow-y: scroll;
   max-height: 700px;
-}
-
-#map-canvas{
-  margin-bottom: 5px;
 }
 
 .avatar{
@@ -122,12 +136,14 @@
 }
 
 #map-canvas{
+  margin-bottom: 5px;
+}
+
+#map-canvas{
   width: 80%;
   height: 300px;
   float: left;
 }
-
-.map-canvas{width:500px; height: 500px; float:left;}
 
 ::-webkit-scrollbar {
 height: 10px;

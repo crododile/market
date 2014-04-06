@@ -28,10 +28,6 @@ div.index-map-container{
   margin-bottom: 250px;
 }
 
-.ind-map-button{
-  margin-left: 50%;
-  margin-right: 50%;
-}
 
 .button-width{
   width: 200px;
@@ -54,11 +50,10 @@ div.index-map-container{
 }
 
 .s-market-button{
-  vertical-align: top;
-     display: inline-block;
+     vertical-align: top;
+     display: inline;
      width: 16%;
      text-align: center;
-
 }
 
 .go-to-market{
@@ -68,9 +63,9 @@ div.index-map-container{
 }
 
 #index-map{
-  float: right;
-  margin-right: 8%;
-  margin-bottom:250px;
+
+
+
 }
 
 .placeholder{
