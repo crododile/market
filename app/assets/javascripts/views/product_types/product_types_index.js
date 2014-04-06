@@ -68,13 +68,16 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
    	  google.maps.event.addListener(marker, 'mouseover', function() {
 		  
    	      infowindow.open(map, this);
-		  debugger
+		  
+		  $(".thumbnail-tab[data-name='"+this.title+"']").addClass('highlight')
+
    	  });
 
    	  // assuming you also want to hide the infowindow when user mouses-out
    	  google.maps.event.addListener(marker, 'mouseout', function() {
 		  
    	      infowindow.close();
+		  $(".thumbnail-tab[data-name='"+this.title+"']").removeClass('highlight')
    	  });
     	 
        })
