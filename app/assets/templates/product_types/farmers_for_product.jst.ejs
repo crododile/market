@@ -13,16 +13,19 @@
 	          <div class='thumbnail-personal'>
 
 	            <div class='thumbnail-fname hidden' data-id='<%=farmer.id%>'>
-	              <a href="#/farmers/<%=
-								farmer.escape('name')%>"><%=farmer.escape('name')%></a>
+	              <a href="#/farmers/<%=farmer.escape('name')%>">
+					<%=farmer.escape('name')%>
+				  </a>
 	            </div>
 
 	             <div class='thumbnail-image-container'>
 	                <% if(!farmer.get('filepicker_url')) { %>
-	                   <div class='placeholder thumbnail-image'></div>
+	                   <div class='placeholder thumbnail-image'>
+					   </div>
 	               <% } else { %>
 		            <img class='thumbnail-image'
-							 		src='<%=farmer.get('filepicker_url')%>'>
+					  src='<%=farmer.get('filepicker_url')%>'>
+					</img>
 	               <% } %>
 	             </div>
 
@@ -33,6 +36,7 @@
 	    </div>
     <% })%>
   </div>
+</div>
 
 
 
