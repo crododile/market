@@ -59,7 +59,8 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
    	  google.maps.event.addListener(marker, 'mouseout', function() {
 		  
    	      infowindow.close();
-		  $(".farmer-thumbnail[data-name='"+this.title+"']").removeClass('highlight')
+		  $(".farmer-thumbnail[data-name='"+this.title+"']")
+		  .removeClass('highlight')
    	  });
     	 
        })

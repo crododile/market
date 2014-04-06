@@ -2,7 +2,9 @@
 <div class='faves-label'><p>drag favorite farmers here</div>
   <% farmer.favorite_farmers().each(function(favFarmer){ %>
 
-      <div class='farmer-thumbnail' data-id='<%= favFarmer.id %>'>
+      <div class='farmer-thumbnail' 
+	  data-name='<%= favFarmer.escape('farmer_name') %>'
+	  data-id='<%= favFarmer.id %>'>
         <div class="<%='thumbnail-product ' + favFarmer.escape('product_favorited') %>">
         <%=favFarmer.escape('farmer_name') %>
         </div>
