@@ -77,15 +77,18 @@ Market.Views.FarmersFavorites = Backbone.View.extend({
     });
 
 
-    $('.connected-lists').sortable( { connectWith: ".connected-lists" } );
+    $('.connected-lists').sortable( { connectWith: ".connected-lists",
+	 appendTo: document.body, containment: 'window', helper:'clone' } );
 
     $('.favorite-farmers .farmer-thumbnail').hover(
         function(){ $(event.currentTarget).append( $delButton );
-
-			$visitButton.attr('href', $(event.currentTarget).find('a').attr('href') )
-   		  $(event.currentTarget).append( $visitButton ) },
-        function(){  $delButton.remove();
-   		 $visitButton.remove() }
+		  $visitButton.attr('href', $(event.currentTarget).find('a').attr('href') );
+   		  $(event.currentTarget).append( $visitButton ) 
+	    },
+	    function(){  
+		  $delButton.remove();
+	      $visitButton.remove()
+	    }
     );
     return this
   }

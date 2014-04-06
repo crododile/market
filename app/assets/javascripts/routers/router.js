@@ -73,7 +73,9 @@ Market.Routers.Router = Backbone.Router.extend({
 
 
 
-   $('.connected-lists').sortable( { connectWith: ".connected-lists"} );
+   $('.connected-lists').sortable( { connectWith: ".connected-lists", 
+   appendTo: document.body, 
+   containment: 'window' } );
 
    var $delButton = $('<button>');
    $delButton.addClass('delete-button btn-danger');
