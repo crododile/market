@@ -30,7 +30,7 @@ Market.Views.FarmersFavorites = Backbone.View.extend({
     var fId = $(ui.item).find('.thumbnail-fname').data('id');
     var pType = $(ui.item).find(".thumbnail-product").data('type');
 	var fPicker = $($(ui.item).find(".thumbnail-image-container").children()[0]).attr('src');
-	debugger
+	
     var nFave = new Market.Models.FavoriteFarmer({
       shopper_id: this.model.id, farmer_id: fId,
       product_favorited: pType, farmer_name: fName,

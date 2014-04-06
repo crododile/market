@@ -10,16 +10,16 @@
 
 .right-of-map{
 	position: absolute;
-	height: 500px;
-	overflow-y: scroll;
+	height: 50%;
 	right: 0px;
+	overflow-y: auto;
 	width: 20%;
 	background-color:grey;
 }
 
 .map-canvas{
 	width:80%;
-	height: 500px;
+	height: 50%;
 	position:absolute;
 	left:0px;
 	padding-left:0px;
@@ -96,6 +96,7 @@
   left: 0;
   right: 0;
   top: 0;
+  margin-bottom: 0px;
   position: relative;
   display: block;
   border-bottom: solid 1px #000;
