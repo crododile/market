@@ -40,6 +40,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
       });
  
 	  google.maps.event.addListener(marker, 'mouseover', function() {
+	
 	      infowindow.open(map, this);
 	  });
 
@@ -65,11 +66,14 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
          });
  
    	  google.maps.event.addListener(marker, 'mouseover', function() {
+		  
    	      infowindow.open(map, this);
+		  debugger
    	  });
 
    	  // assuming you also want to hide the infowindow when user mouses-out
    	  google.maps.event.addListener(marker, 'mouseout', function() {
+		  
    	      infowindow.close();
    	  });
     	 

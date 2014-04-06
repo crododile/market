@@ -3,7 +3,7 @@
   <div class="connected-lists">
 
     <% ptFarmers.each(function(farmer){ %>
-		<div class='thumbnail-tab'>
+		<div class='thumbnail-tab' data-name='<%=farmer.escape('name')%>'>
 	       <div class='farmer-thumbnail' data-id='<%= farmer.id %>'>
 
 	        <div class="<%='thumbnail-product ' + pt.escape('name') %>">
