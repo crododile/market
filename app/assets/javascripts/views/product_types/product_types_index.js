@@ -4,6 +4,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
     this.listenTo( this.collection, "sync", this.render );
     this.zip = '37064';
 	this.markers = [];
+	this.showFarmers = [];
   },
 
   template: JST['product_types/sortedindex'],
