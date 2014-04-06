@@ -13,17 +13,21 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
     "click div.s-market-button":"goToMarket",
     "click button.zip-filter":"filter",
     "click button.fresh-feed":'freshFeed',
-	"mouseenter .thumbnail-tab":"animateMarker",
+	"mouseenter .farmer-thumbnail":"animateMarker",
 	"submit form.zip-form":'prevent'
   },
   
   animateMarker: function(){
-	  var name = $(event.target).data('name')
+	  
+	  var name = $(event.target).closest(".farmer-thumbnail")
+	  .data('name')
+
 	  this.markers.forEach(function(marker){
 		  if (marker.title === name){
 			  marker.setAnimation(google.maps.Animation.DROP)
 		  }
 	  })
+	  
   },
   
   prevent: function(){
@@ -46,7 +50,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 		  
    	      infowindow.open(map, this);
 		  
-		  $(".thumbnail-tab[data-name='"+this.title+"']").addClass('highlight')
+		  $(".farmer-thumbnail[data-name='"+this.title+"']").addClass('highlight')
 
    	  });
 
@@ -54,7 +58,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
    	  google.maps.event.addListener(marker, 'mouseout', function() {
 		  
    	      infowindow.close();
-		  $(".thumbnail-tab[data-name='"+this.title+"']").removeClass('highlight')
+		  $(".farmer-thumbnail[data-name='"+this.title+"']").removeClass('highlight')
    	  });
     	 
        })

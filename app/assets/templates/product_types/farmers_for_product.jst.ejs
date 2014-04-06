@@ -4,7 +4,9 @@
 
     <% ptFarmers.each(function(farmer){ %>
 
-	       <div class='farmer-thumbnail' data-id='<%= farmer.id %>'>
+	       <div class='farmer-thumbnail'
+		   data-name='<%=farmer.escape('name')%>'
+		   data-id='<%= farmer.id %>'>
 
 	        <div class="<%='thumbnail-product ' + pt.escape('name') %>">
 		          <%=farmer.escape('name')%>
