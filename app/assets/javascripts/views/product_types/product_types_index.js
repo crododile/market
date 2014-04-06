@@ -19,7 +19,8 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
   
   animateMarker: function(){
 	  
-	  var name = $(event.target).closest(".farmer-thumbnail")
+	  var name = $(event.target)
+	  .closest(".farmer-thumbnail")
 	  .data('name')
 
 	  this.markers.forEach(function(marker){
@@ -105,10 +106,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
     return this;
   },
 
-  goToMarket: function(event){
-
-    $('div.directions').html('')
-	
+  goToMarket: function(event){	
 	if (!$(event.target).hasClass('clicked')){
 		$(event.target).addClass('clicked')
 
@@ -134,7 +132,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 	      model: ptModel,
 	      collection: ptFarmers
 	    });
-	    $('div.show-area').html(ptMarketView.render().$el)
+	    $('div.show-area').append(ptMarketView.render().$el)
 	} else {
 	    var  ptName = $(event.target).closest('div').data("type");
 		$(event.target).removeClass('clicked')
@@ -144,6 +142,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 				toRemove.push[index]
 				marker.setMap(null)
 			}
+			$("div."+ptName+"-farmers").remove()
 		});
 		var that = this
 		toRemove.forEach(function(ind){
