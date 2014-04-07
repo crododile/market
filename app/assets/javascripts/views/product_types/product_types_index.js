@@ -10,7 +10,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
   template: JST['product_types/sortedindex'],
 
   events: {
-    "click div.s-market-button":"goToMarket",
+    "click a.plz":"goToMarket",
     "click button.zip-filter":"filter",
     "click button.fresh-feed":'freshFeed',
 	"mouseenter .farmer-thumbnail":"animateMarker",
@@ -35,7 +35,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 	  event.preventDefault()
   },
    
-   moreMarkers: function(){
+  moreMarkers: function(){
 	   console.log(this.markers)
        var map = this.map
        var markers = this.ptFarmers.getMarkers()
@@ -108,10 +108,11 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
   },
 
   goToMarket: function(event){	
+
 	if (!$(event.target).hasClass('clicked')){
 		$(event.target).addClass('clicked')
 
-	    var  ptName = $(event.target).closest('div').data("type");
+	    var  ptName = $(event.target).closest('li').data("type");
 
 	    var ptModel = this.collection.findWhere( {name: ptName})
 	    var ptFarmers = this.ptFarmers = new Market.Collections.FarmersForProductType({
@@ -135,7 +136,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 	    });
 	    $('div.show-area').append(ptMarketView.render().$el)
 	} else {
-	    var  ptName = $(event.target).closest('div').data("type");
+	    var  ptName = $(event.target).closest('li').data("type");
 		$(event.target).removeClass('clicked')
 		var toRemove = []
 		this.markers.forEach(function(marker, index){

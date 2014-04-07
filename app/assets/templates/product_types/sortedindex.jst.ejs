@@ -1,18 +1,15 @@
 
 
-<div class='container-fluid'>
-  <% product_types.each(function(product_type, x){ %>
-        <div class="s-market-button market-button 
-			<%=product_type.escape('name')%> button-width"
-	           data-type="<%=product_type.escape('name')%>">
-	        <button class="go-to-market helper 
-		   	  btn btn-block btn-<%=product_type.escape('name')%>">
-	          <span> <%=product_type.escape('name')%> </span>
-	        </button>
-        </div>
+<ul class='nav nav-tabs nav-justified'>
+  <% product_types.each(function(product_type){ %>
+  
+        <li class="<%=product_type.escape('name')%>"
+		data-type="<%=product_type.escape('name')%>">
+	       <a class='plz'> <%=product_type.escape('name')%> </a>
+        </li>
 
   <% }) %>
-</div>
+</ul>
 
 
     <div class='container-fluid'>

@@ -6,7 +6,7 @@
   width: 100%;
   bottom: 0;
   position: fixed;
-  min-height: 130px;
+  height: 130px;
   border-top: solid 1px #000;
 }
 
@@ -62,6 +62,7 @@ div.highlight{
 .farmer-thumbnail{
   bottom: 0;
   z-index:8;
+  height: 100%;
   float: left;
   display: inline-block;
 }
@@ -144,7 +145,7 @@ div.highlight{
   font-weight: bold;
 }
 
-.thumbnail-product.squash {
+.squash {
   background-color: hsl(110, 56%, 2%) !important;
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4fc638", endColorstr="#030702");
@@ -162,7 +163,7 @@ div.highlight{
 }
 
 
-.thumbnail-product.beef {
+.beef {
   background-color: hsl(0, 0%, 16%) !important;
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5b5b5b", endColorstr="#282828");
@@ -180,8 +181,8 @@ div.highlight{
 }
 
 
-.thumbnail-product.greens  {
-  background-color: hsl(86, 79%, 44%) !important;
+.greens  {
+  background-color: hsl(250, 79%, 44%) !important;
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#daf6b5", endColorstr="#7cc817");
   background-image: -khtml-gradient(linear, left top, left bottom, from(#daf6b5), to(#7cc817));
@@ -198,7 +199,7 @@ div.highlight{
 }
 
 
-.thumbnail-product.corn  {
+.corn  {
   background-color: hsl(54, 100%, 70%) !important;
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fef6ad", endColorstr="#ffef65");
@@ -215,7 +216,7 @@ div.highlight{
   -webkit-font-smoothing: antialiased;
 }
 
-.thumbnail-product.eggplant  {
+.eggplant  {
   background-color: hsl(268, 80%, 43%) !important;
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#8027e7", endColorstr="#6715c5");
@@ -233,7 +234,7 @@ div.highlight{
 }
 
 
-.thumbnail-product.goat {
+.goat {
   background-color: hsl(195, 79%, 43%) !important;
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#56c5eb", endColorstr="#1798c4");
@@ -251,7 +252,7 @@ div.highlight{
 }
 
 
-.thumbnail-product.pumpkin  {
+.pumpkin  {
   background-color: hsl(26, 85%, 35%) !important;
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ef8a3d", endColorstr="#a54f0d");
@@ -268,7 +269,7 @@ div.highlight{
   -webkit-font-smoothing: antialiased;
 }
 
-.thumbnail-product.poultry {
+.poultry {
   background-color: hsl(41, 85%, 35%) !important;
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#efb73d", endColorstr="#a5750d");
@@ -286,7 +287,7 @@ div.highlight{
 }
 
 
-.thumbnail-product.lettuce {
+.lettuce {
   background-color: hsl(86, 79%, 44%) !important;
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#daf6b5", endColorstr="#7cc817");
@@ -303,7 +304,7 @@ div.highlight{
   -webkit-font-smoothing: antialiased;
 }
 
-.thumbnail-product.pork {
+.pork {
   background-color: hsl(0, 69%, 62%) !important;
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f8dcdc", endColorstr="#e05b5b");
@@ -320,7 +321,7 @@ div.highlight{
   -webkit-font-smoothing: antialiased;
 }
 
-.thumbnail-product.lamb{
+.lamb{
     background-color: hsl(195, 60%, 35%) !important;
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2d95b7", endColorstr="#23748e");
@@ -337,7 +338,7 @@ div.highlight{
     -webkit-font-smoothing: antialiased;
 }
 
-.thumbnail-product.tomatoes {
+.tomatoes {
   background-color: hsl(0, 69%, 22%) !important;
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b42121", endColorstr="#5e1111");
