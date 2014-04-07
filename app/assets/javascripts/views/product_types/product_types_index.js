@@ -46,12 +46,24 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
          var infowindow = new google.maps.InfoWindow({
              content: "<span>"+marker.title +" "+  marker.content.attributes.name + "</span>"
          });
+		 
+		 
+		 google.maps.event.addListener(marker, 'click', function(){
+   		  $('.right-of-map').animate({
+   			  scrollTop: $(".farmer-thumbnail[data-name='"+this.title+"']").offset().top -100
+   		  }, 2000
+   		  )
+			
+			
+			
+		 })
  
    	  google.maps.event.addListener(marker, 'mouseover', function() {
 		  
    	      infowindow.open(map, this);
 		  
 		  $(".farmer-thumbnail[data-name='"+this.title+"']").addClass('highlight')
+
 
    	  });
 
