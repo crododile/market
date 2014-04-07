@@ -37,7 +37,7 @@ Market.Views.FarmersFavorites = Backbone.View.extend({
 	  filepicker_url: fPicker
     });
 
-    nFave.save({ success: function(){ } })
+    nFave.save({ success: function(){ console.log('ho') } })
 	
 
     this.model.favorite_farmers().add(nFave);
