@@ -72,40 +72,9 @@ Market.Routers.Router = Backbone.Router.extend({
    $('#content').html(view.$el);
 
 
-
-
-   var $delButton = $('<button>');
-   $delButton.addClass('delete-button btn-danger');
-   $delButton.text('X');
-   
-   var $visitButton = $('<button>');
-   $visitButton.addClass('visit-button btn-success');
-   $visitButton.text('Visit Us');
-
-   $('.favorite-farmers .farmer-thumbnail').hover(
-	   
-     function(){  $(event.currentTarget).append( $delButton );
-		 $visitButton.attr('href', $(event.currentTarget).find('a').attr('href') )
-		  $(event.currentTarget).append( $visitButton ) },
-     function(){  $delButton.remove();
-		 $visitButton.remove() }
-   );
-
-   this.setHighlighter()
-
   },
 
-  setHighlighter: function(){
 
-    $('.favorite-farmers .farmer-thumbnail').on('mousedown', function(){
-      $('div.favorite-farmers').addClass( 'highlight', { duration: 20 } );
-    });
-
-    $('.favorite-farmers .farmer-thumbnail').on('mouseup', function(){
-      $('div.favorite-farmers').removeClass( 'highlight', { duration: 500 } )
-    });
-
-  }
 
 
 });

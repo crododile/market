@@ -45,7 +45,6 @@ div.favorite-farmers a:link{
 
 div.highlight{
   background: orange;
-  opacity: 0.7;
 }
 
 .favorites-logo{
@@ -95,6 +94,15 @@ div.highlight{
 }
 
 .thumbnail-image{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.right-of-map{
+.thumbnail-image{
   cursor:hand;
   cursor:grab;
   cursor:-moz-grab;
@@ -105,8 +113,10 @@ div.highlight{
   width: 100%;
   height: 100%;
 }
+}
 
 .thumbnail-image:active{
+	z-index: 1000;
   cursor:grabbing;
   cursor:-moz-grabbing;
   cursor:-webkit-grabbing;
