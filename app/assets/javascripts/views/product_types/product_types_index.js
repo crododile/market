@@ -18,14 +18,18 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
   },
   
   animateMarker: function(event){
-	  
+	  console.log('ho')
+	  event.preventDefault();
 	  var name = $(event.target)
 	  .closest(".farmer-thumbnail")
 	  .data('name')
 
 	  this.markers.forEach(function(marker){
 		  if (marker.title === name){
-			  marker.setAnimation(google.maps.Animation.DROP)
+			  marker.setAnimation(google.maps.Animation.BOUNCE)
+			  setTimeout(function () {
+			      marker.setAnimation(null);
+			  }, 700);
 		  }
 	  })
 	  

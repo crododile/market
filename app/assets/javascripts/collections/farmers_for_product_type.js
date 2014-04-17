@@ -10,7 +10,7 @@ Market.Collections.FarmersForProductType = Backbone.Collection.extend({
 	  'tomatoes':'#5e1111',
 	  'beef':'#282828',
 	  'greens':'#7cc817',
-	  'squash':'#030702',
+	  'squash':'#4fc638',
 	  'corn':'#ffef65',
 	  'eggplant':'#6715c5',
 	  'pumpkin':'#a54f0d',
