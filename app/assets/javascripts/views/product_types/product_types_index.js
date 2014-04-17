@@ -36,7 +36,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
   },
    
   moreMarkers: function(){
-	   console.log(this.markers)
+
        var map = this.map
        var markers = this.ptFarmers.getMarkers()
 	   var that = this
@@ -51,31 +51,21 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 		 google.maps.event.addListener(marker, 'click', function(){
    		  $('.right-of-map').animate({
    			  scrollTop: $(".farmer-thumbnail[data-name='"+this.title+"']").offset().top -100
-   		  }, 2000
-   		  )
-			
-			
-			
+   		  }, 2000)
 		 })
  
-   	  google.maps.event.addListener(marker, 'mouseover', function() {
-		  
+   	  google.maps.event.addListener(marker, 'mouseover', function() {  
    	      infowindow.open(map, this);
-		  
 		  $(".farmer-thumbnail[data-name='"+this.title+"']").addClass('highlight')
-
-
    	  });
 
    	  // assuming you also want to hide the infowindow when user mouses-out
-   	  google.maps.event.addListener(marker, 'mouseout', function() {
-		  
+   	  google.maps.event.addListener(marker, 'mouseout', function() {  
    	      infowindow.close();
 		  $(".farmer-thumbnail[data-name='"+this.title+"']")
-		  .removeClass('highlight')
-   	  });
-    	 
-       })
+		  .removeClass('highlight')});
+	  })
+	  
    },
   
   filter: function(event){

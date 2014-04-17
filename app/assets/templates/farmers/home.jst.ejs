@@ -1,47 +1,52 @@
-<row>
-  <div class='col-xs-6 fshow jumbotron'>
-    <div class='left-show'>
-      <h1 class='name-head'><%= farmer.escape('name') %></h1>
-      <%= farmer.escape('bio') %>
-    </div>
-<div class='left-show'>
-  <ul><h2>Your Products</h2>
-  <% farmer.product_types().each(function(pt){ %>
-    <li><%=pt.escape('name') %>
-    <ul class='product-list'>
-      <% farmer.products().each(function(product){ %>
-        <% if ( product.get('product_type_id') === pt.get('id') ){ %>
+<div class='container-fluid row'>
+    <div class='col-xs-6 left-show'>
+      <div class='jumbotron'>
+	      <h1 class='name-head'><%=farmer.escape('name')%></h1>
+	      <h2> <%= farmer.escape('bio') %></h2>
+	  </div>
+	  <ul>
+		<h2>Your Products</h2>
+		  <% farmer.product_types().each(function(pt){ %>
+			  <div class='<%=pt.escape('name')%>'>
+			    <h2><%=pt.escape('name') %></h2>
+			    <li>
+			      <ul class='product-list'>
+			        <% farmer.products().each(function(product){ %>
+			          <% if ( product.get('product_type_id') === pt.get('id') ){ %>
+			              <button class="show-product btn btn-primary btn-lg"
+			                  data-toggle="modal" data-target="#myModal"
+			                  data-id="<%=product.id%>">
+			                <%=product.escape('variety')%>
+			              </button>
+			          <% } %>
+			        <% }) %>
+			      </ul>
+			    </li>
+			  </div>
+			  <br>
+		    <% })%>
+		  </ul>
+	<button class="add-product btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+	  Add A Product
+	</button>
 
-          <button class="show-product btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="<%=product.id%>">
-            <%=product.escape('variety')%>
-          </button>
-
-        <%}%>
-      <% }) %>
-    </ul>
-    <% })%>
-  </ul>
+	<button class="edit-profile btn btn-primary btn-lg"  data-toggle="modal" data-target="#myModal" >
+	  Edit Profile
+	</button>
+	</div>
+	  <div class='col-xs-6'>
+	    <div class='picture-spot'>
+	      <% if(!farmer.escape('filepicker_url')) { %>
+	         <div class='picture placeholder'></div>
+	     <% } else { %>
+	      <img class='picture' src="<%=farmer.escape('filepicker_url')%>">
+	      <% } %>
+	    </div>
+	  </div>
+	</div>
+   </div>
+ </div>
 </div>
-<br>
-<!-- Button trigger modal -->
-<button class="add-product btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Add A Product
-</button>
-
-<button class="edit-profile btn btn-primary btn-lg"  data-toggle="modal" data-target="#myModal" >
-  Edit Profile
-</button>
-</div>
-  <div class='col-xs-6'>
-    <div class='picture-spot'>
-      <% if(!farmer.escape('filepicker_url')) { %>
-         <div class='picture placeholder'></div>
-     <% } else { %>
-      <img class='picture' src="<%=farmer.escape('filepicker_url')%>">
-      <% } %>
-    </div>
-  </div>
-</row>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -56,3 +61,4 @@
     </div>
   </div>
 </div>
+
