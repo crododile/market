@@ -17,7 +17,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 	"submit form.zip-form":'prevent'
   },
   
-  animateMarker: function(){
+  animateMarker: function(event){
 	  
 	  var name = $(event.target)
 	  .closest(".farmer-thumbnail")

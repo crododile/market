@@ -18,7 +18,7 @@ Market.Views.FarmerShow = Backbone.View.extend({
   },
 
 
-  closeMap: function(){
+  closeMap: function(event){
     this.$el.find('#map-canvas').html("").removeAttr('style')
     $(event.target).toggleClass('close-map').toggleClass('add-map');
     $(event.target).show()

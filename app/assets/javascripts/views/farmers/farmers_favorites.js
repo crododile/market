@@ -17,7 +17,7 @@ Market.Views.FarmersFavorites = Backbone.View.extend({
 	  Backbone.history.navigate( $(event.target).attr('href'), {trigger: true})
   },
 
-  deleter: function(){
+  deleter: function(event){
     dataId = $(event.target.parentElement).data('id')
     deadModel = this.model.favorite_farmers().get( dataId )
     event.target.parentElement.remove();
@@ -78,7 +78,7 @@ Market.Views.FarmersFavorites = Backbone.View.extend({
 
 
     $('.favorite-farmers .farmer-thumbnail').hover(
-        function(){ $(event.currentTarget).append( $delButton );
+        function(event){ $(event.currentTarget).append( $delButton );
 		  $visitButton.attr('href', $(event.currentTarget).find('a').attr('href') );
    		  $(event.currentTarget).append( $visitButton ) 
 	    },
