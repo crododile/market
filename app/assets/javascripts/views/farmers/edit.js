@@ -43,7 +43,7 @@ Market.Views.FarmersEdit = Backbone.View.extend({
     if( this.autocomplete.getPlace() ){
       params['farmer']['lat'] = this.autocomplete.getPlace().geometry.location.lat()
       params['farmer']['lng'] = this.autocomplete.getPlace().geometry.location.lng()
-    }
+    } 
 
     this.model.save( params , { patch: true } );
     $('#edit-div').html('')
@@ -68,7 +68,6 @@ Market.Views.FarmersEdit = Backbone.View.extend({
       }
     }
   },
-
 
   render: function(){
     var rc = this.template( { farmer: this.model });

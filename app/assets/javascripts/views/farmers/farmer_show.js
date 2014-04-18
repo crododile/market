@@ -12,27 +12,12 @@ Market.Views.FarmerShow = Backbone.View.extend({
   template: JST['farmers/show'],
 
   events: {
-    "click button.show-product":"showProduct",
-    "click button.add-map":"showMap",
-    "click button.close-map":"closeMap"
+    "click button.show-product":"showProduct"
   },
 
 
-  closeMap: function(event){
-    this.$el.find('#map-canvas').html("").removeAttr('style')
-    $(event.target).toggleClass('close-map').toggleClass('add-map');
-    $(event.target).show()
-    $(event.target).text('Open Map')
-  },
-
-  showMap: function(event) {
-    event.preventDefault();
-
-    $(event.target).toggleClass('close-map').toggleClass('add-map');
-
-    $(event.target).text('Close Map')
-
-
+  showMap: function() {
+	  var that = this
     if(!this.farmer.get('lat'))
       var streetAddress = $('.street-address').text().replace(/\s+/g,"")
       var city = $('.city').text().replace(/\s+/g,"")
@@ -48,11 +33,11 @@ Market.Views.FarmerShow = Backbone.View.extend({
         success: function(locdata){
           var lat = locdata['results'][0]['geometry']['location']['lat']
           var lng = locdata['results'][0]['geometry']['location']['lng']
-          initialize({lat:lat, lng: lng})
+		  that.farmer.set({lat: lat, lng: lng})
+		  that.farmer.save({lat: lat, lng: lng}, {patch:true})
         },
         error: function(){alert('wut')}
       });
-
 
    function initialize (options) {
      var myLatLng
@@ -100,7 +85,8 @@ Market.Views.FarmerShow = Backbone.View.extend({
   render: function(){
     var rc = this.template( { farmer: this.farmer });
     this.$el.html(rc);
-    $('button.add-map').trigger('click')
+    // $('button.add-map').trigger('click')
+	this.showMap()
     return this;
   },
 

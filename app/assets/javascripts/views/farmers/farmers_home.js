@@ -28,7 +28,6 @@ Market.Views.FarmerHome = Backbone.View.extend({
  },
 
  editProfile: function(){
-
    var nfView = new Market.Views.FarmersEdit({ model: this.model });
    var that = this;
    nfView.render()
@@ -56,30 +55,22 @@ Market.Views.FarmerHome = Backbone.View.extend({
  },
 
  deleter: function(event){
-
    dataId = $(event.target).data('productid')
-
    deadProduct = new Market.Models.ProductManifest( { id: dataId });
    var that = this
-
-     deadProduct.destroy({
-       success: function(){
-         that.model.products().remove(deadProduct);
-         $('#myModal').modal('hide');
-		 that.model.fetch()
-     }
+   deadProduct.destroy({
+	  success: function(){
+	  that.model.products().remove(deadProduct);
+	  $('#myModal').modal('hide');
+	  that.model.fetch()}
    });
-
    $('#myModal').on('hide.bs.modal', function(){ that.render(); that.model.fetch() })
  },
 
   addProduct: function(){
-
     var apView = new Market.Views.ProductsNew({ collection: this.collection, model: this.model });
     apView.render()
-
     var that = this
-
     $('div.modal-body').html(apView.render().$el)
     $('#myModal').on('hide.bs.modal', function(){ that.render(); that.model.fetch() })
 
