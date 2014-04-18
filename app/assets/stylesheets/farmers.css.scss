@@ -191,16 +191,23 @@ background-color: rgba(255, 255, 255, 0.6);
 -webkit-border-radius: 6px;
 }
 
-
-
-
-body{
-//  background:url(https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQQmJMxxya9H_DP-Gzv6eeAVHqdjRvbP3Qd6I3sepcAi4A9G7vqpA);
-//  background: url(http://img.mi9.com/landscape/5026/national-geographic-chicken-farm-animals_1600x1200_94488.jpg);
-//  background:url("./marketpics/cows-free-latoro.jpg") no-repeat center center fixed;
-background:url("./marketpics/best.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+.background-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  
+  display: block;
+  background: url("./marketpics/best.jpg") no-repeat center center fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -o-filter: blur(3px);
+  -ms-filter: blur(3px);
+  filter: blur(3px);
 }
+
