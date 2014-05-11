@@ -11,6 +11,8 @@
 #
 
 class ProductManifest < ActiveRecord::Base
+  validates :variety, presence: true
+  
   belongs_to :farmer
   belongs_to :product_type
 end
