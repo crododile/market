@@ -14,11 +14,25 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
     "click button.zip-filter":"filter",
     "click button.fresh-feed":'freshFeed',
 	"mouseenter .farmer-thumbnail":"animateMarker",
+	"click .farmer-thumbnail":"panMap",
 	"submit form.zip-form":'prevent'
   },
   
+  panMap: function(event){
+	  event.preventDefault();
+	  var name = $(event.target)
+	  .closest(".farmer-thumbnail")
+	  .data('name')
+	  var that =this
+	  this.markers.forEach(function(marker){
+		  if (marker.title === name){
+			  that.map.panTo(marker.position)
+		  }
+	  })
+	  
+  },
+  
   animateMarker: function(event){
-	  console.log('ho')
 	  event.preventDefault();
 	  var name = $(event.target)
 	  .closest(".farmer-thumbnail")
