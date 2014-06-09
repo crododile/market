@@ -7,6 +7,4 @@ class ApplicationController < ActionController::Base
     redirect_to "/farmers/sign_in" unless farmer_signed_in?
   end
 
-
-
 end

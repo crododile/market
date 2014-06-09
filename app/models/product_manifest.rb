@@ -8,6 +8,7 @@
 #  created_at      :datetime
 #  updated_at      :datetime
 #  description     :string(255)
+#  variety         :string(255)
 #
 
 class ProductManifest < ActiveRecord::Base

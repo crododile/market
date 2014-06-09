@@ -3,7 +3,7 @@
 # Table name: farmers
 #
 #  id                     :integer          not null, primary key
-#  name                   :string(255)
+#  name                   :string(255)      default("Set Up Your Profile! Click Edit Profile Below")
 #  created_at             :datetime
 #  updated_at             :datetime
 #  zipcodes               :string(255)
@@ -18,6 +18,18 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
+#  street_address         :string(255)
+#  state                  :string(255)
+#  postal_code            :string(255)
+#  phone_number           :string(255)
+#  contact_email          :string(255)
+#  city                   :string(255)
+#  country                :string(255)
+#  route                  :string(255)
+#  street_number          :string(255)
+#  lat                    :string(255)
+#  lng                    :string(255)
+#  filepicker_url         :string(255)
 #
 
 class Farmer < ActiveRecord::Base
@@ -25,13 +37,9 @@ class Farmer < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  #has_many actual_products --->actual product descriptions rather than only type
+
   has_many :product_manifests
   has_many :products, through: :product_manifests, source: :product_type
-
   has_many :favorite_farmers, foreign_key: :shopper_id
-
-  # has_many :chosen_farmers, foreign_key: :shopper_id, class_name: "FavoriteFarmer"
-  # has_many :collected_farmers, though: :chosen_farmers, source: :farmer
 
 end

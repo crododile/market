@@ -6,21 +6,21 @@ class FarmersController < ApplicationController
   end
 
   def show
-    @farmer = Farmer.find_by_name(params[:id]);
+    @farmer = Farmer.find_by_name(params[:id])
 
     render "farmers/farmer"
   end
 
   def update
-    @farmer = current_farmer;
+    @farmer = current_farmer
     @farmer.update( farmer_params )
     render "farmers/farmer"
   end
 
 
   def create
-    @farmer = Farmer.new(farmer_params);
-    @farmer.save!()
+    @farmer = Farmer.new(farmer_params)
+    @farmer.save!
     render "farmers/farmer"
   end
 
@@ -28,7 +28,7 @@ class FarmersController < ApplicationController
 
   def farmer_params
     params.require(:farmer).permit(:name, :zipcodes, :bio, :city, :state,
-    :street_number, :route,:lat,:lng, :filepicker_url, :postal_code, :contact_email, :phone_number);
+    :street_number, :route,:lat,:lng, :filepicker_url, :postal_code, :contact_email, :phone_number)
   end
 
   def fave_params

@@ -33,8 +33,8 @@ class FavoriteFarmersController < ApplicationController
 
 
   def destroy
-    deadFave = FavoriteFarmer.find(params[:id]);
-    deadFave.destroy();
+    deadFave = FavoriteFarmer.find(params[:id])
+    deadFave.destroy
     render :json => deadFave
   end
 
