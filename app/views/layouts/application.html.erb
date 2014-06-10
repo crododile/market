@@ -6,9 +6,10 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+ <script> window.maps_api_key = '<%= ENV['MAPS_API_KEY'] %>'</script>
   <%= filepicker_js_include_tag %>
-
-    <script>$(window).load( filepicker.setKey("<%=ENV["FILEPICKER_API_KEY"] %>"))</script>
+  <script>$(window).load(filepicker.setKey("<%=ENV["FILEPICKER_API_KEY"]%>"))
+  </script>
 </head>
 <body data-spy="scroll" data-target=".pt-area">
   <nav class='navbar main-nav affix-top'>
@@ -23,7 +24,7 @@
           </li>
         <% end %>
         <li class='nav-item'>
-          <a href="/">PRODUCTS</a>
+          <a href="#">PRODUCTS</a>
         </li>
         <li class='nav-item'>
           <a href="#home">HOME</a>
@@ -46,14 +47,13 @@
       </ul>
     </div>
   </nav>
-<div class='background-img'></div>
-<div id='content' class='main-backdrop'>
-<%= yield %>
-</div>
+  
+  <div class='background-img'></div>
+  <div id='content' class='main-backdrop'>
+  <%= yield %>
+  </div>
 
-<nav class='navbar navbar-fixed-bottom favorites-bar'>
-	
-</nav>
+  <nav class='navbar navbar-fixed-bottom favorites-bar'></nav>
 
 </body>
 </html>

@@ -10,17 +10,16 @@ Market.Routers.Router = Backbone.Router.extend({
   },
 
   initialize: function(options){
-   this.product_types = options.product_types
-   this.current_farmer = new Market.Models.CurrentFarmer()
+   this.product_types = options.product_types;
+   this.current_farmer = new Market.Models.CurrentFarmer();
    this.current_farmer.fetch();
-   this.listenTo(this.current_farmer.favorite_farmers(), "change", this.favoritesFeed )
-   this.favoritesFeed()
-
+   this.listenTo(this.current_farmer.favorite_farmers(), "change", this.favoritesFeed );
+   this.favoritesFeed();
   },
   
   about: function(){
-	  var about = new Market.Views.About()
-	  this._swapView(about)
+	  var about = new Market.Views.About();
+	  this._swapView(about);
   },
 
   favoritesFeed: function(){
@@ -38,7 +37,6 @@ Market.Routers.Router = Backbone.Router.extend({
   },
 
   farmerShow: function(name){
-
     var fView = new Market.Views.FarmerShow({ name: name });
     this._swapView(fView);
   },
@@ -63,18 +61,15 @@ Market.Routers.Router = Backbone.Router.extend({
        collection: this.product_types
      });
     this._swapView(pIndexView);
+	$('.map-canvas').removeAttr('style');
+	google.maps.event.trigger(map, "resize");
   },
 
   _swapView: function(view){
     this.currentView && this.currentView.remove();
     this.currentView = view;
     view.render();
-   $('#content').html(view.$el);
-
-
+    $('#content').html(view.$el);
   },
-
-
-
 
 });

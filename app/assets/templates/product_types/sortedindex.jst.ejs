@@ -1,50 +1,20 @@
-
-
 <ul class='nav nav-tabs nav-justified'>
-  <% product_types.each(function(product_type){ %>
-  
+  <% product_types.each(function(product_type){ %>  
         <li class="<%=product_type.escape('name')%>"
 		data-type="<%=product_type.escape('name')%>">
 	       <a class='plz'> <%=product_type.escape('name')%> </a>
         </li>
-
   <% }) %>
 </ul>
 
+<div class='map-canvas' id="index-map">
+</div>
 
-    <div class='container-fluid'>
- 
-
-          <div class=''>
-		      <button class='btn btn-success 
-			  ind-map-button add-map'>ADD MAP</button>
-              
-			  <div class='map-canvas' id="index-map">
-              </div>
-	
-	     </div>	  
 <div class='right-of-map'>
-		   <form class='zip-form'>
-			 <label> Change Location
-	 		   <input id='autocomplete' type='text'></input>
-	 		 </label>
-	       </form>
-	 	   <div class='show-area'></div>
- 	
-	 	  </div>
-		  </div>
-    </div>
-
-
-
-
-    <row class='container-fluid'>
-      <div class='col-xs-3'></div>
-      <div class='col-xs-6'>
-
-       </div>
-      <div class='col-xs-3 down-arrow'>
-		
-	  </div>
-    </row>
-
+  <form class='zip-form'>
+    <label> Change Location
+      <input id='autocomplete' type='text'></input>
+    </label>
+  </form>
+  <div class='show-area'></div>
+</div>

@@ -26,10 +26,9 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 	  var that =this
 	  this.markers.forEach(function(marker){
 		  if (marker.title === name){
-			  that.map.panTo(marker.position)
+			  that.map.panTo(marker.position);
 		  }
-	  })
-	  
+	  });	  
   },
   
   animateMarker: function(event){
@@ -54,7 +53,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
   },
    
   moreMarkers: function(){
-
+	  
        var map = this.map
        var markers = this.ptFarmers.getMarkers()
 	   var that = this
@@ -122,6 +121,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
     this.mapCanvas = this.$el.find('#index-map');
 	
 	this.map = new google.maps.Map(this.mapCanvas[0], {center: center, zoom: 12});
+	map = this.map;//set global for tricky backbone bug resizing
 	
     setUpHoverStuff()
     return this;
