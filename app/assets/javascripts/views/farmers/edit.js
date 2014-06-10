@@ -3,10 +3,8 @@ Market.Views.FarmersEdit = Backbone.View.extend({
   tagName: 'form',
 
   initialize: function(){
-
     this.listenTo(this.model, 'sync', this.render);
     this.autocomplete = {};
-
     this.componentForm = {
       street_number: 'short_name',
       route: 'long_name',
@@ -28,11 +26,9 @@ Market.Views.FarmersEdit = Backbone.View.extend({
     var imgUrl;
     filepicker.pick(function(Inkblob){
       imgUrl = Inkblob.url;
-
       that.model.save( { farmer: { filepicker_url: imgUrl } }, { patch: true })
        $('.modal').modal('hide');
     });
-
   },
 
   makeFarmer: function(event){
