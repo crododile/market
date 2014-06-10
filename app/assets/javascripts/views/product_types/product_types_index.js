@@ -123,6 +123,13 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 	this.map = new google.maps.Map(this.mapCanvas[0], {center: center, zoom: 12});
 	map = this.map;//set global for tricky backbone bug resizing
 	
+	if (navigator.geolocation) {
+	         navigator.geolocation.getCurrentPosition(function (position) {
+	             initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+	             map.setCenter(initialLocation);
+	         });
+	     }
+	
     setUpHoverStuff()
     return this;
   },

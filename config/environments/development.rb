@@ -7,7 +7,6 @@ Market::Application.configure do
   config.cache_classes = false
 
   config.serve_static_assets = true
-  config.filepicker_rails.api_key = "AbCIsBwERPKXAOYlEHstAz"
 
   # Do not eager load code on boot.
   config.eager_load = false
