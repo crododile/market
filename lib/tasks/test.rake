@@ -8,7 +8,7 @@ require 'active_record'
 
 task :csv_to_pg => :environment do
   @db_info = ActiveRecord::Base.configurations[Rails.env]
-  relative_path = "../assets/"<<ENV['filename']
+  relative_path = "../../assets/"<<ENV['filename']
   full_path = File.expand_path(relative_path, __FILE__)
     
   def create_model_from_csv filename, model_name
