@@ -1,4 +1,4 @@
-require 'CSV'
+require 'csv'
 require 'active_record'
 
 #creates dtable and seeds it from a csv
