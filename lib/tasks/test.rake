@@ -31,16 +31,18 @@ task :csv_to_pg => :environment do
     end
     cols.chop!
     cols << ")"
-    command = "COPY #{modelname.pluralize} #{cols} FROM '#{filename}' DELIMITERS ',' CSV HEADER;"
+    command = "\COPY #{modelname.pluralize} #{cols} FROM '#{filename}' DELIMITER ',' CSV HEADER;"
 
     connection = ActiveRecord::Base.establish_connection( @db_info )
     connection.connection.execute(command)
   end
+  
+  
 
 
-  create_model_from_csv full_path, ENV['modelname']
-  p "migrating"
-  system "rake db:migrate"
+  # create_model_from_csv full_path, ENV['modelname']
+  # p "migrating"
+  # system "rake db:migrate"
   p "copying"
   copy_table_from_csv full_path, ENV['modelname']
   p "done, now go write your model!"
