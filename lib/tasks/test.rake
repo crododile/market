@@ -32,11 +32,11 @@ task :csv_to_pg => :environment do
     end
     cols.chop!
     cols << ")"
-    command = "COPY #{modelname.pluralize} #{cols} FROM '#{filename}' DELIMITER ',' CSV HEADER;"
-
-    connection = ActiveRecord::Base.establish_connection( @db_info )
-    connection.connection.execute(command)
-    
+    # command = "COPY #{modelname.pluralize} #{cols} FROM '#{filename}' DELIMITER ',' CSV HEADER;"
+  #
+  #   connection = ActiveRecord::Base.establish_connection( @db_info )
+  #   connection.connection.execute(command)
+  #
     conn = ActiveRecord::Base.connection
 
     rc = conn.raw_connection
