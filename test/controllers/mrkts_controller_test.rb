@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class GorillaTest < ActiveSupport::TestCase
+class MrktsControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end

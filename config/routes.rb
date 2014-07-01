@@ -12,6 +12,8 @@ Market::Application.routes.draw do
   patch '/current', to: 'farmers#update'
 
   get '/feed', to: 'favorite_farmers#feed'
+  
+  resources :mrkts, :only => [:index]
 
   resources :favorite_farmers, :only => [:create, :destroy]
 
