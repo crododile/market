@@ -13,14 +13,18 @@ Market.Routers.Router = Backbone.Router.extend({
   initialize: function(options){
    this.product_types = options.product_types;
    this.current_farmer = new Market.Models.CurrentFarmer();
+	 this.mrkts = new Market.Collections.Mrkts();
    this.current_farmer.fetch();
    this.listenTo(this.current_farmer.favorite_farmers(), "change", this.favoritesFeed );
    this.favoritesFeed();
   },
 	
 	mrktsIndex: function(){
-		var idx = new Market.Views.MrktsIndex();
+		var idx = new Market.Views.MrktsIndex({ collection: this.mrkts });
 		this._swapView(idx);
+		// These lines fix a bug on the maps self-applied styles
+		$('.map-canvas').removeAttr('style');
+		google.maps.event.trigger(map, "resize");
 	},
   
   about: function(){
@@ -67,8 +71,9 @@ Market.Routers.Router = Backbone.Router.extend({
        collection: this.product_types
      });
     this._swapView(pIndexView);
-	$('.map-canvas').removeAttr('style');
-	google.maps.event.trigger(map, "resize");
+		// These lines fix a bug on the maps self-applied styles
+		$('.map-canvas').removeAttr('style');
+		google.maps.event.trigger(map, "resize");
   },
 
   _swapView: function(view){

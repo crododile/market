@@ -1,10 +1,11 @@
 Market.Views.ProductTypesIndex = Backbone.View.extend({
-
+	//beware global variable 'map' 
+	//used for resizing bug
   initialize: function(){
     this.listenTo( this.collection, "sync", this.render );
     this.zip = '37064';
-	this.markers = [];
-	this.showFarmers = [];
+		this.markers = [];
+		this.showFarmers = [];
   },
 
   template: JST['product_types/sortedindex'],
@@ -13,17 +14,18 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
     "click a.plz":"goToMarket",
     "click button.zip-filter":"filter",
     "click button.fresh-feed":'freshFeed',
-	"mouseenter .farmer-thumbnail":"animateMarker",
-	"click .farmer-thumbnail":"panMap",
-	"submit form.zip-form":'prevent'
+		"mouseenter .farmer-thumbnail":"animateMarker",
+		"click .farmer-thumbnail":"panMap",
+		"submit form.zip-form":'prevent'
   },
   
   panMap: function(event){
 	  event.preventDefault();
 	  var name = $(event.target)
 	  .closest(".farmer-thumbnail")
-	  .data('name')
-	  var that =this
+	  .data('name');
+		
+	  var that =this;
 	  this.markers.forEach(function(marker){
 		  if (marker.title === name){
 			  that.map.panTo(marker.position);
@@ -35,7 +37,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 	  event.preventDefault();
 	  var name = $(event.target)
 	  .closest(".farmer-thumbnail")
-	  .data('name')
+	  .data('name');
 
 	  this.markers.forEach(function(marker){
 		  if (marker.title === name){
@@ -44,26 +46,23 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 			      marker.setAnimation(null);
 			  }, 700);
 		  }
-	  })
-	  
+	  });
   },
   
   prevent: function(){
-	  event.preventDefault()
+	  event.preventDefault();
   },
    
   moreMarkers: function(){
-	  
-       var map = this.map
-       var markers = this.ptFarmers.getMarkers()
-	   var that = this
-       markers.forEach(function(marker){
-         marker.setMap(map);
-		 that.markers.push(marker)
-         var infowindow = new google.maps.InfoWindow({
-             content: "<span>"+marker.title +" "+  marker.content.attributes.name + "</span>"
-         });
-		 
+     var map = this.map;
+     var markers = this.ptFarmers.getMarkers();
+	   var that = this;
+     markers.forEach(function(marker){
+       marker.setMap(map);
+			 that.markers.push(marker);
+       var infowindow = new google.maps.InfoWindow({
+           content: "<span>"+marker.title +" "+  marker.content.attributes.name + "</span>"
+       });
 		 
 		 google.maps.event.addListener(marker, 'click', function(){
    		  $('.right-of-map').animate({
@@ -81,104 +80,97 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
    	      infowindow.close();
 		  $(".farmer-thumbnail[data-name='"+this.title+"']")
 		  .removeClass('highlight')});
-	  })
+	  });
 	  
    },
   
   filter: function(event){
     event.preventDefault();
-    this.zip= $('input.zipfilter').val()
+    this.zip= $('input.zipfilter').val();
   },
 
-  render: function(){
+	render: function(){
+		var that = this;
+		var center = new google.maps.LatLng(37.7833, -122.4167);
+		var renderedContent = this.template({ product_types: this.collection });
+		this.$el.html(renderedContent);
+		
+		this.mapCanvas = this.$el.find('#index-map');
+		this.map = new google.maps.Map(this.mapCanvas[0], {center: center, zoom: 12});
+		
+		map = this.map;//set global for tricky backbone bug resizing
 
-    var renderedContent = this.template(
-      {
-        product_types: this.collection
-      });
+		function setUpHoverStuff(){
+			that.$el.find('div.market-button').hover(
+				function(){
+					$(this).find('span').show();
+				}, function() {
+					$(this).find('span').hide();
+		})};
 
-    this.$el.html(renderedContent);
+		this.autocomplete = new google.maps.places.Autocomplete(
+			(this.$el.find('#autocomplete')[0]),
+			{ types: ['geocode'] }
+		);
 
-    var that = this
-    function setUpHoverStuff(){
-      that.$el.find('div.market-button').hover(function(){
-        $(this).find('span').show();
-       }, function() {
-        $(this).find('span').hide();
-       }
-      )
-    }
-	
-    this.autocomplete = new google.maps.places.Autocomplete(
-      (this.$el.find('#autocomplete')[0]),
-      { types: ['geocode'] });
-	  
-      google.maps.event.addListener(this.autocomplete, 'place_changed', function() {
-		  that.map.setCenter(that.autocomplete.getPlace().geometry.location)
-         });	
-		  
-	var center = new google.maps.LatLng(37.7833, -122.4167)
-    this.mapCanvas = this.$el.find('#index-map');
-	
-	this.map = new google.maps.Map(this.mapCanvas[0], {center: center, zoom: 12});
-	map = this.map;//set global for tricky backbone bug resizing
-	
-	if (navigator.geolocation) {
-	         navigator.geolocation.getCurrentPosition(function (position) {
-	             initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-	             map.setCenter(initialLocation);
-	         });
-	     }
-	
-    setUpHoverStuff()
-    return this;
-  },
+		google.maps.event.addListener(
+			this.autocomplete, 'place_changed', function() {
+			that.map.setCenter(that.autocomplete.getPlace().geometry.location)
+			}
+		);	
+
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function (position) {
+				initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+				map.setCenter(initialLocation);
+			});
+		}
+
+		setUpHoverStuff()
+		return this;
+	},
 
   goToMarket: function(event){	
-
-	if (!$(event.target).hasClass('clicked')){
-		$(event.target).addClass('clicked')
-
-	    var  ptName = $(event.target).closest('li').data("type");
-
+		if (!$(event.target).hasClass('clicked')){
+			var that = this;
+	    var ptName = $(event.target).closest('li').data("type");
 	    var ptModel = this.collection.findWhere( {name: ptName})
 	    var ptFarmers = this.ptFarmers = new Market.Collections.FarmersForProductType({
 	      product_type: ptModel,
 	      zip: this.zip
 	    });
-	
-		var that = this
-
-	    ptFarmers.fetch({
-	      success: function(){
-	        ptFarmers.set( ptFarmers.byRegion( ptFarmers.zip));
-	        ptFarmers.trigger("sync")
-			that.moreMarkers()
-	      }
-	    });
-
 	    var ptMarketView = new Market.Views.FarmersForProductType({
 	      model: ptModel,
 	      collection: ptFarmers
 	    });
+			
+			$(event.target).addClass('clicked')
+	    ptFarmers.fetch({
+	      success: function(){
+	        ptFarmers.set( ptFarmers.byRegion( ptFarmers.zip));
+	        ptFarmers.trigger("sync");
+					that.moreMarkers();
+	      }
+	    });
+	
 	    $('div.show-area').append(ptMarketView.render().$el)
-	} else {
-	    var  ptName = $(event.target).closest('li').data("type");
-		$(event.target).removeClass('clicked')
-		var toRemove = []
-		this.markers.forEach(function(marker, index){
-			if (marker.content.attributes.name === ptName){
-				toRemove.push[index]
-				marker.setMap(null)
-			}
-			$("div."+ptName+"-farmers").remove()
-		});
-		var that = this
-		toRemove.forEach(function(ind){
-			that.markers.splice(ind, 1)
-		})
-	    var  ptName = $(event.target).closest('div').data("type");		
-	}
-  },
+		} else {
+	    var ptName = $(event.target).closest('li').data("type");
+			var toRemove = [];
+			var that = this;
+			
+			$(event.target).removeClass('clicked')
+			this.markers.forEach(function(marker, index){
+				if (marker.content.attributes.name === ptName){
+					toRemove.push[index]
+					marker.setMap(null)
+				}
+				$("div."+ptName+"-farmers").remove();
+			});
+			toRemove.forEach(function(ind){
+				that.markers.splice(ind, 1)
+			});		
+		}
+	 },
 
 });
