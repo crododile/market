@@ -62,7 +62,9 @@ Market.Views.MrktsIndex = Backbone.View.extend({
 			
  		 google.maps.event.addListener(marker, 'click', function(){
     		  $('.right-of-map').animate({
-    			  scrollTop: $(".market-tab[data-marketname='"+this.data+"']").offset().top -100
+    			  scrollTop: 
+							($(".market-tab[data-marketname='"+this.data+"']").offset().top + 
+							 $(".right-of-map").scrollTop() - 100)
     		  }, 1200)
 					$(".market-tab[data-marketname='"+this.data+"']").addClass('highlight');
 				});
