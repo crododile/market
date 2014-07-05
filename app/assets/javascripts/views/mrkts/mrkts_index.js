@@ -9,6 +9,7 @@ Market.Views.MrktsIndex = Backbone.View.extend({
 	
 	syncstuff: function () {
 		this.render();
+		$('.disclaimer').html('<p>All done!</p>');
 		this.moreMarkers();
 	},
 	
