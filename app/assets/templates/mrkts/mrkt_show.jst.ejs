@@ -1,6 +1,8 @@
 <div class='market-info'>
+<p>
 <%= market.escape('marketname')%>
 <% market.keys().forEach(function(key){%>
 <%= key + " : " + market.get(key) %> <br>
 <%})%>
+</p>
 </div>
