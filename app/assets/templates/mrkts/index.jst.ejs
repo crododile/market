@@ -8,5 +8,13 @@ Ahoy <%= Mrkts.length %>
       <input id='autocomplete' type='text'></input>
     </label>
   </form>
-  <div class='show-area'></div>
+  <div class='show-area'>
+	<% Mrkts.each(function (market) { %>
+	  <div class='market-tab' data-marketname="<%=market.escape('fmid')%>">
+		  <a href=<%="#mrkts/"+ market.get('fmid')%>>
+				<%= market.escape('marketname') %>
+			</a>
+		</div>
+	<% }) %>
+	</div>
 </div>

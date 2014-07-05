@@ -1,12 +1,9 @@
 Market.Views.FarmerShow = Backbone.View.extend({
   initialize: function(options){
     this.name = options.name
-
     this.farmer = new Market.Models.Farmer( { name: options.name });
-
     this.farmer.fetch();
     this.listenTo(this.farmer, 'sync', this.render);
-
   },
 
   template: JST['farmers/show'],
@@ -14,7 +11,6 @@ Market.Views.FarmerShow = Backbone.View.extend({
   events: {
     "click button.show-product":"showProduct"
   },
-
 
   showMap: function() {
 	  var that = this
@@ -46,7 +42,6 @@ Market.Views.FarmerShow = Backbone.View.extend({
          parseFloat(this.farmer.get('lat')), parseFloat(this.farmer.get('lng')) );
      } else {
        myLatLng = new google.maps.LatLng(options)
-       console.log(myLatLng)
      }
       var mapOptions = {
         zoom: 15,
@@ -65,28 +60,20 @@ Market.Views.FarmerShow = Backbone.View.extend({
         title: 'marky'
       });
     }
-
     initialize.call(this)
   },
-
-
-
 
   showProduct: function(event){
     var id = $(event.target).data('id')
     var psView = new Market.Views.ProductShow({ id: id});
-
     $('#myModal h4.modal-title').html(psView.render().$el);
     $('div.modal-body').html(psView.$el2)
-
   },
-
 
   render: function(){
     var rc = this.template( { farmer: this.farmer });
     this.$el.html(rc);
-    // $('button.add-map').trigger('click')
-	this.showMap()
+		this.showMap()
     return this;
   },
 

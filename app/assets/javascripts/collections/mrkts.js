@@ -9,7 +9,8 @@ Market.Collections.Mrkts = Backbone.Collection.extend({
 			var mrktLatLng = new google.maps.LatLng( mrkt.get('y'), mrkt.get('x'));
 			return new google.maps.Marker({
 					position: mrktLatLng,
-					title: mrkt.escape('marketname')
+					title: mrkt.escape('marketname'),
+					data: mrkt.escape('fmid')
 				});
 			});
 			return mrktMarkers

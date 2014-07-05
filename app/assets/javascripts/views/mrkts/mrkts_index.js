@@ -14,11 +14,12 @@ Market.Views.MrktsIndex = Backbone.View.extend({
 	
 	render: function () {
 		var rc = this.template({ Mrkts: this.collection });
+		var that = this;
 		var center = new google.maps.LatLng(37.7833, -122.4167);
 		this.$el.html(rc);
 		this.mapCanvas = this.$el.find('#index-map');
 		this.map = new google.maps.Map(this.mapCanvas[0], {center: center, zoom: 12});
-		map = this.map;//set global for tricky backbone bug resizing
+		// map = this.map;//set global for tricky backbone bug resizing
 		
 		this.autocomplete = new google.maps.places.Autocomplete(
 			(this.$el.find('#autocomplete')[0]),
@@ -31,12 +32,12 @@ Market.Views.MrktsIndex = Backbone.View.extend({
 			}
 		);
 			
-		// if (navigator.geolocation) {
-		// 	navigator.geolocation.getCurrentPosition(function (position) {
-		// 		initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-		// 		map.setCenter(initialLocation);
-		// 	});
-		// }
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function (position) {
+				initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+				that.map.setCenter(initialLocation);
+			});
+		}
 		return this;
 	},
 	
@@ -58,6 +59,13 @@ Market.Views.MrktsIndex = Backbone.View.extend({
 			google.maps.event.addListener(marker, 'mouseout', function () {
 				infowindow.close();
 			});
+			
+ 		 google.maps.event.addListener(marker, 'click', function(){
+    		  $('.right-of-map').animate({
+    			  scrollTop: $(".market-tab[data-marketname='"+this.data+"']").offset().top -100
+    		  }, 1200)
+					$(".market-tab[data-marketname='"+this.data+"']").addClass('highlight');
+				});
 		});
 	}
 });

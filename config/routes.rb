@@ -13,7 +13,7 @@ Market::Application.routes.draw do
 
   get '/feed', to: 'favorite_farmers#feed'
   
-  resources :mrkts, :only => [:index]
+  resources :mrkts, :only => [:index, :show]
 
   resources :favorite_farmers, :only => [:create, :destroy]
 

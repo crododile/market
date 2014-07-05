@@ -132,7 +132,6 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 					that.moreMarkers();
 	      }
 	    });
-	
 	    $('div.show-area').append(ptMarketView.render().$el)
 		} else {
 	    var ptName = $(event.target).closest('li').data("type");
