@@ -3,7 +3,6 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 	//used for resizing bug
   initialize: function(){
     this.listenTo( this.collection, "sync", this.render );
-    this.zip = '37064';
 		this.markers = [];
 		this.showFarmers = [];
   },
@@ -71,17 +70,16 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 		 })
  
    	  google.maps.event.addListener(marker, 'mouseover', function() {  
-   	      infowindow.open(map, this);
-		  $(".farmer-thumbnail[data-name='"+this.title+"']").addClass('highlight')
+ 	      infowindow.open(map, this);
+			  $(".farmer-thumbnail[data-name='"+this.title+"']").addClass('highlight')
    	  });
 
    	  // assuming you also want to hide the infowindow when user mouses-out
    	  google.maps.event.addListener(marker, 'mouseout', function() {  
-   	      infowindow.close();
-		  $(".farmer-thumbnail[data-name='"+this.title+"']")
-		  .removeClass('highlight')});
-	  });
-	  
+ 	      infowindow.close();
+			  $(".farmer-thumbnail[data-name='"+this.title+"']")
+			  .removeClass('highlight')});
+	  });  
    },
   
   filter: function(event){
@@ -94,39 +92,24 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 		var center = new google.maps.LatLng(37.7833, -122.4167);
 		var renderedContent = this.template({ product_types: this.collection });
 		this.$el.html(renderedContent);
-		
 		this.mapCanvas = this.$el.find('#index-map');
 		this.map = new google.maps.Map(this.mapCanvas[0], {center: center, zoom: 12});
-		
 		map = this.map;//set global for tricky backbone bug resizing
-
-		function setUpHoverStuff(){
-			that.$el.find('div.market-button').hover(
-				function(){
-					$(this).find('span').show();
-				}, function() {
-					$(this).find('span').hide();
-		})};
-
 		this.autocomplete = new google.maps.places.Autocomplete(
 			(this.$el.find('#autocomplete')[0]),
 			{ types: ['geocode'] }
 		);
-
 		google.maps.event.addListener(
 			this.autocomplete, 'place_changed', function() {
 			that.map.setCenter(that.autocomplete.getPlace().geometry.location)
 			}
 		);	
-
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(function (position) {
 				initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 				map.setCenter(initialLocation);
 			});
 		}
-
-		setUpHoverStuff()
 		return this;
 	},
 
@@ -136,8 +119,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 	    var ptName = $(event.target).closest('li').data("type");
 	    var ptModel = this.collection.findWhere( {name: ptName})
 	    var ptFarmers = this.ptFarmers = new Market.Collections.FarmersForProductType({
-	      product_type: ptModel,
-	      zip: this.zip
+	      product_type: ptModel
 	    });
 	    var ptMarketView = new Market.Views.FarmersForProductType({
 	      model: ptModel,
@@ -147,8 +129,6 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 			$(event.target).addClass('clicked')
 	    ptFarmers.fetch({
 	      success: function(){
-	        ptFarmers.set( ptFarmers.byRegion( ptFarmers.zip));
-	        ptFarmers.trigger("sync");
 					that.moreMarkers();
 	      }
 	    });

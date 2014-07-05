@@ -25,18 +25,10 @@ Market.Collections.FarmersForProductType = Backbone.Collection.extend({
 
   model: Market.Models.Farmer,
 
-  byRegion: function(zip){
-    var filteredFarmers=  this.filter(function(farmer){
-      return farmer.get('zipcodes') &&
-             farmer.get('zipcodes').split(',').indexOf(zip) != -1;
-    });
-    return filteredFarmers
-  },
-
-	getMarkers: function(mapp){
+	getMarkers: function(){
 		var that = this
 		var farmerMarkers = this.map(function(farmer){
-	  var farLatLng = new google.maps.LatLng(
+			var farLatLng = new google.maps.LatLng(
 				parseFloat(farmer.get('lat')), parseFloat(farmer.get('lng')) );
 				return new google.maps.Marker({
 					icon: {
@@ -56,7 +48,4 @@ Market.Collections.FarmersForProductType = Backbone.Collection.extend({
 			});
 			return farmerMarkers
 		}
-
-
-
 });

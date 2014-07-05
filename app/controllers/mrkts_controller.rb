@@ -1,7 +1,7 @@
 class MrktsController < ApplicationController
   
   def index
-      @Mrkts = Mrkt.pluck(:marketname, :x, :y)
+      @Mrkts = Mrkt.select(:marketname, :x, :y)
       render :json => @Mrkts
   end
 
