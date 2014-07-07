@@ -41,5 +41,7 @@ class Farmer < ActiveRecord::Base
   has_many :product_manifests
   has_many :products, through: :product_manifests, source: :product_type
   has_many :favorite_farmers, foreign_key: :shopper_id
+  has_many :market_attendances, primary_key: :id, foreign_key: :farmer_id, class_name: "MarketAttendance"
+  has_many :markets, through: :market_attendances, source: :mrkt
 
 end
