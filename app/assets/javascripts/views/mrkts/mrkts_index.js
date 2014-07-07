@@ -9,7 +9,7 @@ Market.Views.MrktsIndex = Backbone.View.extend({
 	
 	syncstuff: function () {
 		this.render();
-		$('.disclaimer').html('<p>All done!</p>');
+		$('.disclaimer').html('<p>All done! This map contains farmers markets all over the country, click a marker to find its link, and click the link to visit its page.</p>');
 		this.moreMarkers();
 	},
 	
