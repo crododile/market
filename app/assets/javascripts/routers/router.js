@@ -29,8 +29,9 @@ Market.Routers.Router = Backbone.Router.extend({
 		var idx = new Market.Views.MrktsIndex({ collection: this.mrkts });
 		this._swapView(idx);
 		// These lines fix a bug on the maps self-applied styles
-		//$('.map-canvas').removeAttr('style');
-		//google.maps.event.trigger(map, "resize");
+		$('.map-canvas').removeAttr('style');
+		google.maps.event.trigger(mapToo, "resize");
+		if (idx.collection.length !== 0){ idx.moreMarkers();}
 	},
   
   about: function(){
