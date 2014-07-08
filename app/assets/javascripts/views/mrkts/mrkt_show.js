@@ -8,8 +8,8 @@ Market.Views.MrktShow = Backbone.View.extend({
 	
 	template: JST['mrkts/mrkt_show'],
 	
-  render: function(){
-    var rc = this.template( { market: this.model });
+  render: function () {
+    var rc = this.template({ market: this.model });
     this.$el.html(rc);
     return this;
   },

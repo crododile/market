@@ -4,8 +4,8 @@
 .market-info{
 	text-align:center;
   -webkit-column-count: 3; /* Chrome, Safari, Opera */
-    -moz-column-count: 3; /* Firefox */
-    column-count: 3;
+  -moz-column-count: 3; /* Firefox */
+  column-count: 3;
 }
 
 .market-tab{
@@ -21,7 +21,7 @@
 }
 
 .market-title{
-text-align: center;
+	text-align: center;
 }
 
 .loading-image{
@@ -31,7 +31,6 @@ text-align: center;
 	margin-right: auto;
 	top: 50%;
 	margin-top: -50%;
-	background-image: url("./marketpics/transparent-spinner.gif");
 	background-size: cover;
 	background-repeat: no-repeat;
 }

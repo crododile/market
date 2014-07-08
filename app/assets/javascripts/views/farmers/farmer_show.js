@@ -35,7 +35,7 @@ Market.Views.FarmerShow = Backbone.View.extend({
         error: function(){alert('wut')}
       });
 
-   function initialize (options) {
+   function initializer (options) {
      var myLatLng
      if(this.farmer.get('lat')){
        myLatLng = new google.maps.LatLng(
@@ -60,7 +60,7 @@ Market.Views.FarmerShow = Backbone.View.extend({
         title: 'marky'
       });
     }
-    initialize.call(this)
+    initializer.call(this)
   },
 
   showProduct: function(event){

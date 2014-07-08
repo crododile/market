@@ -1,4 +1,3 @@
-
 <div class='container-fluid'>
 <div class='row'>
   <div class='col-md-6 left-show'>
@@ -17,7 +16,6 @@
     <h2>About Us</h2>
     <p><%= farmer.escape('bio') %></p>
     <h1>
-
       <ul>
         <h1>Products</h1>
         <% farmer.product_types().each(function(pt){ %>
@@ -41,16 +39,10 @@
       </ul>
   </div>
   <div class='col-md-6 location-dashboard right-show'>
-
       <div class='contact-info-container'>
             <div class='jumbotron'>
-
-              <button class='btn btn-success add-map'>VISIT US</button>
               <div id="map-canvas" class='pull-right'>
-
               </div>
-
-
               <h1>Contact Us!</h1>
               <div class='contact-info'>
                 <h2>
@@ -62,16 +54,11 @@
                 <div class='postal-code'><%=farmer.escape('postal_code')%></div><br>
                 </h2>
               </div>
-
-
-
-
       </div>
     </div>
     <br>
   </div>
 </div>
-
 
 </div>
 

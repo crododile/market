@@ -5,7 +5,6 @@ class FavoriteFarmersController < ApplicationController
   end
 
   def feed
-
     @feedFarmers = FavoriteFarmer.find_by_sql([
     " SELECT favorite_farmers.farmer_name, favorite_farmers.product_favorited
     FROM product_manifests
@@ -15,7 +14,6 @@ class FavoriteFarmersController < ApplicationController
     ORDER BY product_manifests.created_at",
      3.days.ago, current_farmer.id
     ])
-
     # @feedVarieties = ProductManifest.find_by_sql([
  #    " SELECT product_manifests.variety,
  #    FROM product_manifests
@@ -25,10 +23,7 @@ class FavoriteFarmersController < ApplicationController
  #    ORDER BY product_manifests.created_at",
  #     3.days.ago, params[:id]
  #     ])
-
-
      render 'favorite_farmers/feed'
-
   end
 
 
@@ -41,7 +36,4 @@ class FavoriteFarmersController < ApplicationController
   def fave_params
     params.require(:favorite_farmer).permit(:shopper_id, :farmer_id, :product_favorited, :farmer_name )
   end
-
-
-
 end

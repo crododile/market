@@ -7,9 +7,7 @@ class MrktsController < ApplicationController
   
   def show
     @Mrkt = Mrkt.find_by_fmid(params[:id])
-    p @Mrkt
     render :json => @Mrkt
   end
-
 
 end

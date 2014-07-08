@@ -89,5 +89,4 @@ Market.Routers.Router = Backbone.Router.extend({
     view.render();
     $('#content').html(view.$el);
   },
-
 });

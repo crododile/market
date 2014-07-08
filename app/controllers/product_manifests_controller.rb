@@ -7,7 +7,6 @@ class ProductManifestsController < ApplicationController
     render 'product_manifests/product'
   end
 
-
   def create
     @farmer = current_farmer
 
@@ -24,13 +23,10 @@ class ProductManifestsController < ApplicationController
     render :json  => @product
   end
 
-
   private
+  
   def listing_params
     params.require(:product_manifest).permit(:description, :variety, :product_type_id)
   end
-
-
-
 
 end
