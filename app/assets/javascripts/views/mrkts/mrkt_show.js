@@ -1,7 +1,7 @@
 Market.Views.MrktShow = Backbone.View.extend({
 	initialize: function (options) {
-		this.marketname = options.marketname;
-		this.model = new Market.Models.Mrkt( {marketname: this.marketname} );
+		this.id = options.id;
+		this.model = new Market.Models.Mrkt( {id: this.id} );
 		this.model.fetch();
 		this.listenTo( this.model, "sync", this.render);
 	},
@@ -25,6 +25,7 @@ Market.Views.MrktShow = Backbone.View.extend({
 	},
 	
   render: function(){
+		debugger
     var rc = this.template( { market: this.model });
     this.$el.html(rc);
     return this;

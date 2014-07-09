@@ -4,7 +4,6 @@
   <div class='col-md-6 left-show'>
     <div class='jumbotron'>
     <h1><%= farmer.escape('name') %></h1>
-
       <div class='picture-spot'>
        <% if(!farmer.get('filepicker_url')) { %>
           <div class='placeholder picture pull-right img-circle'></div>
@@ -12,7 +11,6 @@
          <img src="<%=farmer.get('filepicker_url')%>" class='avatar pull-right img-circle'>
        <% } %>
       </div>
-
     </div>
     <h2>About Us</h2>
     <p><%= farmer.escape('bio') %></p>

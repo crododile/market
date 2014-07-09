@@ -26,7 +26,6 @@ Market.Models.Farmer = Backbone.Model.extend({
     return this._favorite_farmers;
   },
 
-
   parse: function(jsonResp){
     if (jsonResp.favorite_farmers){
       this.favorite_farmers().set(jsonResp.favorite_farmers);

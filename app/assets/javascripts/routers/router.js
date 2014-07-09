@@ -7,7 +7,7 @@ Market.Routers.Router = Backbone.Router.extend({
     "home":"farmerHome",
     "farmers/:name":"farmerShow",
 		"mrktsIndex":"mrktsIndex",
-		"mrkts/:name":"mrktShow",
+		"mrkts/:id":"mrktShow",
    	'about':'about'
   },
 
@@ -20,8 +20,8 @@ Market.Routers.Router = Backbone.Router.extend({
    this.favoritesFeed();
   },
 	
-	mrktShow: function(name){
-		var mView = new Market.Views.MrktShow({ marketname: name });
+	mrktShow: function(id){
+		var mView = new Market.Views.MrktShow({ id: id });
 		this._swapView(mView);
 	},
 	

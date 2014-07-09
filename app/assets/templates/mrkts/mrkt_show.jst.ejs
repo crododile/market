@@ -7,3 +7,7 @@
 <%})%>
 </p>
 </div>
+<div>
+<% market.attendees().forEach(function(attendee){ %>
+<%= attendee.get('name') %>
+<% }) %>
