@@ -8,6 +8,7 @@ class MrktsController < ApplicationController
   def show
     @Mrkt = Mrkt.includes(:attendees).find(params[:id])
     @Attendees = @Mrkt.attendees
+    @attended_by_user = @Mrkt.attendees.all.include?(current_farmer)
     render 'mrkts/mrkt'
   end
 

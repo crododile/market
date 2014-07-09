@@ -21,7 +21,7 @@ Market.Routers.Router = Backbone.Router.extend({
   },
 	
 	mrktShow: function(id){
-		var mView = new Market.Views.MrktShow({ id: id });
+		var mView = new Market.Views.MrktShow({ id: id, current_farmer: this.current_farmer });
 		this._swapView(mView);
 	},
 	
