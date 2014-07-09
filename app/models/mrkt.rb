@@ -53,6 +53,6 @@
 #
 
 class Mrkt < ActiveRecord::Base
-  has_many :market_attendances, primary_key: :fmid, foreign_key: :mrkt_id, class_name: "MarketAttendance"
+  has_many :market_attendances, primary_key: :id, foreign_key: :mrkt_id, class_name: "MarketAttendance"
   has_many :attendees, through: :market_attendances, source: :farmer
 end

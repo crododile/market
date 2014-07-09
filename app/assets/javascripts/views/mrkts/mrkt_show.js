@@ -14,9 +14,14 @@ Market.Views.MrktShow = Backbone.View.extend({
 	
 	joinMarket: function (event) {
 		event.preventDefault();
-		var newAttendance = new Market.Models.MarketAttendance( {fmid: this.model.get('fmid') });
-		debugger
-		newAttendance.save({});
+		var newAttendance = new Market.Models.MarketAttendance( {mrkt_id: this.model.get('id')} );
+		newAttendance.save( {},
+			{ 
+				success: function () {
+					alert('Your name will now show up in the attending farmers section on this page, and this market will be listed on your page')
+				}
+			}
+		);
 	},
 	
   render: function(){

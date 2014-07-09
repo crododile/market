@@ -1,12 +1,11 @@
 class MarketAttendancesController < ApplicationController
   def create
-    newA = current_farmer.markets.create!( attendance_params )
-    p newA
+    newA = current_farmer.market_attendances.create!( attendance_params )
+    render :json => newA
   end
   
   private
   def attendance_params
-    params.permit(:fmid)
+    params.require(:market_attendance).permit(:mrkt_id)
   end
-
 end

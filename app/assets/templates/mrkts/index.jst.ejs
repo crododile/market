@@ -13,8 +13,8 @@
   </form>
   <div class='show-area'>
 	<% Mrkts.each(function (market) { %>
-	  <div class='market-tab' data-marketname="<%=market.escape('fmid')%>">
-		  <a href=<%="#mrkts/"+ market.get('fmid')%>>
+	  <div class='market-tab' data-marketname="<%=market.escape('id')%>">
+		  <a href=<%="#mrkts/"+ market.escape('id')%>>
 				<%= market.escape('marketname') %>
 			</a>
 		</div>
