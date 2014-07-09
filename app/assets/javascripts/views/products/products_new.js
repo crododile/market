@@ -7,7 +7,7 @@ Market.Views.ProductsNew = Backbone.View.extend({
     'click .make-product':'makeProduct'
   },
 
-  render: function(){
+  render: function () {
     var productT = new Market.Models.ProductType();
 
     var rc = this.template( { pTs: this.collection, productT: productT });
@@ -15,7 +15,7 @@ Market.Views.ProductsNew = Backbone.View.extend({
     return this;
   },
 
-  makeProduct: function(){
+  makeProduct: function () {
 
     event.preventDefault();
 
@@ -28,10 +28,10 @@ Market.Views.ProductsNew = Backbone.View.extend({
     var that = this
     newP.save( {},
       {
-        success: function(){
+        success: function () {
           that.model.products().add(newP);
-		  that.collection.add(newP)
-		  $('#myModal').modal('hide');
+				  that.collection.add(newP)
+				  $('#myModal').modal('hide');
         },
       }
     );
