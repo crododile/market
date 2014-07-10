@@ -1,6 +1,6 @@
 Market.Views.FarmerShow = Backbone.View.extend({
-  initialize: function(options){
-    this.name = options.name
+  initialize: function (options) {
+    this.name = options.name;
     this.farmer = new Market.Models.Farmer( { name: options.name });
     this.farmer.fetch();
     this.listenTo(this.farmer, 'sync', this.render);
@@ -12,9 +12,9 @@ Market.Views.FarmerShow = Backbone.View.extend({
     "click button.show-product":"showProduct"
   },
 
-  showMap: function() {
+  showMap: function () {
 	  var that = this
-    if(!this.farmer.get('lat'))
+    if(!this.farmer.get('lat')){
       var streetAddress = $('.street-address').text().replace(/\s+/g,"")
       var city = $('.city').text().replace(/\s+/g,"")
       var state = $('.state').text().replace(/\s+/g,"")
@@ -26,14 +26,15 @@ Market.Views.FarmerShow = Backbone.View.extend({
       var resp = $.ajax({
         url: uriQuery,
         type: 'GET',
-        success: function(locdata){
+        success: function (locdata) {
           var lat = locdata['results'][0]['geometry']['location']['lat']
           var lng = locdata['results'][0]['geometry']['location']['lng']
-		  that.farmer.set({lat: lat, lng: lng})
-		  that.farmer.save({lat: lat, lng: lng}, {patch:true})
+				  that.farmer.set({lat: lat, lng: lng})
+				  that.farmer.save({lat: lat, lng: lng}, {patch:true})
         },
-        error: function(){alert('wut')}
+        error: function () {alert('geocoding error')}
       });
+		}
 
    function initialize (options) {
      var myLatLng
@@ -63,17 +64,18 @@ Market.Views.FarmerShow = Backbone.View.extend({
     initialize.call(this)
   },
 
-  showProduct: function(event){
+  showProduct: function (event) {
     var id = $(event.target).data('id')
     var psView = new Market.Views.ProductShow({ id: id});
     $('#myModal h4.modal-title').html(psView.render().$el);
     $('div.modal-body').html(psView.$el2)
   },
 
-  render: function(){
-    var rc = this.template( { farmer: this.farmer });
+  render: function () {
+    var rc = this.template({ farmer: this.farmer });
+		console.log(rc)
     this.$el.html(rc);
-		this.showMap()
+		// this.showMap();
     return this;
   },
 

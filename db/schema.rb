@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140630224951) do
+ActiveRecord::Schema.define(version: 20140707035151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,8 +117,15 @@ ActiveRecord::Schema.define(version: 20140630224951) do
     t.string   "type"
   end
 
+  create_table "market_attendances", force: true do |t|
+    t.integer  "farmer_id"
+    t.integer  "mrkt_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "mrkts", force: true do |t|
-    t.string   "fmid"
+    t.integer  "fmid"
     t.string   "marketname"
     t.string   "website"
     t.string   "street"
@@ -134,8 +141,8 @@ ActiveRecord::Schema.define(version: 20140630224951) do
     t.string   "season3time"
     t.string   "season4date"
     t.string   "season4time"
-    t.string   "x"
-    t.string   "y"
+    t.decimal  "x",           precision: 7, scale: 3
+    t.decimal  "y",           precision: 7, scale: 3
     t.string   "location"
     t.string   "credit"
     t.string   "wic"

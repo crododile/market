@@ -7,7 +7,6 @@ Market.Views.FarmersForProductType = Backbone.View.extend({
   },
 
   render: function(){
-
     var renderedContent = this.template(
       {
         ptFarmers: this.collection,
@@ -15,11 +14,13 @@ Market.Views.FarmersForProductType = Backbone.View.extend({
       });
 
     this.$el.html(renderedContent);
-     $('.connected-lists').sortable( { connectWith: ".connected-lists",
-		  appendTo: document.body, 
-		  containment: 'window', helper: 'clone'  } );
-
-     $('.farmer-thumbnail').on('mousedown', function(){
+     $('.connected-lists').sortable(
+			 { connectWith: ".connected-lists",
+				 appendTo: document.body, 
+				 containment: 'window', helper: 'clone' 
+			 });
+			
+     $('.farmer-thumbnail').on('mousedown', function () {
        $('div.favorite-farmers').addClass( 'highlight', { duration: 500 } );
 		   $('div.favorite-farmers').removeClass( 'highlight', { duration: 500 } )
      });

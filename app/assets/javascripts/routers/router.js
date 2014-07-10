@@ -7,21 +7,30 @@ Market.Routers.Router = Backbone.Router.extend({
     "home":"farmerHome",
     "farmers/:name":"farmerShow",
 		"mrktsIndex":"mrktsIndex",
-		"mrkts/:name":"mrktShow",
+		"mrkts/:id":"mrktShow",
    	'about':'about'
   },
 
   initialize: function(options){
    this.product_types = options.product_types;
    this.current_farmer = new Market.Models.CurrentFarmer();
+	 //named twice so i dont have to go change everything
+	 //global becaue we use this all over
 	 this.mrkts = new Market.Collections.Mrkts();
    this.current_farmer.fetch();
-   this.listenTo(this.current_farmer.favorite_farmers(), "change", this.favoritesFeed );
+	 // current_farmer = this.current_farmer;
+   this.listenTo(this.current_farmer.favorite_farmers(), "change", this.favoritesFeed);
+	 this.listenTo(this.current_farmer, "sync", this.setCurrentFarmerGlobal);
    this.favoritesFeed();
   },
+		// WORK IN PROGRESS (SYNCING ISNT REALLY HAPPENING B/C OF FILEPICKER ERROR)
+	// setCurrentFarmerGlobal: function () {
+	// 	alert('synced');
+	// 	current_farmer = this.current_farmer;
+	// },
 	
-	mrktShow: function(name){
-		var mView = new Market.Views.MrktShow({ marketname: name });
+	mrktShow: function(id){
+		var mView = new Market.Views.MrktShow({ id: id, current_farmer: this.current_farmer });
 		this._swapView(mView);
 	},
 	

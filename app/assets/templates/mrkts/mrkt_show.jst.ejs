@@ -1,8 +1,18 @@
 <h4 class='market-title'><%= market.escape('marketname')%></h4>
+<% if (market.get('attended_by_current_farmer') === false){ %>
+	 <button class='btn btn-success join-market'>JOIN THIS MARKET</button>
+<% } else { %>
+  <button class='btn btn-warning quit-market'>LEAVE THIS MARKET</button>
+<% } %>
 <div class='market-info'>
 <p>
-<% market.keys().forEach(function(key){%>
-<%= key + " : " + market.get(key) %> <br>
-<%})%>
+	<% market.keys().forEach(function(key){%>
+	<%= key + " : " + market.escape(key) %> <br>
+	<%})%>
 </p>
 </div>
+<div>
+<% market.attendees().forEach(function(attendee){ %>
+<a href="#/farmers/<%=attendee.escape('name')%>">
+	<%=attendee.escape('name')%></a><br>
+<% }) %>
