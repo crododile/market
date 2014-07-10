@@ -1,6 +1,6 @@
 Market.Views.FarmerShow = Backbone.View.extend({
-  initialize: function(options){
-    this.name = options.name
+  initialize: function (options) {
+    this.name = options.name;
     this.farmer = new Market.Models.Farmer( { name: options.name });
     this.farmer.fetch();
     this.listenTo(this.farmer, 'sync', this.render);
@@ -14,7 +14,7 @@ Market.Views.FarmerShow = Backbone.View.extend({
 
   showMap: function () {
 	  var that = this
-    if(!this.farmer.get('lat'))
+    if(!this.farmer.get('lat')){
       var streetAddress = $('.street-address').text().replace(/\s+/g,"")
       var city = $('.city').text().replace(/\s+/g,"")
       var state = $('.state').text().replace(/\s+/g,"")
@@ -32,8 +32,9 @@ Market.Views.FarmerShow = Backbone.View.extend({
 				  that.farmer.set({lat: lat, lng: lng})
 				  that.farmer.save({lat: lat, lng: lng}, {patch:true})
         },
-        error: function () {alert('wut')}
+        error: function () {alert('geocoding error')}
       });
+		}
 
    function initialize (options) {
      var myLatLng
@@ -72,8 +73,9 @@ Market.Views.FarmerShow = Backbone.View.extend({
 
   render: function () {
     var rc = this.template({ farmer: this.farmer });
+		console.log(rc)
     this.$el.html(rc);
-		this.showMap();
+		// this.showMap();
     return this;
   },
 

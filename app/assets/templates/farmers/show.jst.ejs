@@ -45,7 +45,6 @@
 
               <button class='btn btn-success add-map'>VISIT US</button>
               <div id="map-canvas" class='pull-right'>
-
               </div>
 
 
@@ -60,10 +59,13 @@
                 <div class='postal-code'><%=farmer.escape('postal_code')%></div><br>
                 </h2>
               </div>
-
-
-
-
+							
+						<h2>Markets we attend!</h2>
+						<%farmer.markets().each(function(mrkt){ %>
+							<a href="#mrkts/<%=mrkt.escape('id')%>">
+						<%=mrkt.escape('marketname')%>
+						</a>
+						<% })%>
       </div>
     </div>
     <br>
