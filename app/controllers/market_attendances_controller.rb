@@ -1,7 +1,7 @@
 class MarketAttendancesController < ApplicationController
   def create
     newA = current_farmer.market_attendances.create!( attendance_params )
-    render :json => newA
+    render :json => {}
   end
   
   def destroy
