@@ -7,11 +7,12 @@
 <div class='market-info'>
 <p>
 	<% market.keys().forEach(function(key){%>
-	<%= key + " : " + market.get(key) %> <br>
+	<%= key + " : " + market.escape(key) %> <br>
 	<%})%>
 </p>
 </div>
 <div>
 <% market.attendees().forEach(function(attendee){ %>
-<%= attendee.get('name') %>
+<a href="#/farmers/<%=attendee.escape('name')%>">
+	<%=attendee.escape('name')%></a><br>
 <% }) %>

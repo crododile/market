@@ -56,12 +56,13 @@ Market.Views.MrktShow = Backbone.View.extend({
 		var that = this;
 		var newAttendance = new Market.Models.MarketAttendance({mrkt_id: this.model.get('id')});
 		newAttendance.save(null,
-			{
-				success: function () {
+			{ success: function () {
 				alert('you are now listed as a merchant at this market');
 				that.model.fetch();
 				},
-				error: function () {alert('something is afoot');}
+				error: function () {
+					alert('something is afoot');
+				}
 			});
 	},
 	

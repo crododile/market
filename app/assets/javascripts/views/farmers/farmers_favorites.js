@@ -10,7 +10,7 @@ Market.Views.FarmersFavorites = Backbone.View.extend({
   events: {
     'sortupdate':'sortStuff',
     'click button.delete-button':'deleter',
-	'click button.visit-button':'visiter'
+		'click button.visit-button':'visiter'
   },
   
   visiter: function(){
@@ -29,21 +29,20 @@ Market.Views.FarmersFavorites = Backbone.View.extend({
     var fName = $(ui.item).find('.thumbnail-fname').text().trim();
     var fId = $(ui.item).find('.thumbnail-fname').data('id');
     var pType = $(ui.item).find(".thumbnail-product").data('type');
-	var fPicker = $($(ui.item).find(".thumbnail-image-container").children()[0]).attr('src');
+		var fPicker = $($(ui.item).find(".thumbnail-image-container").children()[0]).attr('src');
 	
     var nFave = new Market.Models.FavoriteFarmer({
       shopper_id: this.model.id, farmer_id: fId,
       product_favorited: pType, farmer_name: fName,
-	  filepicker_url: fPicker
+		  filepicker_url: fPicker
     });
 
     nFave.save({ success: function(){ console.log('ho') } })
 	
-
     this.model.favorite_farmers().add(nFave);
   },
 
-  render: function(){
+  render: function () {
     var rc = this.template( {farmer: this.model} );
     this.$el.html(rc);
 
@@ -57,7 +56,7 @@ Market.Views.FarmersFavorites = Backbone.View.extend({
 	
     var that = this
     $('.dropdown-menu').empty()
-	$('.dropdown-menu').append('<li>Products Added in Past 3 days</li>')
+		$('.dropdown-menu').append('<li>Products Added in Past 3 days</li>')
 	
     $.ajax({
       url: "/feed",
@@ -76,14 +75,13 @@ Market.Views.FarmersFavorites = Backbone.View.extend({
       },
     });
 
-
     $('.favorite-farmers .farmer-thumbnail').hover(
         function(event){ $(event.currentTarget).append( $delButton );
-		  $visitButton.attr('href', $(event.currentTarget).find('a').attr('href') );
+			  $visitButton.attr('href', $(event.currentTarget).find('a').attr('href') );
    		  $(event.currentTarget).append( $visitButton ) 
 	    },
 	    function(){  
-		  $delButton.remove();
+			  $delButton.remove();
 	      $visitButton.remove()
 	    }
     );
