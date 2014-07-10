@@ -38,7 +38,6 @@ Market.Views.FarmerHome = Backbone.View.extend({
    $('#myModal').on('hide.bs.modal', function(){ that.render() })
  },
 
-
  showProduct: function(event){
    var id = $(event.target).data('id')
    var psView = new Market.Views.ProductShow({ id: id});

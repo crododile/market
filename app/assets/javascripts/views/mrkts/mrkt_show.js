@@ -16,33 +16,22 @@ Market.Views.MrktShow = Backbone.View.extend({
 	
 	quitMarket: function (event) {
 		event.preventDefault();
-		
-		
+		var deadAttendance = new Market.Models.MarketAttendance({ id: this.id })
+		deadAttendance.destroy({
+			success: function () {
+				alert('you are no longer listed as a merchant at this market');
+			}
+		});
 	},
-	
-  deleter: function(event){
-    dataId = $(event.target).data('productid')
-    deadProduct = new Market.Models.ProductManifest( { id: dataId });
-    var that = this
-    deadProduct.destroy({
- 	  success: function(){
-	 	  that.model.products().remove(deadProduct);
-	 	  $('#myModal').modal('hide');
-	 	  that.model.fetch()}
-    });
-    $('#myModal').on('hide.bs.modal', function(){ that.render(); that.model.fetch() })
-  },
 	
 	joinMarket: function (event) {
 		event.preventDefault();
 		var newAttendance = new Market.Models.MarketAttendance({mrkt_id: this.model.get('id')});
-		newAttendance.save( 
-			{ 
-				success: function () {
-					alert('Your name will now show up in the attending farmers section on this page, and this market will be listed on your page')
-				}
+		newAttendance.save({ 
+			success: function () {
+				alert('you are now listed as a merchant at this market');
 			}
-		);
+		});
 	},
 	
   render: function(){

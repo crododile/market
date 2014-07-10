@@ -4,6 +4,12 @@ class MarketAttendancesController < ApplicationController
     render :json => newA
   end
   
+  def destroy
+    @attendance = MarketAttendance.where({farmer_id: current_farmer.id, mrkt_id: params[:id]})
+    @attendance.destroy_all
+    render :json => {}
+  end
+  
   private
   def attendance_params
     params.require(:market_attendance).permit(:mrkt_id)
