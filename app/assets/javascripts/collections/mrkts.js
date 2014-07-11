@@ -3,7 +3,7 @@ Market.Collections.Mrkts = Backbone.Collection.extend({
 	
   model: Market.Models.Mrkt,
 	
-	getMarkers: function(){
+	getMarkers: function () {
 		var that = this
 		var mrktMarkers = this.map(function(mrkt){
 			var mrktLatLng = new google.maps.LatLng( mrkt.get('y'), mrkt.get('x'));

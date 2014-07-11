@@ -4,7 +4,7 @@ require 'active_record'
 #creates dtable and seeds it from a csv
 #use:
 # save seed data in lib/assets
-#rake csv_to_pg filepath=#{filename} modelname=#{name #of your rails model to associate with this table}
+#rake csv_to_pg filename=#{filename} modelname=#{name #of your rails model to associate with this table}
 
 task :csv_to_pg => :environment do
   @db_info = ActiveRecord::Base.configurations[Rails.env]
