@@ -1,7 +1,6 @@
 <p class='disclaimer'>Ahoy, Please be patient, we are loading lots of data and it may take a few moments </p>
 <div class='map-canvas' id="index-map">
 </div>
-
 <div class='right-of-map'>
   <form class='zip-form'>
     <label> Change Location
@@ -12,7 +11,7 @@
 	<% Mrkts.each(function (market) { %>
 	  <div class='market-tab' data-marketname="<%=market.escape('id')%>">
 		  <a href=<%="#mrkts/"+ market.escape('id')%>>
-				<%= market.escape('marketname') %>
+				<%=market.escape('marketname') %>
 			</a>
 		</div>
 	<% }) %>

@@ -1,7 +1,8 @@
 Market.Models.Farmer = Backbone.Model.extend({
   url: function () {
-    if (this.get('name')){ 
-			return "/farmers/" + this.get('name')
+    if (this.id){ 
+			alert('!')
+			return "/farmers/" + this.id
 		}
     return "/farmers"
   },

@@ -62,7 +62,7 @@ class Mrkt < ActiveRecord::Base
       "flowers",
       "eggs",
       "seafood",
-     " herbs",
+      "herbs",
       "vegetables",
       "honey",
       "jams",

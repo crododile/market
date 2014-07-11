@@ -5,7 +5,6 @@ class FavoriteFarmersController < ApplicationController
   end
 
   def feed
-
     @feedFarmers = FavoriteFarmer.find_by_sql([
     " SELECT favorite_farmers.farmer_name, favorite_farmers.product_favorited
     FROM product_manifests
@@ -25,10 +24,7 @@ class FavoriteFarmersController < ApplicationController
  #    ORDER BY product_manifests.created_at",
  #     3.days.ago, params[:id]
  #     ])
-
-
      render 'favorite_farmers/feed'
-
   end
 
 

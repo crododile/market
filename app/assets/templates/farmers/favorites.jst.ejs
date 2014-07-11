@@ -1,17 +1,15 @@
 <div class='favorite-farmers connected-lists'>
-
   <% farmer.favorite_farmers().each(function(favFarmer){ %>
-
       <div class='farmer-thumbnail' 
 	  data-name='<%= favFarmer.escape('farmer_name') %>'
-	  data-id='<%= favFarmer.id %>'>
+	  data-id='<%=favFarmer.id %>'>
         <div class="<%='thumbnail-product ' + favFarmer.escape('product_favorited') %>">
         <%=favFarmer.escape('farmer_name') %>
         </div>
 
         <div class='thumbnail-personal'>
           <div class='thumbnail-fname' data-id='<%=favFarmer.id%>'>
-            <a href="#/farmers/<%= favFarmer.escape('farmer_name') %>"><%=favFarmer.escape('farmer_name')%> </a>
+            <a href="#/farmers/<%=favFarmer.get('farmer_id') %>"><%=favFarmer.escape('farmer_name')%> </a>
           </div>
 					
           <div class='thumbnail-image-container'>

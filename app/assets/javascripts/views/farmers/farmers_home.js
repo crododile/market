@@ -50,7 +50,6 @@ Market.Views.FarmerHome = Backbone.View.extend({
    $delButton.addClass('delete-product')
    $delButton.data('productid', id)
    $('div.modal-body').append( $delButton );
-
  },
 
  deleter: function(event){

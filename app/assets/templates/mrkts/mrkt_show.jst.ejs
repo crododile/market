@@ -13,6 +13,6 @@
 </div>
 <div>
 <% market.attendees().forEach(function(attendee){ %>
-<a href="#/farmers/<%=attendee.escape('name')%>">
+<a href="#/farmers/<%=attendee.escape('id')%>">
 	<%=attendee.escape('name')%></a><br>
 <% }) %>

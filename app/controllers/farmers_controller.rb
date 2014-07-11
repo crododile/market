@@ -6,19 +6,19 @@ class FarmersController < ApplicationController
   end
 
   def show
-    @farmer = Farmer.find_by_name(params[:id])
+    @farmer = Farmer.find params[:id]
     render "farmers/farmer"
   end
 
   def update
     @farmer = current_farmer
-    @farmer.update( farmer_params )
+    @farmer.update farmer_params
     render "farmers/farmer"
   end
 
 
   def create
-    @farmer = Farmer.new(farmer_params)
+    @farmer = Farmer.new farmer_params
     @farmer.save!
     render "farmers/farmer"
   end

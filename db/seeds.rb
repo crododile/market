@@ -6,39 +6,60 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
-product_types = [
-  {name: "lamb"},
-  {name:'pork'},
-  {name:'beef'},
+PRODUCT_TYPES =[
+  "bakedgoods",
+  "cheese",
+  "crafts",
+  "flowers",
+  "eggs",
+  "seafood",
+ " herbs",
+  "vegetables",
+  "honey",
+  "jams",
+  "maple",
+  "meat",
+  "nursery",
+  "nuts",
+  "nursery",
+  "plants",
+  "poultry",
+  "prepared",
+  "trees",
+  "soap",
+  "wine"]
   
-  {name:'tomatoes'},
-  {name:'lettuce'},
-  {name:'greens'},
-  
-  {name:'poultry'},
-  {name:'goat'},
-   
-  {name:'corn'},
-  {name:'squash'},
-  {name:'pumpkin'},
+  new_product_types =[
+    {:name=>"bakedgoods"},
+    {:name=>"cheese"},
+    {:name=>"crafts"},
+    {:name=>"flowers"},
+    {:name=>"eggs"},
+    {:name=>"seafood"},
+    {:name=>"herbs"},
+    {:name=>"vegetables"}, 
+    {:name=>"honey"}, 
+    {:name=>"jams"},
+    {:name=>"maple"},
+    {:name=>"meat"}, 
+    {:name=>"nursery"}, 
+    {:name=>"nuts"},
+    {:name=>"nursery"}, 
+    {:name=>"plants"}, 
+    {:name=>"poultry"},
+    {:name=>"prepared"},
+    {:name=>"trees"}, 
+    {:name=>"soap"},
+    {:name=>"wine"}]
 
-  {name:'eggplant'},
-
-]
-
-ProductType.create!( product_types )
-
+ProductType.create! new_product_types 
 
 FactoryGirl.define do
-
-
   sequence :email do |n|
     "#{n}@gmail.com"
   end
 
   factory :farmer do
-
     name { Faker::Name.name }
     email
     password 'demodemo'
@@ -51,17 +72,14 @@ FactoryGirl.define do
     postal_code { Faker::Address.zip_code }
     phone_number { Faker::PhoneNumber.phone_number }
     contact_email { Faker::Internet.email }
-
   end
-
 
   factory :product_manifest do
     farmer_id { 1 + rand(50) }
-    product_type_id { 1 + rand(11) }
+    product_type_id { 1 + rand(21) }
     variety { Faker::Commerce.product_name }
     description { Faker::Company.catch_phrase }
   end
-
 end
 
 50.times{ FactoryGirl.create :farmer }
