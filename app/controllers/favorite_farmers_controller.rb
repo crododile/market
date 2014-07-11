@@ -6,7 +6,7 @@ class FavoriteFarmersController < ApplicationController
 
   def feed
     @feedFarmers = FavoriteFarmer.find_by_sql([
-    " SELECT favorite_farmers.farmer_name, favorite_farmers.product_favorited
+    "SELECT favorite_farmers.farmer_name, favorite_farmers.product_favorited, favorite_farmers.farmer_id
     FROM product_manifests
     JOIN favorite_farmers
     ON product_manifests.farmer_id = favorite_farmers.farmer_id

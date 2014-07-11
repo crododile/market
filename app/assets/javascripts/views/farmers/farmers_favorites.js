@@ -66,7 +66,7 @@ Market.Views.FarmersFavorites = Backbone.View.extend({
         respData.forEach( function(frsh){
           $freshie = $('<li>')
           $flink = $('<a>')
-          $flink.attr('href', '/#/farmers/'+frsh['farmer_name'])
+          $flink.attr('href', '/#/farmers/'+frsh['farmer_id'])
           $flink.text("new " + frsh['product_favorited'] + " from " + frsh['farmer_name'])
 	
           $freshie.html($flink)

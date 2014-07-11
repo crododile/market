@@ -65,7 +65,7 @@ Market.Views.ProductTypesIndex = Backbone.View.extend({
 		 
 		 google.maps.event.addListener(marker, 'click', function(){
    		  $('.right-of-map').animate({
-   			  scrollTop: $(".farmer-thumbnail[data-name='"+this.title+"']").offset().top -100
+   			  scrollTop: $(".farmer-thumbnail[data-name='"+this.title+"']").offset().top -160
    		  }, 2000)
 		 })
  

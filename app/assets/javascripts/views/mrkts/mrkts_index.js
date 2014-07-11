@@ -1,11 +1,56 @@
 Market.Views.MrktsIndex = Backbone.View.extend({
 	template: JST['mrkts/index'],
 	
-	initialize: function () {
+	initialize: function (options) {
+		this.product_types = options.product_types
 		this.collection.fetch();
 		this.listenTo(this.collection, "sync", this.syncstuff.bind(this));
 		this.markers = [];
 	},
+	
+	events: {
+		  "click a.plz":"goToMarket",
+	},
+	
+	goToMarket: function(event){	
+			if (!$(event.target).hasClass('clicked')){
+				var that = this;
+		    var ptName = $(event.target).closest('li').data("type");
+		    // var ptModel = this.collection.findWhere( {name: ptName})
+		    // var ptFarmers = this.ptFarmers = new Market.Collections.FarmersForProductType({
+		      // product_type: ptModel
+		    // });
+		    // var ptMarketView = new Market.Views.FarmersForProductType({
+		      // model: ptModel,
+		      // collection: ptFarmers
+		    // });
+			
+				$(event.target).addClass('clicked')
+		    // ptFarmers.fetch({
+		      success: function(){
+						that.moreMarkers();
+		      }
+		    });
+		    // $('div.show-area').append(ptMarketView.render().$el)
+			} else {
+		    var ptName = $(event.target).closest('li').data("type");
+				var toRemove = [];
+				var that = this;
+			
+				$(event.target).removeClass('clicked')
+				this.markers.forEach(function(marker, index){
+					if (marker.content.attributes.name === ptName){
+						toRemove.push[index]
+						marker.setMap(null)
+					}
+					$("div."+ptName+"-farmers").remove();
+				});
+				toRemove.forEach(function(ind){
+					that.markers.splice(ind, 1)
+				});		
+			}
+		 },
+	}
 	
 	syncstuff: function () {
 		this.render();
@@ -14,7 +59,7 @@ Market.Views.MrktsIndex = Backbone.View.extend({
 	},
 	
 	render: function () {
-		var rc = this.template({ Mrkts: this.collection });
+		var rc = this.template({ Mrkts: this.collection, product_types: this.product_types });
 		var that = this;
 		var center = new google.maps.LatLng(37.7833, -122.4167);
 		this.$el.html(rc);
@@ -65,7 +110,7 @@ Market.Views.MrktsIndex = Backbone.View.extend({
     		  $('.right-of-map').animate({
     			  scrollTop: 
 							($(".market-tab[data-marketname='"+this.data+"']").offset().top + 
-							 $(".right-of-map").scrollTop() - 100)
+							 $(".right-of-map").scrollTop() - 160)
     		  }, 1200)
 					$(".market-tab[data-marketname='"+this.data+"']").addClass('highlight');
 				});

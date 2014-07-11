@@ -35,7 +35,7 @@ Market.Routers.Router = Backbone.Router.extend({
 	},
 	
 	mrktsIndex: function(){
-		var idx = new Market.Views.MrktsIndex({ collection: this.mrkts });
+		var idx = new Market.Views.MrktsIndex({ collection: this.mrkts, product_types: this.product_types });
 		this._swapView(idx);
 		// These lines fix a bug on the maps self-applied styles
 		//$('.map-canvas').removeAttr('style');

@@ -1,1 +1,1 @@
-json.array! @feedFarmers, :product_favorited, :farmer_name
+json.array! @feedFarmers, :product_favorited, :farmer_name, :farmer_id
