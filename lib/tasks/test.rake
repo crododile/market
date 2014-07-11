@@ -62,7 +62,7 @@ task :csv_to_pg => :environment do
   #
   # create_model_from_csv full_path, ENV['modelname']
   # p "migrating"
-  system "rake db:migrate"
+  # system "rake db:migrate"
   p "copying"
   copy_table_from_csv full_path, ENV['modelname']
   p "done, now go write your model!"
