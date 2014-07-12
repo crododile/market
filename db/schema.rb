@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140707035151) do
+ActiveRecord::Schema.define(version: 20140712021631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -173,6 +173,27 @@ ActiveRecord::Schema.define(version: 20140707035151) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "mrkts", ["bakedgoods"], name: "index_mrkts_on_bakedgoods", using: :btree
+  add_index "mrkts", ["cheese"], name: "index_mrkts_on_cheese", using: :btree
+  add_index "mrkts", ["crafts"], name: "index_mrkts_on_crafts", using: :btree
+  add_index "mrkts", ["eggs"], name: "index_mrkts_on_eggs", using: :btree
+  add_index "mrkts", ["flowers"], name: "index_mrkts_on_flowers", using: :btree
+  add_index "mrkts", ["herbs"], name: "index_mrkts_on_herbs", using: :btree
+  add_index "mrkts", ["honey"], name: "index_mrkts_on_honey", using: :btree
+  add_index "mrkts", ["jams"], name: "index_mrkts_on_jams", using: :btree
+  add_index "mrkts", ["maple"], name: "index_mrkts_on_maple", using: :btree
+  add_index "mrkts", ["meat"], name: "index_mrkts_on_meat", using: :btree
+  add_index "mrkts", ["nursery"], name: "index_mrkts_on_nursery", using: :btree
+  add_index "mrkts", ["nuts"], name: "index_mrkts_on_nuts", using: :btree
+  add_index "mrkts", ["plants"], name: "index_mrkts_on_plants", using: :btree
+  add_index "mrkts", ["poultry"], name: "index_mrkts_on_poultry", using: :btree
+  add_index "mrkts", ["prepared"], name: "index_mrkts_on_prepared", using: :btree
+  add_index "mrkts", ["seafood"], name: "index_mrkts_on_seafood", using: :btree
+  add_index "mrkts", ["soap"], name: "index_mrkts_on_soap", using: :btree
+  add_index "mrkts", ["trees"], name: "index_mrkts_on_trees", using: :btree
+  add_index "mrkts", ["vegetables"], name: "index_mrkts_on_vegetables", using: :btree
+  add_index "mrkts", ["wine"], name: "index_mrkts_on_wine", using: :btree
 
   create_table "product_manifests", force: true do |t|
     t.integer  "farmer_id"
