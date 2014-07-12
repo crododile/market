@@ -16,10 +16,10 @@ Market.Views.MrktsIndex = Backbone.View.extend({
 			if (!$(event.target).hasClass('clicked')){
 				var that = this;
 		    var ptName = $(event.target).closest('li').data("type");
-		    // var ptModel = this.collection.findWhere( {name: ptName})
-		    // var ptFarmers = this.ptFarmers = new Market.Collections.FarmersForProductType({
-		      // product_type: ptModel
-		    // });
+		    var ptModel = this.product_types.findWhere( {name: ptName})
+		    var ptMarkets = this.ptMarkets = new Market.Collections.MarketsForProductType({
+		      product_type: ptModel
+		    });
 		    // var ptMarketView = new Market.Views.FarmersForProductType({
 		      // model: ptModel,
 		      // collection: ptFarmers
