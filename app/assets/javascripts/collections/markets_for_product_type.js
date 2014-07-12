@@ -12,25 +12,24 @@ Market.Collections.MarketsForProductType = Backbone.Collection.extend({
 
 	getMarkers: function(){
 		var that = this
-		var farmerMarkers = this.map(function(farmer){
-			var farLatLng = new google.maps.LatLng(
-				parseFloat(farmer.get('lat')), parseFloat(farmer.get('lng')) );
+		var marketMarkers = this.map(function(market){
+			var mrktLatLng = new google.maps.LatLng(
+				parseFloat(market.get('y')), parseFloat(market.get('x')) );
 				return new google.maps.Marker({
 					icon: {
 						path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
 						scale: 6,
 						strokeWeight: 5,
-						fillColor: that.COLORS[that.product_type.attributes.name],
 						opacity: 1,
-						strokeColor: that.COLORS[that.product_type.attributes.name]
 					},
-					position: farLatLng,
+					position: mrktLatLng,
 					animation: google.maps.Animation.DROP,
-					title: farmer.escape('name'),
+					title: market.escape('marketname'),
+					data: market.escape('id'),
 					content: that.product_type
 				});
 
 			});
-			return farmerMarkers
+			return marketMarkers
 		}
 });

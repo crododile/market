@@ -1,0 +1,9 @@
+<div id="<%=pt.escape('name')%>" class='<%=pt.escape('name')+"-markets"%>'>
+    <% ptMarkets.each(function(market){ %>
+		  <div class='market-tab' data-marketname="<%=market.escape('id')%>">
+			  <a href=<%="#mrkts/"+ market.escape('id')%>>
+					<%=market.escape('marketname') %>
+				</a>
+			</div>
+    <% })%>
+</div>
