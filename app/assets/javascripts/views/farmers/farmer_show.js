@@ -73,9 +73,8 @@ Market.Views.FarmerShow = Backbone.View.extend({
 
   render: function () {
     var rc = this.template({ farmer: this.farmer });
-		console.log(rc)
     this.$el.html(rc);
-		// this.showMap();
+		this.showMap();
     return this;
   },
 

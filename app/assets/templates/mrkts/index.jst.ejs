@@ -1,18 +1,8 @@
-<ul class='nav nav-tabs nav-justified'>
-  <% product_types.each(function(product_type){ %>  
-		<% if(product_types.indexOf(product_type) == Math.floor(product_types.length/2)){ %>
-		</ul><ul class='nav nav-tabs nav-justified'>
-		<% } %>
-        <li class="<%=product_type.escape('name')%>"
-		data-type="<%=product_type.escape('name')%>">
-	       <a class='plz'> <%=product_type.escape('name')%> </a>
-        </li>
-  <% }) %>
-</ul>
 
 
-<div class='map-canvas' id="index-map">
 <p class='disclaimer'>Ahoy, Please be patient, we are loading lots of data and it may take a few moments </p>
+<div class='map-canvas' id="index-map">
+
 </div>
 <div class='right-of-map'>
   <form class='zip-form'>

@@ -1,6 +1,6 @@
 Market.Routers.Router = Backbone.Router.extend({
   routes: {
-		'':'mrktsIndex',
+		'':'mrktGraph',
     'farmersIndex':'productsIndex',
     'addProducts':'addProduct',
     "editFarmer":"editFarmer",
@@ -9,6 +9,7 @@ Market.Routers.Router = Backbone.Router.extend({
     "farmers/:id":"farmerShow",
 		"mrktsIndex":"mrktsIndex",
 		"mrkts/:id":"mrktShow",
+		"graph":"mrktGraph",
    	'about':'about'
   },
 
@@ -30,13 +31,18 @@ Market.Routers.Router = Backbone.Router.extend({
 	// 	current_farmer = this.current_farmer;
 	// },
 	
+	mrktGraph: function(){
+		var gView = new Market.Views.MrktGraph();
+		this._swapView(gView);
+	},
+	
 	mrktShow: function(id){
 		var mView = new Market.Views.MrktShow({ id: id, current_farmer: this.current_farmer });
 		this._swapView(mView);
 	},
 	
 	mrktsIndex: function(){
-		var idx = new Market.Views.MrktsIndex({ collection: this.mrkts, product_types: this.product_types });
+		var idx = new Market.Views.MrktsIndex({ collection: this.mrkts });
 		this._swapView(idx);
 		// These lines fix a bug on the maps self-applied styles
 		//$('.map-canvas').removeAttr('style');

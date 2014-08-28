@@ -7,12 +7,19 @@
 <div class='market-info'>
 <p>
 	<% market.keys().forEach(function(key){%>
+	<% if (key !== "attendees"){ %>
 	<%= key + " : " + market.escape(key) %> <br>
-	<%})%>
+	<% }}) %>
 </p>
 </div>
-<div>
-<% market.attendees().forEach(function(attendee){ %>
-<a href="#/farmers/<%=attendee.escape('id')%>">
-	<%=attendee.escape('name')%></a><br>
-<% }) %>
+<div class="market-attendees">
+<br>
+	<h4>Moospace Users attending this market</h3>
+	<% if (market.attendees().length === 0){ %>
+		 No users attending
+	<% } %>
+	<% market.attendees().forEach(function(attendee){ %>
+	<a href="#/farmers/<%=attendee.escape('id')%>">
+		<%=attendee.escape('name')%></a><br>
+	<% }) %>
+</div>

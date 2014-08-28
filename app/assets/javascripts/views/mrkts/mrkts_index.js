@@ -2,53 +2,11 @@ Market.Views.MrktsIndex = Backbone.View.extend({
 	template: JST['mrkts/index'],
 	
 	initialize: function (options) {
-		this.product_types = options.product_types
-		// this.collection.fetch();
+		this.collection.fetch();
 		this.listenTo(this.collection, "sync", this.syncstuff.bind(this));
 		this.markers = [];
 	},
 	
-	events: {
-		  "click a.plz":"goToMarket",
-	},
-	
-	goToMarket: function(event){
-			if (!$(event.target).hasClass('clicked')){
-				var that = this;
-		    var ptName = $(event.target).closest('li').data("type");
-		    var ptModel = this.product_types.findWhere( {name: ptName})
-		    var ptMarkets = this.ptMarkets = new Market.Collections.MarketsForProductType({
-		      product_type: ptModel
-		    });
-		    // var ptMarketView = new Market.Views.MarketsForProductType({
-  // 		      model: ptModel,
-  // 		      collection: ptMarkets
-  // 		    });
-				$(event.target).addClass('clicked')
-		    ptMarkets.fetch({
-		      success: function(){
-						that.moreMarkers();
-					  // $('div.show-area').append(ptMarketView.render().$el)
-		      }
-		    });
-			} else {
-		    var ptName = $(event.target).closest('li').data("type");
-				var toRemove = [];
-				var that = this;
-
-				$(event.target).removeClass('clicked');
-				this.markers.forEach(function(marker, index){
-					if (marker.content.attributes.name === ptName){
-						toRemove.push[index]
-						marker.setMap(null)
-					}
-					$("div."+ptName+"-markets").remove();
-				});
-				toRemove.forEach(function(ind){
-					that.markers.splice(ind, 1)
-				});
-			}
-	},
 
 	syncstuff: function () {
 		this.render();
@@ -57,7 +15,7 @@ Market.Views.MrktsIndex = Backbone.View.extend({
 	},
 	
 	render: function () {
-		var rc = this.template({ Mrkts: this.collection, product_types: this.product_types });
+		var rc = this.template({ Mrkts: this.collection });
 		var that = this;
 		var center = new google.maps.LatLng(37.7833, -122.4167);
 		this.$el.html(rc);
@@ -87,7 +45,7 @@ Market.Views.MrktsIndex = Backbone.View.extend({
 	
 	moreMarkers: function () {
 		var map = this.map;
-		var markers = this.ptMarkets.getMarkers();
+		var markers = this.collection.getMarkers();
 		var that = this;
 		markers.forEach(function (marker) {
 			marker.setMap(map);

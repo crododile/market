@@ -77,5 +77,9 @@ class Mrkt < ActiveRecord::Base
       "trees",
       "soap",
       "wine"]
+      
+      def self.numMrktsForProduct(product)
+        Mrkt.where(product => "Y").count
+      end
   
 end

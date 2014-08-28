@@ -16,6 +16,7 @@
 //= require jquery-ui/droppable
 //= require jquery-ui/sortable
 //= require underscore
+//= require d3/d3.min.js
 //= require backbone
 //= require market
 //= require bootstrap

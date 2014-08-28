@@ -1,0 +1,96 @@
+<div id="graph-container"></div>
+<script>
+$(function(){
+	d3.json("/count", function(datta){ 
+	var root = d3.select("#graph-container");
+	var w = 900;
+	var h = 600;
+	
+	var svg = root.append('svg')
+	    .style('display', 'block')
+	    .attr('width', w)
+	    .attr('height', h);
+			
+ var title = svg.append('text')
+     .attr('x', w / 2)
+     .attr('y', h - 10)
+     .attr('text-anchor', 'middle')
+		 .attr("class", "title")
+     .text('Number of Markets Listing Product Type');
+	
+	var drawChart = function(){
+			var yScale = d3.scale.linear()
+					.domain([0, datta.length ])
+			    .range([h - 30	, 0]);  
+	
+			var xScale = d3.scale.linear()
+			   .domain([0, d3.max(datta, function(d){ return d.count })])
+				 .range([8, w - 10 ]);
+		 
+			var bars = svg.selectAll("rect.bar").data( datta );
+	
+			var newBars = bars.enter().append('rect')
+			      .attr('class', 'bar')
+						.attr("x", function(d,i){ return 8 });
+			
+			bars.attr('y', function(d, i){ return yScale( i ) - 20 } )
+					  .attr("height", function(d, i) { return 20 })
+						.attr('width', function(d) { return xScale(d.count) });
+
+			var labels = svg.selectAll("text.label").data(datta);
+	
+			labels.enter().append('text').attr("class","label")
+			
+	    labels.attr("x", 12)
+					.attr('y', function(d, i) { return yScale(i) - 4 })
+					.text( function(d){ return d.name });
+	
+			var counts = svg.selectAll("text.count").data(datta);
+	
+			counts.enter().append("text")
+			    .attr("class","count")
+					
+			counts.attr("x", function(d){ return xScale( d.count ) - 30 } )
+					.attr("y", function(d, i){ return yScale( i ) - 4 } )
+					.text( function(d){ return d.count });
+			}
+			
+			var alphabetical = function (a, b)
+			{
+			     var A = a.toLowerCase();
+			     var B = b.toLowerCase();
+			     if (A < B){
+			        return 1;
+			     }else if (A > B){
+			       return  -1;
+			     }else{
+			       return 0;
+			     }
+			}
+			
+			var makeSortButton = function(field, rev) {
+			  return d3.select('#graph-container').append('button')
+			      .on('click', function() {
+						  if (field === "name" ){
+							  datta.sort(
+								function(a,b){
+									return alphabetical(a.name,b.name)
+									}
+								)
+							} else {
+				        datta.sort(function(a, b) { 
+									return (a[field] - b[field]); 
+								});
+							}
+			        drawChart();
+			      });
+			};
+			
+			drawChart();
+			
+			makeSortButton('count', -1).text('Sort by count');
+			makeSortButton('name', -1).text('Sort by name');
+			
+	});
+})
+</script>
