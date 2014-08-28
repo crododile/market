@@ -6,17 +6,35 @@ $(function(){
 	var w = 900;
 	var h = 600;
 	
+	var makeSortButton = function(field, rev) {
+	  return root.append('button')
+	      .on('click', function() {
+				  if (field === "name" ){
+					  datta.sort(
+						function(a,b){
+							return alphabetical(a.name,b.name)
+							}
+						)
+					} else {
+		        datta.sort(function(a, b) { 
+							return (a[field] - b[field]); 
+						});
+					}
+	        drawChart();
+	      });
+	};
+
+	makeSortButton('count', -1).text('Sort by count');
+	makeSortButton('name', -1).text('Sort by name');
+	
+  var title = root.append('text')
+ 		  .attr("class", "graph-title")
+      .text('Number of Markets Listing Each Product Type');
+	
 	var svg = root.append('svg')
 	    .style('display', 'block')
 	    .attr('width', w)
 	    .attr('height', h);
-			
- var title = svg.append('text')
-     .attr('x', w / 2)
-     .attr('y', h - 10)
-     .attr('text-anchor', 'middle')
-		 .attr("class", "title")
-     .text('Number of Markets Listing Product Type');
 	
 	var drawChart = function(){
 			var yScale = d3.scale.linear()
@@ -68,28 +86,9 @@ $(function(){
 			     }
 			}
 			
-			var makeSortButton = function(field, rev) {
-			  return d3.select('#graph-container').append('button')
-			      .on('click', function() {
-						  if (field === "name" ){
-							  datta.sort(
-								function(a,b){
-									return alphabetical(a.name,b.name)
-									}
-								)
-							} else {
-				        datta.sort(function(a, b) { 
-									return (a[field] - b[field]); 
-								});
-							}
-			        drawChart();
-			      });
-			};
+
 			
 			drawChart();
-			
-			makeSortButton('count', -1).text('Sort by count');
-			makeSortButton('name', -1).text('Sort by name');
 			
 	});
 })

@@ -1,6 +1,6 @@
 Market.Routers.Router = Backbone.Router.extend({
   routes: {
-		'':'mrktGraph',
+		'':'about',
     'farmersIndex':'productsIndex',
     'addProducts':'addProduct',
     "editFarmer":"editFarmer",
