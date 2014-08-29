@@ -14,7 +14,7 @@
 <body data-spy="scroll" data-target=".pt-area">
   <nav class='navbar main-nav affix-top'>
       <ul class="nav nav-pills nav-justified">
-        <li class='nav-item'>
+        <li class='nav-item top-nav-link'>
           <a href='#about' class='title'>About Moospace</a>
         </li>
 
@@ -23,14 +23,14 @@
           <%= link_to('SIGN UP', new_farmer_registration_path)  %>
           </li>
         <% end %>
-        <li class='nav-item'>
+        <li class='nav-item top-nav-link'>
           <a href="#graph">GRAPH</a>
         </li>
 
-        <li class='nav-item'>
+        <li class='nav-item top-nav-link'>
           <a href="#home">YOUR PROFILE</a>
         </li>
-        <li class='nav-item'>
+        <li class='nav-item top-nav-link'>
           <a href="#mrktsIndex">LOCATE MARKETS</a>
         </li>
 
@@ -47,11 +47,10 @@
     </div>
   </nav>
   
-  <div class='background-img'></div>
+
   <div id='content' class='main-backdrop'>
   <%= yield %>
   </div>
-
 
 
 </body>
