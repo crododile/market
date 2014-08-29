@@ -1,25 +1,43 @@
-<h4 class='market-title'><%= market.escape('marketname')%></h4>
-<% if (market.get('attended_by_current_farmer') === false){ %>
-	 <button class='btn btn-success join-market'>JOIN THIS MARKET</button>
-<% } else { %>
-  <button class='btn btn-warning quit-market'>LEAVE THIS MARKET</button>
-<% } %>
-<div class='market-info'>
-<p>
-	<% market.keys().forEach(function(key){%>
-	<% if (key !== "attendees"){ %>
-	<%= key + " : " + market.escape(key) %> <br>
-	<% }}) %>
-</p>
+<h2 class='market-title'><%= market.escape('marketname')%></h2>
+<div class="market-address">
+	<%= market.escape("street") %><br>
+	<%= market.escape("city") + ", " + market.escape("state") + " " + market.escape('zip') %><br>
+	<%= market.escape("county") %> County<br>
+	<a href="<%= market.escape("website") %>">
+		<%= market.escape("website") %>
+	</a>
 </div>
-<div class="market-attendees">
 <br>
-	<h4>Moospace Users attending this market</h3>
-	<% if (market.attendees().length === 0){ %>
-		 No users attending
-	<% } %>
-	<% market.attendees().forEach(function(attendee){ %>
-	<a href="#/farmers/<%=attendee.escape('id')%>">
-		<%=attendee.escape('name')%></a><br>
-	<% }) %>
+
+<div class="market-products">
+	<span>_____SEASONS_____</span><br>
+  <%= market.escape("season1date") %><br>
+  <%= market.escape("season1time") %><br>
+  <%= market.escape("season2date") %><br>
+  <%= market.escape("season2time") %><br>
 </div>
+<br>
+
+<div class="market-products">
+<span>_____PRODUCTS_____</span><br>
+  <% var cizzy = 0 %>
+	<% productTypes.forEach(function(key){ %>
+		<% if ( market.escape(key) === "Y") { %>
+		 <span><%= key %></span>
+		 <% cizzy +=  1 %>
+		<% } %>
+		<% if( cizzy%5 === 0){ %>
+			<br>
+		<% } %>
+	<% }) %>
+</div><br>
+
+<div class="market-products">
+<span>_____ACCEPTED PAYMENT_____</span><br>
+<% paymentTypes.forEach(function(key){ %>
+  <% if ( market.escape(key) ){ %>
+	<%= key %>
+	<% } %>
+<% }) %>
+</div>
+

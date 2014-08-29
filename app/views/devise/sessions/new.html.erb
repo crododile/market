@@ -1,33 +1,28 @@
-<row>
-	<div class='col-xs-3'></div>
-	<div class='col-xs-6'>
-<h2>Sign in</h2>
+<div class="row">
+	<div class="col-xs-12">
+		<h1 class="splash-title">Moospace</h1>
+		<p class="splash-text">Find a Farmer's Market near you</p>
+	<div class='signers'>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
-
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
-
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
-
-
-
-	<form action="/farmers/sign_in" method='post'>
-		<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>" id="authenticity_token">
-		<input type="hidden" name="farmer[email]" value="5@gmail.com">
-		<input type="hidden" name="farmer[password]" value="demodemo">
-	<button class='btn btn-lg btn-success'>Come on In! <br> Browse as Guest</button>
-	</form>
+	<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+	  <span>
+			<%= f.label :email %>
+		  <%= f.email_field :email, autofocus: true %>
+		</span>
+	  <span>
+			<%= f.label :password %>
+	    <%= f.password_field :password, autocomplete: "off" %>
+		</span>
+	  <div style="display: inline-block; vertical-align: top">
+			<%= f.submit "Sign in" %><br>
+			<form action="/farmers/sign_in" method='post'>
+				<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>" id="authenticity_token">
+				<input type="hidden" name="farmer[email]" value="10@gmail.com">
+				<input type="hidden" name="farmer[password]" value="demodemo">
+			<button class='btn btn-success'>Guest</button>
+			</form>
+		</div>
+	<% end %>
 	
 	</div>
-	
-	</row>
+</div>

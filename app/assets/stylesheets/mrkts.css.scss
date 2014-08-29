@@ -17,6 +17,45 @@ rect.bar {
 	background-color: lightblue;
 }
 
+.market-products{
+	text-align: center;
+}
+
+.market-address{
+	text-align: center;
+}
+
+.about{
+	color: #006633;
+	a{
+		color: #6600FF;
+		font-weight: bold;
+	}
+}
+
+.guest-button{
+	margin-right: -40%;
+}
+
+.splash-title{
+	text-align: center;
+	font-size: 5em;
+	color: teal;
+	margin-top: -5px;
+}
+
+.splash-text{
+	text-align: center;
+	color: teal;
+	margin-left: 80px;
+	margin-top: -5px;
+}
+
+.signers{
+	margin-top: 12px;
+	text-align: center;
+}
+
 .graph-title{
 	margin-left: 200px;
 }
@@ -26,15 +65,14 @@ rect.bar {
   -webkit-column-count: 3; /* Chrome, Safari, Opera */
     -moz-column-count: 3; /* Firefox */
     column-count: 3;
-		background-color: lightblue;
-		color: green;
+		color: #006633;
 }
 
 .market-tab{
 	background-color: 'eggshell';
 	border: 5px black;
 	a {
-		color: black;
+		color: navy;
 	}
 }
 
@@ -43,17 +81,8 @@ rect.bar {
 }
 
 .market-title{
-text-align: center;
+	text-align: center;
+	color: teal;
 }
 
-.loading-image{
-	height: 100px;
-	width: 100px;
-	margin-left: auto;
-	margin-right: auto;
-	top: 50%;
-	margin-top: -50%;
-	background-image: url("./marketpics/transparent-spinner.gif");
-	background-size: cover;
-	background-repeat: no-repeat;
-}
+

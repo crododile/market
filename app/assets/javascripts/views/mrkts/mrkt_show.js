@@ -14,7 +14,7 @@ Market.Views.MrktShow = Backbone.View.extend({
 	    "flowers",
 	    "eggs",
 	    "seafood",
-	   " herbs",
+	    "herbs",
 	    "vegetables",
 	    "honey",
 	    "jams",
@@ -29,6 +29,13 @@ Market.Views.MrktShow = Backbone.View.extend({
 	    "trees",
 	    "soap",
 	    "wine"],
+			
+	PAYMENT_TYPES:
+		["credit",
+		 "wic",
+		 "wiccash",
+		 "sfmnp",
+		 "snap"],
 	
 	template: JST['mrkts/mrkt_show'],
 	
@@ -67,7 +74,7 @@ Market.Views.MrktShow = Backbone.View.extend({
 	},
 	
   render: function () {
-    var rc = this.template({ market: this.model });
+    var rc = this.template({ market: this.model, paymentTypes: this.PAYMENT_TYPES, productTypes: this.PRODUCT_TYPES });
     this.$el.html(rc);
     return this;
   }
