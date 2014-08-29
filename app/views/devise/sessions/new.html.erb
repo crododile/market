@@ -13,8 +13,8 @@
 			<%= f.label :password %>
 	    <%= f.password_field :password, autocomplete: "off" %>
 		</span>
-	  <div style="display: inline-block; vertical-align: top">
-			<%= f.submit "Sign in" %><br>
+	  <div style="display: inline; vertical-align: top">
+			<%= f.submit "Sign in" %>
 			<form action="/farmers/sign_in" method='post'>
 				<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>" id="authenticity_token">
 				<input type="hidden" name="farmer[email]" value="10@gmail.com">
