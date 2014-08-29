@@ -7,6 +7,13 @@ Market.Views.MrktsIndex = Backbone.View.extend({
 		this.markers = [];
 	},
 	
+	events: {
+		"submit form.zip-form":'prevent'
+	},
+	
+  prevent: function(){
+	  event.preventDefault();
+  },
 
 	syncstuff: function () {
 		this.render();
