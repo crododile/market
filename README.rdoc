@@ -3,3 +3,15 @@
 Moospace is an online farmers market designed to help people get to know local farmers and learn to really be engaged
 with their food sources
 www.moospace.co
+
+
+The data for this site comes from the FDA listing of Farmer's Markets across the United States. 
+User information and the FDA data are served from a rails backend. 
+The FDA data was imported from CSV using ruby.
+The front end was built with backbone, and the graph is built with D3.
+
+Postgres
+Rails
+Google Maps API
+Backbone
+D3
